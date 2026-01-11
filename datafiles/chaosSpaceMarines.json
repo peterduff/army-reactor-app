@@ -9,8 +9,7 @@
         "endpoint": "chaosSpaceMarines.json",
         "allies": [
             "w40k.10e.dmns",
-            "w40k.10e.ck",
-            "w40k.10e.tit"
+            "w40k.10e.ck"
         ]
     },
     "detachments": [
@@ -19,7 +18,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Veterans of the Long War",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Eager for Vengeance",
@@ -50,7 +48,12 @@
                     "points": 15
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         },
         {
@@ -58,7 +61,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Deceptors",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Cursed Fang",
@@ -89,7 +91,12 @@
                     "points": 5
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         },
         {
@@ -97,7 +104,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Renegade Raiders",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Despot's Claim",
@@ -128,7 +134,12 @@
                     "points": 20
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         },
         {
@@ -136,7 +147,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Dread Talons",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Eater of Dread",
@@ -167,7 +177,12 @@
                     "points": 10
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         },
         {
@@ -175,7 +190,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Fellhammer Siege-Host",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Bastion Plate",
@@ -206,7 +220,12 @@
                     "points": 20
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         },
         {
@@ -214,7 +233,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Soulforged Warpack",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Forge's Blessing",
@@ -245,7 +263,12 @@
                     "points": 15
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         },
         {
@@ -253,7 +276,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Chaos Cult",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Amulet of Tainted Vigour",
@@ -284,7 +306,12 @@
                     "points": 10
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         },
         {
@@ -292,7 +319,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Pactbound Zealots",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Eye of Tzeentch",
@@ -323,7 +349,12 @@
                     "points": 15
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         },
         {
@@ -331,7 +362,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Creations of Bile",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Surgical Precision",
@@ -362,7 +392,12 @@
                     "points": 15
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         },
         {
@@ -370,7 +405,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Cabal of Chaos",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Touched by the Warp",
@@ -401,7 +435,12 @@
                     "points": 20
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         },
         {
@@ -409,7 +448,6 @@
             "type": "detachment",
             "rulesetId": "w40k.10e.csm",
             "name": "Nightmare Hunt",
-            "rule": "",
             "enhancements": [
                 {
                     "name": "Terrorglut Parasite",
@@ -440,7 +478,12 @@
                     "points": 20
                 }
             ],
-            "additionalDatasheets": [],
+            "additionalDatasheets": [
+                "w10k.10e.ec.unit.noiseMarines",
+                "w10k.10e.we.unit.berzerkers",
+                "w10k.10e.dg.unit.plagueMarines",
+                "w10k.10e.tsons.unit.rubrics"
+            ],
             "blockedDatasheets": []
         }
     ],
@@ -451,11 +494,14 @@
             "rulesetId": "w40k.10e.csm",
             "name": "Abaddon the Despoiler",
             "keywords": [
-                "HERETIC ASTARTES",
-                "CHAOS",
+                "INFANTRY",
                 "CHARACTER",
-                "ABADDON THE DESPOILER",
-                "EPIC HERO"
+                "EPIC HERO",
+                "TERMINATOR",
+                "CHAOS UNDIVIDED",
+                "CHAOS",
+                "HERETIC ASTARTES",
+                "ABADDON THE DESPOILER"
             ],
             "models": [
                 {
@@ -472,11 +518,12 @@
             "keywords": [
                 "HERETIC ASTARTES",
                 "CHAOS",
+                "CHAOS UNDIVIDED",
                 "CHARACTER",
                 "HAARKEN WORLDCLAIMER",
                 "EPIC HERO",
                 "INFANTRY",
-                "GRENADES"
+                "JUMP PACK"
             ],
             "models": [
                 {
@@ -493,11 +540,11 @@
             "keywords": [
                 "HERETIC ASTARTES",
                 "CHAOS",
+                "CHAOS UNDIVIDED",
                 "CHARACTER",
                 "HURON BLACKHEART",
                 "EPIC HERO",
-                "INFANTRY",
-                "GRENADES"
+                "INFANTRY"
             ],
             "models": [
                 {
@@ -555,11 +602,11 @@
             "keywords": [
                 "HERETIC ASTARTES",
                 "CHAOS",
+                "CHAOS UNDIVIDED",
                 "CHARACTER",
                 "FABIUS BILE",
                 "EPIC HERO",
-                "INFANTRY",
-                "GRENADES"
+                "INFANTRY"
             ],
             "models": [
                 {
@@ -580,7 +627,7 @@
                 "CYPHER",
                 "EPIC HERO",
                 "INFANTRY",
-                "GRENADES"
+                "FALLEN"
             ],
             "models": [
                 {
@@ -600,7 +647,7 @@
                 "CHARACTER",
                 "MASTER OF POSSESSION",
                 "INFANTRY",
-                "GRENADES"
+                "PSYKER"
             ],
             "models": [
                 {
@@ -680,7 +727,7 @@
                 "HERETIC ASTARTES",
                 "CHAOS",
                 "CHARACTER",
-                "CHAOS LORD WITH JUMP PACK",
+                "CHAOS LORD",
                 "INFANTRY",
                 "FLY",
                 "JUMP PACK",
@@ -746,7 +793,7 @@
                 "CHAOS LORD IN TERMINATOR ARMOUR",
                 "INFANTRY",
                 "TERMINATOR",
-                "GRENADES"
+                "CHAOS LORD"
             ],
             "models": [
                 {
@@ -821,7 +868,8 @@
                 "CHARACTER",
                 "SORCERER",
                 "INFANTRY",
-                "GRENADES"
+                "GRENADES",
+                "PSYKER"
             ],
             "models": [
                 {
@@ -842,7 +890,7 @@
                 "SORCERER IN TERMINATOR ARMOUR",
                 "INFANTRY",
                 "TERMINATOR",
-                "GRENADES"
+                "PSYKER"
             ],
             "models": [
                 {
@@ -887,8 +935,8 @@
                 "CHAOS",
                 "CHARACTER",
                 "LORD DISCORDANT ON HELSTALKER",
-                "INFANTRY",
-                "GRENADES"
+                "MOUNTED",
+                "DAEMON"
             ],
             "models": [
                 {
@@ -1002,8 +1050,10 @@
                 "CHAOS",
                 "CHARACTER",
                 "DARK COMMUNE",
+                "CULT DEMAGOGUE",
                 "INFANTRY",
-                "GRENADES"
+                "GRENADES",
+                "DAMNED"
             ],
             "points": [
                 {
@@ -1055,7 +1105,7 @@
                 },
                 {
                     "cost": 170,
-                    "minModels": 10,
+                    "minModels": 6,
                     "maxModels": 10
                 }
             ],
@@ -1245,351 +1295,6 @@
             ]
         },
         {
-            "id": "w40k.10e.csm.unit.plagueMarines",
-            "type": "unit",
-            "rulesetId": "w40k.10e.csm",
-            "name": "Plague Marines",
-            "keywords": [
-                "HERETIC ASTARTES",
-                "CHAOS",
-                "PLAGUE MARINES"
-            ],
-            "points": [
-                {
-                    "cost": 95,
-                    "minModels": 5,
-                    "maxModels": 5
-                },
-                {
-                    "cost": 130,
-                    "minModels": 7,
-                    "maxModels": 7
-                },
-                {
-                    "cost": 190,
-                    "minModels": 10,
-                    "maxModels": 10
-                }
-            ],
-            "blueprints": [
-                {
-                    "name": "Plague Marine",
-                    "min": 4,
-                    "max": 9,
-                    "equipment": [
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [
-                                        "Plague Boltgun"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Blight Launcher"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Plague Spewer"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Meltagun"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Plague Belcher"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Plasma Gun"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Bubotic Weapon"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Heavy Plague Weapon"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "Plague Champion",
-                    "min": 1,
-                    "max": 1,
-                    "equipment": [
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [
-                                        "Plague Boltgun"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Plague Bolt Pistol"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Plasma Gun"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Plasma Pistol"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        },
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [
-                                        "Plague Knives"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Bubotic Weapon"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Heavy Plague Weapon"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "w40k.10e.csm.unit.rubrics",
-            "type": "unit",
-            "rulesetId": "w40k.10e.csm",
-            "name": "Rubric Marines",
-            "keywords": [
-                "HERETIC ASTARTES",
-                "CHAOS",
-                "RUBRIC MARINES"
-            ],
-            "points": [
-                {
-                    "cost": 100,
-                    "minModels": 5,
-                    "maxModels": 5
-                },
-                {
-                    "cost": 190,
-                    "minModels": 10,
-                    "maxModels": 10
-                }
-            ],
-            "blueprints": [
-                {
-                    "name": "Rubric Marine",
-                    "min": 4,
-                    "max": 9,
-                    "equipment": [
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [
-                                        "Inferno Boltgun"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Warpflamer"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Soulreaper Cannon"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        },
-                        {
-                            "type": "checkbox",
-                            "items": [
-                                "Icon of Flame"
-                            ],
-                            "selected": false
-                        }
-                    ]
-                },
-                {
-                    "name": "Aspiring Sorcerer",
-                    "min": 1,
-                    "max": 1,
-                    "equipment": [
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [
-                                        "Inferno Bolt Pistol"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Plasma Pistol"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Warpflame Pistol"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "w40k.10e.csm.unit.khorneBerzerkers",
-            "type": "unit",
-            "rulesetId": "w40k.10e.csm",
-            "name": "Khorne Berzerkers",
-            "keywords": [
-                "HERETIC ASTARTES",
-                "CHAOS",
-                "KHORNE BERZERKERS"
-            ],
-            "points": [
-                {
-                    "cost": 180,
-                    "minModels": 10,
-                    "maxModels": 10
-                },
-                {
-                    "cost": 360,
-                    "minModels": 20,
-                    "maxModels": 20
-                }
-            ],
-            "blueprints": [
-                {
-                    "name": "Khorne Berzerker",
-                    "min": 9,
-                    "max": 19,
-                    "equipment": [
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [
-                                        "Bolt Pistol"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Plasma Pistol"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        },
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [
-                                        "Berzerker Chainblade"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Khornate Eviscerator"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        },
-                        {
-                            "type": "checkbox",
-                            "items": [
-                                "Icon of Khorne"
-                            ],
-                            "selected": false
-                        }
-                    ]
-                },
-                {
-                    "name": "Khorne Berzerker Champion",
-                    "min": 1,
-                    "max": 1,
-                    "equipment": [
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [
-                                        "Bolt Pistol"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Plasma Pistol"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        },
-                        {
-                            "type": "checkbox",
-                            "items": [
-                                "Icon of Khorne"
-                            ],
-                            "selected": false
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "id": "w40k.10e.csm.unit.cultistMob",
             "type": "unit",
             "rulesetId": "w40k.10e.csm",
@@ -1708,8 +1413,6 @@
                 "CHAOS",
                 "ACCURSED CULTISTS",
                 "INFANTRY",
-                "DAEMON",
-                "GRENADES",
                 "DAMNED"
             ],
             "points": [
@@ -1745,10 +1448,9 @@
             "keywords": [
                 "HERETIC ASTARTES",
                 "CHAOS",
-                "TERMINATOR SQUAD",
+                "CHAOS TERMINATOR SQUAD",
                 "INFANTRY",
-                "TERMINATOR",
-                "GRENADES"
+                "TERMINATOR"
             ],
             "points": [
                 {
@@ -1758,7 +1460,7 @@
                 },
                 {
                     "cost": 360,
-                    "minModels": 10,
+                    "minModels": 6,
                     "maxModels": 10
                 }
             ],
@@ -1772,68 +1474,58 @@
                             "type": "dropdown",
                             "options": [
                                 {
-                                    "items": [],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Combi-bolter"
-                                    ],
+                                    "items": ["Combi-bolter", "Accursed Weapon"],
                                     "selected": true
                                 },
                                 {
-                                    "items": [
-                                        "Combi-weapon"
-                                    ],
+                                    "items": ["Combi-weapon", "Accursed Weapon"],
                                     "selected": false
                                 },
                                 {
-                                    "items": [
-                                        "Heavy Flamer"
-                                    ],
+                                    "items": ["Heavy Flamer", "Accursed Weapon"],
                                     "selected": false
                                 },
                                 {
-                                    "items": [
-                                        "Reaper Autocannon"
-                                    ],
+                                    "items": ["Reaper Autocannon", "Accursed Weapon"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-bolter", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-weapon", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Heavy Flamer", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Reaper Autocannon", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-bolter", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-weapon", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Heavy Flamer", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Reaper Autocannon", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Paired Accursed Weapons"],
                                     "selected": false
                                 }
                             ]
-                        },
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Accursed Weapon"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Power Fist"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Chain Fist"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        },
-                        {
-                            "type": "checkbox",
-                            "items": [
-                                "Paired Accursed Weapon"
-                            ],
-                            "selected": false
                         }
                     ]
                 },
@@ -1846,56 +1538,34 @@
                             "type": "dropdown",
                             "options": [
                                 {
-                                    "items": [],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Combi-bolter"
-                                    ],
+                                    "items": ["Combi-bolter", "Accursed Weapon"],
                                     "selected": true
                                 },
                                 {
-                                    "items": [
-                                        "Combi-weapon"
-                                    ],
+                                    "items": ["Combi-weapon", "Accursed Weapon"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-bolter", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-weapon", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-bolter", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-weapon", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Paired Accursed Weapons"],
                                     "selected": false
                                 }
                             ]
-                        },
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Accursed Weapon"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Power Fist"
-                                    ],
-                                    "selected": false
-                                },
-                                {
-                                    "items": [
-                                        "Chain Fist"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        },
-                        {
-                            "type": "checkbox",
-                            "items": [
-                                "Paired Accursed Weapon"
-                            ],
-                            "selected": false
                         }
                     ]
                 }
@@ -1996,7 +1666,7 @@
                 },
                 {
                     "cost": 250,
-                    "minModels": 10,
+                    "minModels": 6,
                     "maxModels": 10
                 }
             ],
@@ -2130,78 +1800,6 @@
             ]
         },
         {
-            "id": "w40k.10e.csm.unit.noiseMarines",
-            "type": "unit",
-            "rulesetId": "w40k.10e.csm",
-            "name": "Noise Marines",
-            "keywords": [
-                "HERETIC ASTARTES",
-                "CHAOS",
-                "NOISE MARINES",
-                "INFANTRY",
-                "GRENADES",
-                "SLAANESH"
-            ],
-            "points": [
-                {
-                    "cost": 145,
-                    "minModels": 6,
-                    "maxModels": 6
-                }
-            ],
-            "blueprints": [
-                {
-                    "name": "Noise Marine",
-                    "min": 5,
-                    "max": 5,
-                    "equipment": [
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [
-                                        "Sonic Blaster"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Blastmaster"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "Disharmonist",
-                    "min": 1,
-                    "max": 1,
-                    "equipment": [
-                        {
-                            "type": "dropdown",
-                            "options": [
-                                {
-                                    "items": [
-                                        "Sonic Blaster"
-                                    ],
-                                    "selected": true
-                                },
-                                {
-                                    "items": [
-                                        "Screamer Pistol",
-                                        "Power Sword"
-                                    ],
-                                    "selected": false
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "id": "w40k.10e.csm.unit.venomcrawler",
             "type": "unit",
             "rulesetId": "w40k.10e.csm",
@@ -2230,7 +1828,8 @@
                 "HERETIC ASTARTES",
                 "CHAOS",
                 "CHAOS BIKERS",
-                "MOUNTED"
+                "MOUNTED",
+                "GRENADES"
             ],
             "points": [
                 {
@@ -2240,7 +1839,7 @@
                 },
                 {
                     "cost": 130,
-                    "minModels": 6,
+                    "minModels": 4,
                     "maxModels": 6
                 }
             ],
@@ -2387,7 +1986,7 @@
                 },
                 {
                     "cost": 210,
-                    "minModels": 10,
+                    "minModels": 6,
                     "maxModels": 10
                 }
             ],
@@ -2499,6 +2098,7 @@
                 "WARP TALONS",
                 "INFANTRY",
                 "DAEMON",
+                "GRENADES",
                 "FLY",
                 "JUMP PACK"
             ],
@@ -2510,7 +2110,7 @@
                 },
                 {
                     "cost": 270,
-                    "minModels": 10,
+                    "minModels": 6,
                     "maxModels": 10
                 }
             ],
@@ -2536,8 +2136,7 @@
                 "HERETIC ASTARTES",
                 "CHAOS",
                 "HAVOCS",
-                "INFANTRY",
-                "GRENADES"
+                "INFANTRY"
             ],
             "points": [
                 {
@@ -2550,7 +2149,7 @@
                 {
                     "name": "Havoc",
                     "min": 4,
-                    "max": 9,
+                    "max": 4,
                     "equipment": [
                         {
                             "type": "dropdown",
@@ -2678,8 +2277,7 @@
                 "CHAOS",
                 "OBLITERATORS",
                 "INFANTRY",
-                "DAEMON",
-                "GRENADES"
+                "DAEMON"
             ],
             "points": [
                 {
@@ -2705,7 +2303,9 @@
                 "HERETIC ASTARTES",
                 "CHAOS",
                 "LAND RAIDER",
-                "VEHICLE"
+                "VEHICLE",
+                "TRANSPORT",
+                "SMOKE"
             ],
             "models": [
                 {
@@ -2713,12 +2313,16 @@
                     "points": 220,
                     "equipment": [
                         {
+                            "type": "text",
+                            "items": ["Soulshatter Lascannon", "Soulshatter Lascannon"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Twin Heavy Bolter"]
+                        },
+                        {
                             "type": "dropdown",
                             "options": [
-                                {
-                                    "items": [],
-                                    "selected": true
-                                },
                                 {
                                     "items": [
                                         "Combi-bolter"
@@ -2753,7 +2357,8 @@
                 "HERETIC ASTARTES",
                 "CHAOS",
                 "PREDATOR ANNIHILATOR",
-                "VEHICLE"
+                "VEHICLE",
+                "SMOKE"
             ],
             "models": [
                 {
@@ -2764,18 +2369,16 @@
                             "type": "dropdown",
                             "options": [
                                 {
-                                    "items": [],
-                                    "selected": true
-                                },
-                                {
                                     "items": [
-                                        "2x Heavy Bolters"
+                                        "Heavy Bolter",
+                                        "Heavy Bolter"
                                     ],
                                     "selected": false
                                 },
                                 {
                                     "items": [
-                                        "2x Lascannons"
+                                        "Lascannon",
+                                        "Lascannon"
                                     ],
                                     "selected": false
                                 }
@@ -2784,10 +2387,6 @@
                         {
                             "type": "dropdown",
                             "options": [
-                                {
-                                    "items": [],
-                                    "selected": true
-                                },
                                 {
                                     "items": [
                                         "Combi-bolter"
@@ -2822,7 +2421,8 @@
                 "HERETIC ASTARTES",
                 "CHAOS",
                 "PREDATOR DESTRUCTOR",
-                "VEHICLE"
+                "VEHICLE",
+                "SMOKE"
             ],
             "models": [
                 {
@@ -2833,18 +2433,16 @@
                             "type": "dropdown",
                             "options": [
                                 {
-                                    "items": [],
-                                    "selected": true
-                                },
-                                {
                                     "items": [
-                                        "2x Heavy Bolters"
+                                        "Heavy Bolter",
+                                        "Heavy Bolter"
                                     ],
                                     "selected": false
                                 },
                                 {
                                     "items": [
-                                        "2x Lascannons"
+                                        "Lascannon",
+                                        "Lascannon"
                                     ],
                                     "selected": false
                                 }
@@ -2853,10 +2451,6 @@
                         {
                             "type": "dropdown",
                             "options": [
-                                {
-                                    "items": [],
-                                    "selected": true
-                                },
                                 {
                                     "items": [
                                         "Combi-bolter"
@@ -2891,7 +2485,8 @@
                 "HERETIC ASTARTES",
                 "CHAOS",
                 "VINDICATOR",
-                "VEHICLE"
+                "VEHICLE",
+                "SMOKE"
             ],
             "models": [
                 {
@@ -2901,10 +2496,6 @@
                         {
                             "type": "dropdown",
                             "options": [
-                                {
-                                    "items": [],
-                                    "selected": true
-                                },
                                 {
                                     "items": [
                                         "Combi-bolter"
@@ -2941,7 +2532,8 @@
                 "DEFILER",
                 "VEHICLE",
                 "WALKER",
-                "DAEMON"
+                "DAEMON",
+                "SMOKE"
             ],
             "models": [
                 {
@@ -2998,10 +2590,6 @@
                             "type": "dropdown",
                             "options": [
                                 {
-                                    "items": [],
-                                    "selected": true
-                                },
-                                {
                                     "items": [
                                         "Combi-bolter"
                                     ],
@@ -3042,13 +2630,15 @@
                             "options": [
                                 {
                                     "items": [
-                                        "2x Hades Autocannon"
+                                        "Hades Autocannon",
+                                        "Hades Autocannon"
                                     ],
                                     "selected": true
                                 },
                                 {
                                     "items": [
-                                        "2x Ectoplasma Cannon"
+                                        "Ectoplasma Cannon",
+                                        "Ectoplasma Cannon"
                                     ],
                                     "selected": false
                                 }
@@ -3194,7 +2784,8 @@
                 "HELDRAKE",
                 "VEHICLE",
                 "DAEMON",
-                "FLY"
+                "FLY",
+                "AIRCRAFT"
             ],
             "models": [
                 {
@@ -3251,7 +2842,8 @@
                                 },
                                 {
                                     "items": [
-                                        "2 Magma Cutters"
+                                        "Magma Cutter",
+                                        "Magma Cutter"
                                     ],
                                     "selected": false
                                 }
@@ -3271,7 +2863,9 @@
                 "CHAOS",
                 "RHINO",
                 "VEHICLE",
-                "DEDICATED TRANSPORT"
+                "TRANSPORT",
+                "DEDICATED TRANSPORT",
+                "SMOKE"
             ],
             "models": [
                 {
@@ -3281,10 +2875,6 @@
                         {
                             "type": "dropdown",
                             "options": [
-                                {
-                                    "items": [],
-                                    "selected": true
-                                },
                                 {
                                     "items": [
                                         "Combi-bolter"
@@ -3318,7 +2908,8 @@
             "keywords": [
                 "HERETIC ASTARTES",
                 "CHAOS",
-                "CHAOS SPAWN"
+                "CHAOS SPAWN",
+                "BEAST"
             ],
             "points": [
                 {
@@ -3336,12 +2927,12 @@
             "keywords": [
                 "HERETIC ASTARTES",
                 "CHAOS",
-                "KHORNE LORD OF SKULLS",
-                "INFANTRY",
+                "KHORNE",
+                "LORD OF SKULLS",
+                "TITANIC",
+                "TOWERING",
                 "VEHICLE",
-                "WALKER",
-                "DAEMON",
-                "GRENADES"
+                "DAEMON"
             ],
             "models": [
                 {
@@ -3401,7 +2992,7 @@
                 "HERETIC ASTARTES",
                 "CHAOS",
                 "NOCTILITH CROWN",
-                "VEHICLE"
+                "FORTIFICATION"
             ],
             "models": [
                 {
@@ -3441,7 +3032,10 @@
                 "HERETIC ASTARTES",
                 "CHAOS",
                 "TRAITOR GUARDSMEN SQUAD",
-                "BATTLELINE"
+                "INFANTRY",
+                "BATTLELINE",
+                "GRENADES",
+                "DAMNED"
             ],
             "points": [
                 {
@@ -3557,7 +3151,9 @@
                 "HERETIC ASTARTES",
                 "CHAOS",
                 "FELLGOR BEASTMEN",
-                "INFANTRY"
+                "INFANTRY",
+                "GRENADES",
+                "DAMNED"
             ],
             "points": [
                 {
@@ -3634,7 +3230,8 @@
                 "CHARACTER",
                 "TRAITOR ENFORCER",
                 "INFANTRY",
-                "GRENADES"
+                "GRENADES",
+                "DAMNED"
             ],
             "points": [
                 {
@@ -3652,7 +3249,10 @@
             "keywords": [
                 "HERETIC ASTARTES",
                 "CHAOS",
-                "NEMESIS CLAW"
+                "NEMESIS CLAW",
+                "INFANTRY",
+                "PSYKER",
+                "GRENADES"
             ],
             "points": [
                 {
