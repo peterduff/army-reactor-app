@@ -1,0 +1,1015 @@
+{
+    "config": {
+        "id": "w40k.10e.ck.config",
+        "type": "config",
+        "rulesetId": "w40k.10e.ck",
+        "name": "Chaos Knights",
+        "keyword": "CHAOS KNIGHTS",
+        "enabled": true,
+        "endpoint": "chaosKnights.json",
+        "allies": [
+            "w40k.10e.dem"
+        ]
+    },
+    "detachments": [
+        {
+            "id": "w40k.10e.ck.dt.traitorisLance",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Traitoris Lance",
+            "enhancements": [
+                {
+                    "name": "Nightmare's Master",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "Tyrant's Shadow",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Malevolent Heraldry",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                },
+                {
+                    "name": "Veil of Medrengard",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 35
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.ck.dt.infernalLance",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Infernal Lance",
+            "enhancements": [
+                {
+                    "name": "Knight Diabolus",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Blasphemous Engine",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 35
+                },
+                {
+                    "name": "Fleshmetal Fusion",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 35
+                },
+                {
+                    "name": "Bestial Aspect",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.ck.dt.lordsDread",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Lords of Dread",
+            "enhancements": [
+                {
+                    "name": "Throne Mechanicum of Skulls",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Blade of Celerity",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 35
+                },
+                {
+                    "name": "Warp-borne Stalker",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Putrid Carapace",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                },
+                {
+                    "name": "Mirror of Fates",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                },
+                {
+                    "name": "Blessing of the Dark Master",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.ck.dt.houndpack",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Houndpack Lance",
+            "enhancements": [
+                {
+                    "name": "Preyslayer's Mantle",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS", "WAR DOG"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Final Howl (Aura)",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS", "WAR DOG"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "Loping Predator",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS", "WAR DOG"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 10
+                },
+                {
+                    "name": "Panoply of the Cursed Knights",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS", "WAR DOG"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.ck.dt.iconoclastFiefdom",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Iconoclast Fiefdom",
+            "enhancements": [
+                {
+                    "name": "Profane Altar",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "Pave the Way",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Tyrant's Banner",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 5
+                },
+                {
+                    "name": "Diabolical Resilience",
+                    "keywordsMustCombined": ["CHAOS KNIGHTS"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 35
+                }
+            ],
+            "additionalDatasheets": [
+                "w10k.10e.csm.unit.cultistFirebrand",
+                "w10k.10e.csm.unit.darkCommune",
+                "w10k.10e.csm.unit.traitorEnforcer",
+                "w10k.10e.csm.unit.cultistMob",
+                "w10k.10e.csm.unit.accursedCultists",
+                "w10k.10e.csm.unit.fellgorBeastmen",
+                "w10k.10e.csm.unit.traitorGuard"
+            ],
+            "blockedDatasheets": []
+        }
+    ],
+    "units": [
+        {
+            "id": "w40k.10e.ck.unit.executioner",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "War Dog Executioner",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "EXECUTIONER", "VEHICLE", "WALKER"],
+            "models": [
+                {
+                    "name": "War Dog Executioner",
+                    "points": 130,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["War Dog Autocannon", "War Dog Autocannon"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Diabolus Heavy Stubber"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Daemonbreath Meltagun"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "detachmentId": "w40k.10e.ck.dt.houndpack",
+                            "type": "checkbox",
+                            "items": ["CHARACTER"],
+                            "selected": false,
+                            "addAsKeyword": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.stalker",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "War Dog Stalker",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "STALKER", "CHARACTER", "VEHICLE", "WALKER"],
+            "models": [
+                {
+                    "name": "War Dog Stalker",
+                    "points": 140,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Avenger Chaincannon"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Daemonbreath Spear"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Slaughterclaw"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Reaper Chaintalon"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Diabolus Heavy Stubber"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Havoc Multi-launcher"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.karnivore",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "War Dog Karnivore",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KARNIVORE", "VEHICLE", "WALKER"],
+            "models": [
+                {
+                    "name": "War Dog Karnivore",
+                    "points": 150,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Reaper Chaintalon"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Slaughterclaw"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Diabolus Heavy Stubber"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Havoc Multi-launcher"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "detachmentId": "w40k.10e.ck.dt.houndpack",
+                            "type": "checkbox",
+                            "items": ["CHARACTER"],
+                            "selected": false,
+                            "addAsKeyword": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.brigand",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "War Dog Brigand",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "BRIGAND", "VEHICLE", "WALKER"],
+            "models": [
+                {
+                    "name": "War Dog Brigand",
+                    "points": 140,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Daemonbreath Spear"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Avenger Chaincannon"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Diabolus Heavy Stubber"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Havoc Multi-launcher"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "detachmentId": "w40k.10e.ck.dt.houndpack",
+                            "type": "checkbox",
+                            "items": ["CHARACTER"],
+                            "selected": false,
+                            "addAsKeyword": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.huntsman",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "War Dog Huntsman",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "HUNTSMAN", "VEHICLE", "WALKER"],
+            "models": [
+                {
+                    "name": "War Dog Huntsman",
+                    "points": 140,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Daemonbreath Spear"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Reaper Chaintalon"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Diabolus Heavy Stubber"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Havoc Multi-launcher"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "detachmentId": "w40k.10e.ck.dt.houndpack",
+                            "type": "checkbox",
+                            "items": ["CHARACTER"],
+                            "selected": false,
+                            "addAsKeyword": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.despoiler",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Knight Despoiler",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT DESPOILER", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "ABHORRENT"],
+            "models": [
+                {
+                    "name": "Knight Despoiler",
+                    "points": 390,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Reaper Chainsword"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Daemonbreath Thermal Cannon"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Despoiler Gatling Cannon", "Heavy Darkflamer"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Despoiler Battle Cannon", "Diabolus Heavy Stubber"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Warpstrike Claw"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Daemonbreath Thermal Cannon"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Despoiler Gatling Cannon", "Heavy Darkflamer"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Despoiler Battle Cannon", "Diabolus Heavy Stubber"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Diabolus Heavy Stubber"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Daemonbreath Meltagun"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Havoc Missile Pod"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Ruinspear Rocket Pod"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Hellstorm Autocannons"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.desecrator",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Knight Desecrator",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT DESECRATOR", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "ABHORRENT"],
+            "models": [
+                {
+                    "name": "Knight Desecrator",
+                    "points": 355,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "selectedOption": {
+                                "name": "Desecrator Laser Destructor"
+                            }
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Reaper Chainsword"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Warpstrike Claw"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.ruinator",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Knight Ruinator",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT RUINATOR", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "ABHORRENT"],
+            "models": [
+                {
+                    "name": "Knight Ruinator",
+                    "points": 355,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Darkflame Lance"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Terrorpulse Missiles"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Fellbore"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.rampager",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Knight Rampager",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT RAMPAGER", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "ABHORRENT"],
+            "models": [
+                {
+                    "name": "Knight Rampager",
+                    "points": 365,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Reaper Chainsword"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Warpstrike Claw"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.abominant",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Knight Abominant",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT ABOMINANT", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "ABHORRENT", "PSYKER"],
+            "models": [
+                {
+                    "name": "Knight Abominant",
+                    "points": 355,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Volkite Combustor"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Electroscourge"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Balemace"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.tyrant",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Knight Tyrant",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT TYRANT", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING"],
+            "models": [
+                {
+                    "name": "Knight Tyrant",
+                    "points": 410,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Brimstone Volcano Lance", "Ectoplasma Decimator"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Darkflame Cannon", "Warpshock Harpoon"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Gheiststrike Missle Launcher", "Gheiststrike Missle Launcher", "Twin Desecrator Cannon"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Gheiststrike Missle Launcher", "Twin Desecrator Cannon", "Twin Desecrator Cannon"],
+                                    "selected": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Twin Meltaguns", "Twin Meltaguns"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.acastusKnightAsterius",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Acastus Knight Asterius",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT ASTERIUS", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "ACASTUS"],
+            "models": [
+                {
+                    "name": "Acastus Knight Asterius",
+                    "points": 765,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Asterius Volkite Culverin", "Asterius Volkite Culverin"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Twin Conversion Beam Cannon", "Twin Conversion Beam Cannon"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Karacnos Mortar Battery"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.acastusKnightPorphyrion",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Acastus Knight Porphyrion",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT PORPHYRION", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "ACASTUS"],
+            "models": [
+                {
+                    "name": "Acastus Knight Porphyrion",
+                    "points": 700,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Twin Magna Lascannons", "Twin Magna Lascannons"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Acastus Autocannon", "Acastus Autocannon"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Lascannon", "Lascannon"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Acastus Autocannon", "Lascannon"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Ironstorm Missile Pod"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Helios Defence Missiles"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.cerastusKnightLancer",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Cerastus Knight Lancer",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT LANCER", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "CERASTUS"],
+            "models": [
+                {
+                    "name": "Cerastus Knight Lancer",
+                    "points": 385,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Cerastus Shock Lance"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.cerastusKnightCastigator",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Cerastus Knight Castigator",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT CASTIGATOR", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "CERASTUS"],
+            "models": [
+                {
+                    "name": "Cerastus Knight Castigator",
+                    "points": 385,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Castigator Bolt Cannon"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Tempest Warblade"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.cerastusKnightAcheron",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Cerastus Knight Acheron",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT ACHERON", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "CERASTUS"],
+            "models": [
+                {
+                    "name": "Cerastus Knight Acheron",
+                    "points": 385,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Acheron Flame Cannon"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Twin Heavy Bolter"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Reaper Chainfist"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.cerastusKnightAtrapos",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Cerastus Knight Atrapos",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT ATRAPOS", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "CERASTUS"],
+            "models": [
+                {
+                    "name": "Cerastus Knight Atrapos",
+                    "points": 395,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Graviton Singularity Cannon"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Atrapos Lascutter"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.questorisKnightMagaera",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Questoris Knight Magaera",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT MAGAERA", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "ABHORRENT"],
+            "models": [
+                {
+                    "name": "Questoris Knight Magaera",
+                    "points": 375,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Lightning Cannon"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Phased Plasma-fusil"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Reaper Chainsword"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Hekaton Siege Claw", "Twin Rad Cleanser"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.questorisKnightStyrix",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Questoris Knight Styrix",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "KNIGHT STYRIX", "CHARACTER", "VEHICLE", "WALKER", "TITANIC", "TOWERING", "ABHORRENT"],
+            "models": [
+                {
+                    "name": "Questoris Knight Styrix",
+                    "points": 375,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Volkite Chierovile"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Graviton Crusher"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Reaper Chainsword"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Hekaton Siege Claw", "Twin Rad Cleanser"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.unit.warDogMoirax",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ck",
+            "name": "War Dog Moirax",
+            "keywords": ["CHAOS KNIGHTS", "CHAOS", "WAR DOG", "MOIRAX", "VEHICLE", "WALKER"],
+            "models": [
+                {
+                    "name": "War Dog Moirax",
+                    "points": 150,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Siege Claw", "Rad Cleanser"],
+                                    "selected": true
+                                },
+                                {
+                                    "name": "Graviton Pulsar",
+                                    "items": ["Graviton Pulsar"],
+                                    "selected": false
+                                },
+                                {
+                                    "name": "Lightning Lock",
+                                    "items": ["Lightning Lock"],
+                                    "selected": false
+                                },
+                                {
+                                    "name": "Conversion Beam Cannon",
+                                    "items": ["Conversion Beam Cannon"],
+                                    "selected": false
+                                },
+                                {
+                                    "name": "Volkite Veuglaire",
+                                    "items": ["Volkite Veuglaire"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Siege Claw", "Rad Cleanser"],
+                                    "selected": true
+                                },
+                                {
+                                    "name": "Graviton Pulsar",
+                                    "items": ["Graviton Pulsar"],
+                                    "selected": false
+                                },
+                                {
+                                    "name": "Lightning Lock",
+                                    "items": ["Lightning Lock"],
+                                    "selected": false
+                                },
+                                {
+                                    "name": "Conversion Beam Cannon",
+                                    "items": ["Conversion Beam Cannon"],
+                                    "selected": false
+                                },
+                                {
+                                    "name": "Volkite Veuglaire",
+                                    "items": ["Volkite Veuglaire"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "detachmentId": "w40k.10e.ck.dt.houndpack",
+                            "type": "checkbox",
+                            "items": ["CHARACTER"],
+                            "selected": false,
+                            "addAsKeyword": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

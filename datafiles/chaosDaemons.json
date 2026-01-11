@@ -1,0 +1,1459 @@
+{
+    "config": {
+        "id": "w40k.10e.dem.config",
+        "type": "config",
+        "rulesetId": "w40k.10e.dem",
+        "name": "Chaos Daemons",
+        "keyword": "LEGIONES DAEMONICA",
+        "enabled": true,
+        "endpoint": "chaosDaemons.json",
+        "allies": [
+            "w40k.10e.ck"
+        ]
+    },
+    "detachments": [
+        {
+            "id": "w40k.10e.dem.dt.daemonicIncursion",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Daemonic Incursion",
+            "rule": "",
+            "enhancements": [
+                {
+                    "name": "A'rgath, The King of Blades",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "KHORNE"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "The Everstave",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "TZEENTCH"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "The Endless Gift",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "NURGLE"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                },
+                {
+                    "name": "Soulstealer",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "SLAANESH"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.dem.dt.plagueLegion",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Plague Legion",
+            "rule": "",
+            "enhancements": [
+                {
+                    "name": "Cankerblight (Aura)",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "NURGLE"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Maggot Maws",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "NURGLE"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Droning Shroud (Aura)",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "NURGLE", "MONSTER"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 35
+                },
+                {
+                    "name": "Font of Spores (Aura)",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "NURGLE", "MONSTER"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.dem.dt.scintillatingLegion",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Scintillating Legion",
+            "rule": "",
+            "enhancements": [
+                {
+                    "name": "Inescapable Eye",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "TZEENTCH"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 10
+                },
+                {
+                    "name": "Infernal Puppeteer",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "TZEENTCH", "MONSTER"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 10
+                },
+                {
+                    "name": "Neverblade",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "TZEENTCH", "MONSTER"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "Improbable Shield (Aura)",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "TZEENTCH"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.dem.dt.bloodLegion",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Blood Legion",
+            "rule": "",
+            "enhancements": [
+                {
+                    "name": "Slaughterthirst (Aura)",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "KHORNE"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Fury's Cage",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "KHORNE", "MONSTER"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "Brazenmaw",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "KHORNE"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Gateway Unto Damnation",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "KHORNE", "MONSTER"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 10
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.dem.dt.legionExcess",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Legion of Excess",
+            "rule": "",
+            "enhancements": [
+                {
+                    "name": "False Majesty (Aura)",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "SLAANESH"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                },
+                {
+                    "name": "Dreaming Crown (Aura)",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "SLAANESH"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                },
+                {
+                    "name": "Avatar of Perfection",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "SLAANESH", "MONSTER"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Soul Glutton",
+                    "keywordsMustCombined": ["LEGIONES DAEMONICA", "SLAANESH", "MONSTER"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 10
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.dem.dt.shadowLegion",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Shadow Legion",
+            "rule": "",
+            "enhancements": [
+                {
+                    "name": "Leaping Shadows",
+                    "keywordsMustCombined": ["SHADOW LEGION"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Mantle of Gloom (Aura)",
+                    "keywordsMustCombined": ["SHADOW LEGION"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "Fade to Darkness",
+                    "keywordsMustCombined": ["SHADOW LEGION"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                },
+                {
+                    "name": "Malice Made Manifest",
+                    "keywordsMustCombined": ["SHADOW LEGION"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                }
+            ],
+            "additionalKeywords": ["SHADOW LEGION"],
+            "additionalDatasheets": [
+                "w10k.10e.csm.unit.chaosLord",
+                "w10k.10e.csm.unit.chaosLordJumpPack",
+                "w10k.10e.csm.unit.chaosLordTerminator",
+                "w10k.10e.csm.unit.chaosTerminators",
+                "w10k.10e.csm.unit.chosen",
+                "w10k.10e.csm.unit.darkApostle",
+                "w10k.10e.csm.unit.havocs",
+                "w10k.10e.csm.unit.legionaries",
+                "w10k.10e.csm.unit.masterPossession",
+                "w10k.10e.csm.unit.possessed",
+                "w10k.10e.csm.unit.raptors",
+                "w10k.10e.csm.unit.sorcerer",
+                "w10k.10e.csm.unit.sorcererTerminator",
+                "w10k.10e.csm.unit.warpTalons",
+                "w10k.10e.csm.unit.cultistFirebrand",
+                "w10k.10e.csm.unit.darkCommune",
+                "w10k.10e.csm.unit.traitorEnforcer",
+                "w10k.10e.csm.unit.cultistMob",
+                "w10k.10e.csm.unit.accursedCultists",
+                "w10k.10e.csm.unit.fellgorBeastmen",
+                "w10k.10e.csm.unit.traitorGuard"
+            ],
+            "blockedDatasheets": [
+                "w10k.10e.dem.unit.daemonPrince",
+                "w10k.10e.dem.unit.daemonPrinceWings",
+                "w10k.10e.dem.unit.shalaxi",
+                "w10k.10e.dem.unit.skarbrand",
+                "w10k.10e.dem.unit.kairos",
+                "w10k.10e.dem.unit.rotigus",
+                "w10k.10e.dem.unit.epidemius",
+                "w10k.10e.dem.unit.horticulousSlimux",
+                "w10k.10e.dem.unit.karanak",
+                "w10k.10e.dem.unit.skulltaker",
+                "w10k.10e.dem.unit.syll'esske",
+                "w10k.10e.dem.unit.blueScribes",
+                "w10k.10e.dem.unit.changeling",
+                "w10k.10e.dem.unit.masque"
+            ]
+        }
+    ],
+    "units": [
+        {
+            "id": "w40k.10e.dem.unit.skarbrand",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Skarbrand",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "SKARBRAND", "EPIC HERO", "CHARACTER", "DAEMON", "MONSTER"],
+            "models": [
+                {
+                    "name": "Skarbrand",
+                    "points": 305
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.bloodthirster",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Bloodthirster",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "BLOODTHIRSTER", "CHARACTER", "DAEMON", "MONSTER", "FLY"],
+            "models": [
+                {
+                    "name": "Bloodthirster",
+                    "points": 305,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Great Axe of Khorne"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Axe of Khorne", "Bloodflail"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Axe of Khorne", "Lash of Khorne"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.skulltaker",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Skulltaker",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "SKULLTAKER", "EPIC HERO", "CHARACTER", "DAEMON", "INFANTRY"],
+            "models": [
+                {
+                    "name": "Skulltaker",
+                    "points": 85
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.bloodmaster",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Bloodmaster",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "BLOODMASTER", "CHARACTER", "DAEMON", "INFANTRY"],
+            "models": [
+                {
+                    "name": "Bloodmaster",
+                    "points": 65
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.skullmaster",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Skullmaster",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "SKULLMASTER", "CHARACTER", "DAEMON", "MOUNTED"],
+            "models": [
+                {
+                    "name": "Skullmaster",
+                    "points": 100
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.rendmasterOnBloodthrone",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Rendmaster on Bloodthrone",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "RENDMASTER ON BLOOD THRONE", "CHARACTER", "DAEMON", "MOUNTED"],
+            "models": [
+                {
+                    "name": "Rendmaster on Bloodthrone",
+                    "points": 165
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.karanak",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Karanak",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "KARANAK", "EPIC HERO", "CHARACTER", "DAEMON", "BEAST"],
+            "models": [
+                {
+                    "name": "Karanak",
+                    "points": 75
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.bloodletters",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Bloodletters",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "BLOODLETTERS", "BATTLELINE", "DAEMON", "INFANTRY"],
+            "points": [
+                {
+                    "cost": 110,
+                    "minModels": 10,
+                    "maxModels": 10
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Bloodletter",
+                    "min": 9,
+                    "max": 9,
+                    "equipment": [
+                        {
+                            "type": "checkbox",
+                            "items": ["Daemonic Icon"],
+                            "selected": false
+                        },
+                        {
+                            "type": "checkbox",
+                            "items": ["Instrument of Chaos"],
+                            "selected": false
+                        }
+                    ]
+                },
+                {
+                    "name": "Bloodreaper",
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.bloodcrushers",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Bloodcrushers",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "BLOODCRUSHERS", "DAEMON", "MOUNTED"],
+            "points": [
+                {
+                    "cost": 220,
+                    "minModels": 4,
+                    "maxModels": 6
+                },
+                {
+                    "cost": 110,
+                    "minModels": 3,
+                    "maxModels": 3
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Bloodcrusher",
+                    "min": 2,
+                    "max": 5,
+                    "equipment": [
+                        {
+                            "type": "checkbox",
+                            "items": ["Daemonic Icon"],
+                            "selected": false
+                        },
+                        {
+                            "type": "checkbox",
+                            "items": ["Instrument of Chaos"],
+                            "selected": false
+                        }
+                    ]
+                },
+                {
+                    "name": "Bloodhunter",
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.fleshhounds",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Flesh Hounds",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "FLESH HOUNDS", "DAEMON", "BEAST"],
+            "points": [
+                {
+                    "cost": 150,
+                    "minModels": 6,
+                    "maxModels": 10
+                },
+                {
+                    "cost": 75,
+                    "minModels": 5,
+                    "maxModels": 5
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Flesh Hound",
+                    "min": 4,
+                    "max": 9
+                },
+                {
+                    "name": "Gore Hound",
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.skullcannon",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Skull Cannon",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "SKULL CANNON", "DAEMON", "MOUNTED"],
+            "models": [
+                {
+                    "name": "Skull Cannon",
+                    "points": 95
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.skullaltar",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Skull Altar",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "KHORNE", "SKULL ALTAR", "DAEMON", "FORTIFICATION"],
+            "models": [
+                {
+                    "name": "Skull Altar",
+                    "points": 105
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.kairos",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Kairos Fateweaver",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "KAIROS FATEWEAVER", "EPIC HERO", "CHARACTER", "DAEMON", "MONSTER", "PSYKER", "FLY"],
+            "models": [
+                {
+                    "name": "Kairos Fateweaver",
+                    "points": 285
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.lordOfChange",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Lord of Change",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "LORD OF CHANGE", "CHARACTER", "DAEMON", "MONSTER", "PSYKER", "FLY"],
+            "models": [
+                {
+                    "name": "Lord of Change",
+                    "points": 270,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Rod of Sorcery"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Baleful Sword"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.changeling",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "The Changeling",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "THE CHANGELING", "EPIC HERO", "CHARACTER", "DAEMON", "INFANTRY", "PSYKER"],
+            "models": [
+                {
+                    "name": "The Changeling",
+                    "points": 90
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.fateskimmer",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Fateskimmer",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "FATESKIMMER", "CHARACTER", "DAEMON", "MOUNTED", "PSYKER", "FLY"],
+            "models": [
+                {
+                    "name": "Fateskimmer",
+                    "points": 95
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.fluxmaster",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Fluxmaster",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "FLUXMASTER", "CHARACTER", "DAEMON", "MOUNTED", "PSYKER", "FLY"],
+            "models": [
+                {
+                    "name": "Fluxmaster",
+                    "points": 60
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.blueScribes",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "The Blue Scribes",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "THE BLUE SCRIBES", "EPIC HERO", "CHARACTER", "DAEMON", "MOUNTED", "PSYKER", "FLY"],
+            "models": [
+                {
+                    "name": "The Blue Scribes",
+                    "points": 75
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.changecaster",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Changecaster",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "CHANGECASTER", "CHARACTER", "DAEMON", "INFANTRY", "PSYKER"],
+            "models": [
+                {
+                    "name": "Changecaster",
+                    "points": 60
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.blueHorrors",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Blue Horrors",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "BATTLELINE", "HORRORS", "BLUE", "DAEMON", "INFANTRY"],
+            "points": [
+                {
+                    "cost": 125,
+                    "minModels": 10,
+                    "maxModels": 10
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Blue Horror",
+                    "min": 10,
+                    "max": 10
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.pinkHorrors",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Pink Horrors",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "BATTLELINE", "HORRORS", "PINK", "DAEMON", "INFANTRY"],
+            "points": [
+                {
+                    "cost": 140,
+                    "minModels": 10,
+                    "maxModels": 10
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Pink Horror",
+                    "min": 10,
+                    "max": 10,
+                    "equipment": [
+                        {
+                            "type": "checkbox",
+                            "items": ["Daemonic Icon"],
+                            "selected": false
+                        },
+                        {
+                            "type": "checkbox",
+                            "items": ["Instrument of Chaos"],
+                            "selected": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.flamers",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Flamers",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "FLAMERS", "DAEMON", "INFANTRY", "FLY"],
+            "points": [
+                {
+                    "cost": 130,
+                    "minModels": 4,
+                    "maxModels": 6
+                },
+                {
+                    "cost": 65,
+                    "minModels": 3,
+                    "maxModels": 3
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Flamer",
+                    "min": 2,
+                    "max": 5
+                },
+                {
+                    "name": "Pyrocaster",
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.exaltedFlamer",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Exalted Flamer",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "EXALTED FLAMER", "CHARACTER", "DAEMON", "INFANTRY", "FLY"],
+            "models": [
+                {
+                    "name": "Exalted Flamer",
+                    "points": 65,
+                    "noWarlord": true,
+                    "noEnhancements": true
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.screamers",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Screamers",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "SCREAMERS", "DAEMON", "BEAST", "FLY"],
+            "points": [
+                {
+                    "cost": 160,
+                    "minModels": 4,
+                    "maxModels": 6
+                },
+                {
+                    "cost": 80,
+                    "minModels": 3,
+                    "maxModels": 3
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Screamer",
+                    "min": 3,
+                    "max": 6
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.burningChariot",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Burning Chariot",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "TZEENTCH", "BURNING CHARIOT", "DAEMON", "MOUNTED", "FLY"],
+            "models": [
+                {
+                    "name": "Burning Chariot",
+                    "points": 115
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.rotigus",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Rotigus",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "ROTIGUS", "EPIC HERO", "CHARACTER", "DAEMON", "MONSTER", "PSYKER"],
+            "models": [
+                {
+                    "name": "Rotigus",
+                    "points": 265
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.greatUncleanOne",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Great Unclean One",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "GREAT UNCLEAN ONE", "CHARACTER", "DAEMON", "MONSTER", "PSYKER"],
+            "models": [
+                {
+                    "name": "Great Unclean One",
+                    "points": 250,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Plagueflail"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Bileblade"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Bilesword"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Doomsday Bell"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.poxbringer",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Poxbringer",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "POXBRINGER", "CHARACTER", "DAEMON", "INFANTRY", "PSYKER"],
+            "models": [
+                {
+                    "name": "Poxbringer",
+                    "points": 55
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.spoilpoxScrivener",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Spoilpox Scrivener",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "SPOILPOX SCRIVENER", "CHARACTER", "DAEMON", "INFANTRY"],
+            "models": [
+                {
+                    "name": "Spoilpox Scrivener",
+                    "points": 60
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.epidemius",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Epidemius",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "EPIDEMIUS", "EPIC HERO", "CHARACTER", "DAEMON", "INFANTRY"],
+            "models": [
+                {
+                    "name": "Epidemius",
+                    "points": 80
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.sloppityBilepiper",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Sloppity Bilepiper",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "SLOPPITY BILEPIPER", "CHARACTER", "DAEMON", "INFANTRY"],
+            "models": [
+                {
+                    "name": "Sloppity Bilepiper",
+                    "points": 55
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.horticulousSlimux",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Horticulous Slimux",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "HORTICULOUS SLIMUX", "EPIC HERO", "CHARACTER", "DAEMON", "MOUNTED"],
+            "models": [
+                {
+                    "name": "Horticulous Slimux",
+                    "points": 120
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.plaguebearers",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Plaguebearers",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "PLAGUEBEARERS", "BATTLELINE", "DAEMON", "INFANTRY"],
+            "points": [
+                {
+                    "cost": 110,
+                    "minModels": 10,
+                    "maxModels": 10
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Plaguebearer",
+                    "min": 9,
+                    "max": 9,
+                    "equipment": [
+                        {
+                            "type": "checkbox",
+                            "items": ["Daemonic Icon"],
+                            "selected": false
+                        },
+                        {
+                            "type": "checkbox",
+                            "items": ["Instrument of Chaos"],
+                            "selected": false
+                        }
+                    ]
+                },
+                {
+                    "name": "Plagueridden",
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.nurglings",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Nurglings",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "NURGLINGS", "BATTLELINE", "DAEMON", "SWARM"],
+            "points": [
+                {
+                    "cost": 70,
+                    "minModels": 4,
+                    "maxModels": 6
+                },
+                {
+                    "cost": 40,
+                    "minModels": 3,
+                    "maxModels": 3
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Nurgling Swarm",
+                    "min": 3,
+                    "max": 6
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.beastsOfNurgle",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Beasts of Nurgle",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "BEAST OF NURGLE", "DAEMON", "BEAST"],
+            "points": [
+                {
+                    "cost": 130,
+                    "minModels": 2,
+                    "maxModels": 2
+                },
+                {
+                    "cost": 65,
+                    "minModels": 1,
+                    "maxModels": 1
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Beast of Nurgle",
+                    "min": 1,
+                    "max": 2
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.plagueDrones",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Plague Drones",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "PLAGUE DRONES", "DAEMON", "MOUNTED", "FLY"],
+            "points": [
+                {
+                    "cost": 220,
+                    "minModels": 4,
+                    "maxModels": 6
+                },
+                {
+                    "cost": 110,
+                    "minModels": 3,
+                    "maxModels": 3
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Plague Drone",
+                    "min": 2,
+                    "max": 5,
+                    "equipment": [
+                        {
+                            "type": "checkbox",
+                            "items": ["Daemonic Icon"],
+                            "selected": false
+                        },
+                        {
+                            "type": "checkbox",
+                            "items": ["Instrument of Chaos"],
+                            "selected": false
+                        }
+                    ]
+                },
+                {
+                    "name": "Plaguebringer",
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.feculentGnarlmaw",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Feculent Gnarlmaw",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "NURGLE", "FECULENT GNARLMAW", "DAEMON", "FORTIFICATION"],
+            "models": [
+                {
+                    "name": "Feculent Gnarlmaw",
+                    "points": 100
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.shalaxi",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Shalaxi Helbane",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "SHALAXI HELBANE", "EPIC HERO", "CHARACTER", "DAEMON", "MONSTER", "PSYKER"],
+            "models": [
+                {
+                    "name": "Shalaxi Helbane",
+                    "points": 340
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.keeperOfSecrets",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Keeper of Secrets",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "KEEPER OF SECRETS", "CHARACTER", "DAEMON", "MONSTER", "PSYKER"],
+            "models": [
+                {
+                    "name": "Keeper of Secrets",
+                    "points": 240,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Living Whip"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Ritual Knife"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Shining Aegis"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.infernalEnrapturess",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Infernal Enrapturess",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "INFERNAL ENRAPTURESS", "CHARACTER", "DAEMON", "INFANTRY"],
+            "models": [
+                {
+                    "name": "Infernal Enrapturess",
+                    "points": 60
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.masqueOfSlaanesh",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "The Masque of Slaanesh",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "THE MASQUE OF SLAANESH", "EPIC HERO", "CHARACTER", "DAEMON", "INFANTRY", "FLY"],
+            "models": [
+                {
+                    "name": "The Masque of Slaanesh",
+                    "points": 95
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.syllesske",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Syll'esske",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "SYLL'ESSKE", "EPIC HERO", "CHARACTER", "DAEMON", "MONSTER", "PSYKER"],
+            "models": [
+                {
+                    "name": "Syll'esske",
+                    "points": 120
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.contortedEpitome",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Contorted Epitome",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "CONTORTED EPITOME", "CHARACTER", "DAEMON", "INFANTRY", "PSYKER"],
+            "models": [
+                {
+                    "name": "Contorted Epitome",
+                    "points": 100
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.tormentbringer",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Tormentbringer",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "TORMENTBRINGER ON EXALTED SEEKER CHARIOT", "CHARACTER", "DAEMON", "MOUNTED", "PSYKER"],
+            "models": [
+                {
+                    "name": "Tormentbringer",
+                    "points": 140
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.hellflayers",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Hellflayers",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "HELLFLAYERS", "DAEMON", "MOUNTED"],
+            "points": [
+                {
+                    "cost": 160,
+                    "minModels": 2,
+                    "maxModels": 2
+                },
+                {
+                    "cost": 80,
+                    "minModels": 1,
+                    "maxModels": 1
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Hellflayer",
+                    "min": 1,
+                    "max": 2
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.tranceweaver",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Tranceweaver",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "TRANCEWEAVER", "CHARACTER", "DAEMON", "INFANTRY", "PSYKER"],
+            "models": [
+                {
+                    "name": "Tranceweaver",
+                    "points": 60
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.daemonettes",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Daemonettes",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "DAEMONETTES", "BATTLELINE", "DAEMON", "INFANTRY"],
+            "points": [
+                {
+                    "cost": 100,
+                    "minModels": 10,
+                    "maxModels": 10
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Daemonette",
+                    "min": 9,
+                    "max": 9,
+                    "equipment": [
+                        {
+                            "type": "checkbox",
+                            "selectedOption": {
+                                "name": "Daemonic Icon"
+                            },
+                            "selected": false
+                        },
+                        {
+                            "type": "checkbox",
+                            "selectedOption": {
+                                "name": "Instrument of Chaos"
+                            },
+                            "selected": false
+                        }
+                    ]
+                },
+                {
+                    "name": "Alluress",
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.fiends",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Fiends",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "FIENDS", "DAEMON", "BEAST"],
+            "points": [
+                {
+                    "cost": 190,
+                    "minModels": 4,
+                    "maxModels": 6
+                },
+                {
+                    "cost": 95,
+                    "minModels": 3,
+                    "maxModels": 3
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Fiend",
+                    "min": 2,
+                    "max": 5
+                },
+                {
+                    "name": "Blissbringer",
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.seekers",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Seekers",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SLAANESH", "SEEKERS", "DAEMON", "MOUNTED"],
+            "points": [
+                {
+                    "cost": 160,
+                    "minModels": 6,
+                    "maxModels": 10
+                },
+                {
+                    "cost": 80,
+                    "minModels": 5,
+                    "maxModels": 5
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Seeker",
+                    "min": 4,
+                    "max": 9,
+                    "equipment": [
+                        {
+                            "type": "checkbox",
+                            "items": ["Daemonic Icon"],
+                            "selected": false
+                        },
+                        {
+                            "type": "checkbox",
+                            "items": ["Instrument of Chaos"],
+                            "selected": false
+                        }
+                    ]
+                },
+                {
+                    "name": "Heartseeker",
+                    "min": 1,
+                    "max": 1
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.belakor",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Be'lakor",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "BE'LAKOR", "EPIC HERO", "CHARACTER", "DAEMON", "MONSTER", "PSYKER", "FLY"],
+            "models": [
+                {
+                    "name": "Be'lakor",
+                    "points": 375
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.soulGrinder",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Soul Grinder",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "SOUL GRINDER", "DAEMON", "VEHICLE", "WALKER"],
+            "models": [
+                {
+                    "name": "Soul Grinder",
+                    "points": 180,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Warpsword"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Warpclaw"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["KHORNE"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                },
+                                {
+                                    "items": ["TZEENTCH"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                },
+                                {
+                                    "items": ["NURGLE"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                },
+                                {
+                                    "items": ["SLAANESH"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.daemonPrince",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Daemon Prince",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "DAEMON PRINCE OF CHAOS", "CHARACTER", "DAEMON", "MONSTER"],
+            "models": [
+                {
+                    "name": "Daemon Prince",
+                    "points": 190,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["KHORNE"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                },
+                                {
+                                    "items": ["TZEENTCH"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                },
+                                {
+                                    "items": ["NURGLE"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                },
+                                {
+                                    "items": ["SLAANESH"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.unit.daemonPrinceWings",
+            "type": "unit",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Daemon Prince with Wings",
+            "keywords": ["LEGIONES DAEMONICA", "CHAOS", "DAEMON PRINCE OF CHAOS WITH WINGS", "CHARACTER", "DAEMON", "MONSTER", "FLY"],
+            "models": [
+                {
+                    "name": "Daemon Prince with Wings",
+                    "points": 180,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["KHORNE"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                },
+                                {
+                                    "items": ["TZEENTCH"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                },
+                                {
+                                    "items": ["NURGLE"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                },
+                                {
+                                    "items": ["SLAANESH"],
+                                    "selected": false,
+                                    "addAsKeyword": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

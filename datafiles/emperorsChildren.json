@@ -1,0 +1,990 @@
+{
+    "config": {
+        "id": "w40k.10e.ec.config",
+        "type": "config",
+        "rulesetId": "w40k.10e.ec",
+        "name": "Emperors Children",
+        "keyword": "Emperors Children",
+        "enabled": true,
+        "endpoint": "emperorsChildren.json",
+        "allies": [
+            "w40k.10e.ck"
+        ]
+    },
+    "detachments": [
+        {
+            "id": "w40k.10e.ec.dt.mercurialHost",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Mercurial Host",
+            "enhancements": [
+                {
+                    "name": "Steeped in Suffering",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "Intoxicating Musk",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "Tactical Perfection",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Loathsome Dexterity",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 10
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.ec.dt.peerlessBladesmen",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Peerless Bladesmen",
+            "enhancements": [
+                {
+                    "name": "Faultless Opportunist",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Blinding Speed",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Distortion",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Rise to the Challenge",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN", "INFANTRY"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.ec.dt.rapidEvisceration",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Rapid Evisceration",
+            "enhancements": [
+                {
+                    "name": "Sublime Prescience",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN", "INFANTRY"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Spearhead Striker",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN", "INFANTRY"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "Accomplished Tactician",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN", "INFANTRY"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 35
+                },
+                {
+                    "name": "Heretek Adept",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN", "INFANTRY"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.ec.dt.carnivalExcess",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Carnival of Excess",
+            "enhancements": [
+                {
+                    "name": "Empyric Suffusion",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Dark Blessings",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN", "INFANTRY"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 10
+                },
+                {
+                    "name": "Possessed Blade",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Warp Walker",
+                    "keywordsMustCombined": [],
+                    "keywordsMustSeparate": ["EMPERORS CHILDREN", "KEEPER OF SECRETS"],
+                    "keywordsBlocked": [],
+                    "points": 30
+                }
+            ],
+            "additionalDatasheets": [
+                "w10k.10e.dem.unit.shalaxi",
+                "w10k.10e.dem.unit.keeper",
+                "w10k.10e.dem.unit.daemonettes",
+                "w10k.10e.dem.unit.fiends",
+                "w10k.10e.dem.unit.seekers"
+            ],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.ec.dt.coterieConceited",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Coterie of the Conceited",
+            "enhancements": [
+                {
+                    "name": "Pledge of Eternal Servitude",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Pledge of Dark Glory",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Pledge of Mortal Pain",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Pledge of Unholy Fortune",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 30
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.ec.dt.slaaneshsChosen",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Slaanesh's Chosen",
+            "enhancements": [
+                {
+                    "name": "Eager to Prove",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 10
+                },
+                {
+                    "name": "Repulsed by Weakness",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Proud and Vainglorious",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                },
+                {
+                    "name": "Slayer of Champions",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        },
+        {
+            "id": "w40k.10e.ec.dt.courtPhoenician",
+            "type": "detachment",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Court of the Phoenician",
+            "enhancements": [
+                {
+                    "name": "Exalted Patron",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": ["LORD EXULTANT"],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Soulstain Made Manifest",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 15
+                },
+                {
+                    "name": "Tears of the Phoenix",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 25
+                },
+                {
+                    "name": "Spiritsilver",
+                    "keywordsMustCombined": ["EMPERORS CHILDREN", "DAEMON PRINCE"],
+                    "keywordsMustSeparate": [],
+                    "keywordsBlocked": [],
+                    "points": 20
+                }
+            ],
+            "additionalDatasheets": [],
+            "blockedDatasheets": []
+        }
+    ],
+    "units": [
+        {
+            "id": "w40k.10e.ec.unit.fulgrim",
+            "type": "unit",
+            "rulesetId": "w40k.10e.we",
+            "name": "Fulgrim",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "FULGRIM", "EPIC HERO", "CHARACTER", "PRIMARCH", "DAEMON", "MONSTER", "FLY"],
+            "models": [
+                {
+                    "name": "Fulgrim",
+                    "points": 340
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.lucius",
+            "type": "unit",
+            "rulesetId": "w40k.10e.we",
+            "name": "Lucius the Eternal",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "LUCIUS THE ETERNAL", "EPIC HERO", "CHARACTER", "INFANTRY"],
+            "models": [
+                {
+                    "name": "Lucius the Eternal",
+                    "points": 150
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.lordExultant",
+            "type": "unit",
+            "rulesetId": "w40k.10e.we",
+            "name": "Lord Exultant",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "LORD EXULTANT", "CHARACTER", "INFANTRY", "GRENADES"],
+            "models": [
+                {
+                    "name": "Lord Exultant",
+                    "points": 80,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Plasma Pistol"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Rupture Lash"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Phoenix Power Spear"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Master-crafted Power Sword"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Screamer Pistol"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.lordKakophonist",
+            "type": "unit",
+            "rulesetId": "w40k.10e.we",
+            "name": "Lord Kakophonist",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "LORD KAKOPHONIST", "CHARACTER", "INFANTRY", "GRENADES"],
+            "models": [
+                {
+                    "name": "Lord Kakophonist",
+                    "points": 70,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Screamer Pistol"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Power Sword"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Screamer Pistol"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.sorcerer",
+            "type": "unit",
+            "rulesetId": "w40k.10e.we",
+            "name": "Sorcerer",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "SORCERER", "CHARACTER", "INFANTRY", "GRENADES", "PSYKER"],
+            "models": [
+                {
+                    "name": "Sorcerer",
+                    "points": 60
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.daemonPrince",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Daemon Prince",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "DAEMON PRINCE", "CHARACTER", "DAEMON", "MONSTER"],
+            "models": [
+                {
+                    "name": "Daemon Prince",
+                    "points": 180,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Hellforged Weapons"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Infernal Cannon"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.daemonPrinceWings",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Daemon Prince with Wings",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "DAEMON PRINCE WITH WINGS", "CHARACTER", "DAEMON", "MONSTER", "FLY"],
+            "models": [
+                {
+                    "name": "Daemon Prince with Wings",
+                    "points": 215,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Hellforged Weapons"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Infernal Cannon"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.flawlessBlades",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Flawless Blades",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "FLAWLESS BLADES", "INFANTRY", "GRENADES"],
+            "points": [
+                {
+                    "cost": 220,
+                    "minModels": 4,
+                    "maxModels": 6
+                },
+                {
+                    "cost": 110,
+                    "minModels": 3,
+                    "maxModels": 3
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Flawless Blade",
+                    "min": 3,
+                    "max": 6,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Blissblade"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.spawn",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Chaos Spawn",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "CHAOS SPAWN", "BEAST"],
+            "points": [
+                {
+                    "cost": 70,
+                    "minModels": 2,
+                    "maxModels": 2
+                }
+            ],
+            "models": [
+                {
+                    "name": "Chaos Spawn",
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Hideous Mutations"]
+                        }
+                    ]
+                },
+                {
+                    "name": "Chaos Spawn",
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Hideous Mutations"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.tormentors",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Tormentors",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "TORMENTORS", "BATTLELINE", "INFANTRY", "GRENADES"],
+            "points": [
+                {
+                    "cost": 170,
+                    "minModels": 6,
+                    "maxModels": 10
+                },
+                {
+                    "cost": 85,
+                    "minModels": 5,
+                    "maxModels": 5
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Tormentor",
+                    "min": 4,
+                    "max": 9,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Boltgun"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Plasma Gun"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Meltagun"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "checkbox",
+                            "items": ["Icon of Excess"],
+                            "selected": false
+                        }
+                    ]
+                },
+                {
+                    "name": "Tormentor Champion",
+                    "min": 1,
+                    "max": 1,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Bolt Pistol"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Bolt Pistol"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Power Sword"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Rupture Lash"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.infractors",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Infractors",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "INFRACTORS", "BATTLELINE", "INFANTRY", "GRENADES"],
+            "points": [
+                {
+                    "cost": 170,
+                    "minModels": 6,
+                    "maxModels": 10
+                },
+                {
+                    "cost": 85,
+                    "minModels": 5,
+                    "maxModels": 5
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Infractor",
+                    "min": 4,
+                    "max": 9,
+                    "equipment": [
+                        {
+                            "type": "checkbox",
+                            "items": ["Icon of Excess"],
+                            "selected": false
+                        }
+                    ]
+                },
+                {
+                    "name": "Infractor Champion",
+                    "min": 1,
+                    "max": 1,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Bolt Pistol"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Bolt Pistol"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Power Sword"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Rupture Lash"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.terminatorSquad",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Terminator Squad",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "TERMINATOR SQUAD", "TERMINATOR", "INFANTRY"],
+            "points": [
+                {
+                    "cost": 155,
+                    "minModels": 5,
+                    "maxModels": 5
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Terminator",
+                    "min": 4,
+                    "max": 4,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Combi-bolter", "Accursed Weapon"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Combi-weapon", "Accursed Weapon"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Heavy Flamer", "Accursed Weapon"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Reaper Autocannon", "Accursed Weapon"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-bolter", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-weapon", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Heavy Flamer", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Reaper Autocannon", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-bolter", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-weapon", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Heavy Flamer", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Reaper Autocannon", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Paired Accursed Weapons"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Terminator Champion",
+                    "min": 1,
+                    "max": 1,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Combi-bolter", "Accursed Weapon"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Combi-weapon", "Accursed Weapon"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-bolter", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-weapon", "Power Fist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-bolter", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-weapon", "Chainfist"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Paired Accursed Weapons"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.landRaider",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Land Raider",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "LAND RAIDER", "VEHICLE", "TRANSPORT", "SMOKE"],
+            "models": [
+                {
+                    "name": "Land Raider",
+                    "points": 220,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Soulshatter Lascannon", "Soulshatter Lascannon"]
+                        },
+                        {
+                            "type": "text",
+                            "items": ["Twin Heavy Bolter"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Combi-bolter"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-weapon"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "checkbox",
+                            "items": ["Havoc Launcher"],
+                            "selected": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.noiseMarines",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Noise Marines",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "NOISE MARINES", "INFANTRY"],
+            "points": [
+                {
+                    "cost": 145,
+                    "minModels": 6,
+                    "maxModels": 6
+                }
+            ],
+            "blueprints": [
+                {
+                    "name": "Noise Marine",
+                    "min": 5,
+                    "max": 5,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Sonic Blaster"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Blastmaster"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Disharmonist",
+                    "min": 1,
+                    "max": 1,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Sonic Blaster"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Screamer Pistol", "Power Sword"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.heldrake",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Heldrake",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "HELDRAKE", "VEHICLE", "DAEMON", "AIRCRAFT", "FLY"],
+            "models": [
+                {
+                    "name": "Heldrake",
+                    "points": 195,
+                    "equipment": [
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Hades Autocannon"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Baleflamer"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "name": "Heldrake Claws",
+                            "items": ["Heldrake Claws"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.maulerfiend",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Maulerfiend",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "MAULERFIEND", "VEHICLE", "DAEMON", "WALKER"],
+            "models": [
+                {
+                    "name": "Maulerfiend",
+                    "points": 130,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Maulerfiend Fists"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Lasher Tendrils"],
+                                    "selected": true
+                                },
+                                {
+                                    "items": ["Magma Cutter", "Magma Cutter"],
+                                    "selected": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "w40k.10e.ec.unit.rhino",
+            "type": "unit",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Rhino",
+            "keywords": ["EMPERORS CHILDREN", "CHAOS", "SLAANESH", "RHINO", "VEHICLE", "TRANSPORT", "DEDICATED TRANSPORT", "SMOKE"],
+            "models": [
+                {
+                    "name": "Rhino",
+                    "points": 80,
+                    "equipment": [
+                        {
+                            "type": "text",
+                            "items": ["Combi-bolter"]
+                        },
+                        {
+                            "type": "dropdown",
+                            "options": [
+                                {
+                                    "items": ["Combi-bolter"],
+                                    "selected": false
+                                },
+                                {
+                                    "items": ["Combi-weapon"],
+                                    "selected": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "checkbox",
+                            "items": ["Havoc Launcher"],
+                            "selected": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

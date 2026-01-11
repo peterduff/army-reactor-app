@@ -1,0 +1,46 @@
+{
+    "id": "w40k.10e",
+    "version": "1.0.0",
+    "updateNotes": "00/00/0000: Big Bang",
+    "name": "Warhammer 40,000: 10th Edition",
+    "enabled": true,
+    "path": "https://raw.githubusercontent.com/tabletop-json/w40k.10e/master/",
+    "configs": [
+        {
+            "id": "w40k.10e.ec.config",
+            "type": "config",
+            "rulesetId": "w40k.10e.ec",
+            "name": "Emperors Children",
+            "keyword": "EMPERORS CHILDREN",
+            "enabled": true,
+            "endpoint": "emperorsChildren.json",
+            "associatedRulesets": [
+                "w40k.10e.dem",
+                "w40k.10e.ck"
+            ]
+        },
+        {
+            "id": "w40k.10e.dem.config",
+            "type": "config",
+            "rulesetId": "w40k.10e.dem",
+            "name": "Chaos Daemons",
+            "keyword": "CHAOS DAEMONS",
+            "enabled": true,
+            "endpoint": "chaosDaemons.json",
+            "associatedRulesets": [
+            ]
+        },
+        {
+            "id": "w40k.10e.ck.config",
+            "type": "config",
+            "rulesetId": "w40k.10e.ck",
+            "name": "Chaos Knights",
+            "keyword": "CHAOS KNIGHTS",
+            "enabled": true,
+            "endpoint": "chaosKnights.json",
+            "associatedRulesets": [
+                "w40k.10e.dem"
+            ]
+        }
+    ]
+}
