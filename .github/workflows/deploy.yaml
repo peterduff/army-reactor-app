@@ -1,10 +1,9 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy to GitHub Pages
+name: Army Reactor Deploy to GitHub Pages
 
 on:
-    # Runs on pushes targeting the default branch
     push:
-        branches: ["main"]
+        branches: [ "main" ]
 
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
@@ -22,23 +21,53 @@ concurrency:
     cancel-in-progress: false
 
 jobs:
-    # Single deploy job since we're just deploying
-    deploy:
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
+    build:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
-              uses: actions/checkout@v6
-            - run: npm ci
-            - run: npm run build-storybook
-            - name: Setup Pages
-              uses: actions/configure-pages@v5
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v4
-              with:
-                  path: "./dist/army-reactor-app/browser"
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v4
+            -   name: Checkout
+                uses: actions/checkout@v6
+
+            -   name: Adding Node.js
+                uses: actions/setup-node@v2
+                with:
+                    node-version: 24
+
+            -   name: Install Dependencies
+                run: npm install
+
+            -   name: Build Angular App
+                run: npm run build
+
+            -   name: Setup Pages
+                uses: actions/configure-pages@v5
+
+            -   name: Upload artifact
+                uses: actions/upload-pages-artifact@v4
+                with:
+                    path: "./dist/army-reactor-app/browser"
+
+            -   name: Deploy to GitHub Pages
+                id: deployment
+                uses: actions/deploy-pages@v4
+
+#jobs:
+#    # Single deploy job since we're just deploying
+#    deploy:
+#        environment:
+#            name: github-pages
+#            url: ${{ steps.deployment.outputs.page_url }}
+#        runs-on: ubuntu-latest
+#        steps:
+#            - name: Checkout
+#              uses: actions/checkout@v6
+#            - run: npm ind
+#            - run: npm run build-storybook
+#            - name: Setup Pages
+#              uses: actions/configure-pages@v5
+#            - name: Upload artifact
+#              uses: actions/upload-pages-artifact@v4
+#              with:
+#                  path: "./dist/army-reactor-app/browser"
+#            - name: Deploy to GitHub Pages
+#              id: deployment
+#              uses: actions/deploy-pages@v4
