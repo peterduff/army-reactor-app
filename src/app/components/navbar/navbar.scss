@@ -1,0 +1,19 @@
+nav#navbar {
+    span {
+        font-family: 'Nunito Sans', sans-serif;
+
+        &.gradient {
+            background: -webkit-linear-gradient(#53FF84, #00CCE9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .gradient {
+        background: -webkit-linear-gradient(#53FF84, #00CCE9);
+    }
+
+    div.h-calc {
+        height: calc(100vh - 40px);
+    }
+}

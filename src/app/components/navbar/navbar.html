@@ -1,6 +1,76 @@
-<nav id="navbar" class="h-10 w-full bg-gray-950">
-    <a class="">
-        <img alt="Army Reactor Logo" ngSrc="/public/images/logo.svg" width="32" height="32" priority />
-        <span class="text-white font-light"><span class="text-cyan-400 text-xl">A</span>RMY <span class="text-green-400 text-xl">R</span>EACTOR</span>
-    </a>
+<nav id="navbar" class="w-screen h-10 fixed bg-zinc-800 flex items-center justify-between z-100">
+    <div class="flex justify-start items-center p-1" routerLink="/home">
+        <img class="p-1" alt="Army Reactor Logo" ngSrc="/images/logo.svg" width="40" height="40" priority />
+        <span class="ps-2 content-end text-white text-xl tracking-widest font-light"><span class="gradient text-2xl">A</span>RMY <span class="gradient text-2xl">R</span>EACTOR</span>
+    </div>
+
+    <div class="flex justify-end items-center">
+        <button (click)="openMenu = !openMenu" class="mt-1 mr-1 outline-none">
+            @if (openMenu) {
+                <ng-icon name="heroXMarkSolid" color="white" size="32" />
+            }
+            @if (!openMenu) {
+                <ng-icon name="heroBars3Solid" color="white" size="32" />
+            }
+        </button>
+
+        @if (openMenu) {
+            <div class="absolute top-10 w-full h-calc z-100 bg-zinc-800 text-white font-light" role="menu" aria-orientation="vertical" aria-labelledby="items-menu" tabindex="-1">
+                <div class="m-2">
+                    <button class="w-full rounded py-1 px-2 bg-lime-600 text-white tracking-widest font-normal">NEW LIST</button>
+                </div>
+                <div class="mx-2 my-4">
+                    <h2 class="mb-2">Adeptus Astartes</h2>
+                    <div class="w-full bg-zinc-700 rounded mb-2 relative">
+                        <p class="py-2 px-3 w-3/4">Victrix bullshit</p>
+                        <div class="absolute top-0 right-10 w-10 h-10 content-end text-center">
+                            <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
+                        </div>
+                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
+                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                        </div>
+                    </div>
+                    <div class="w-full bg-zinc-700 rounded mb-2 relative">
+                        <p class="py-2 px-3 w-3/4">White Scar bikes</p>
+                        <div class="absolute top-0 right-10 w-10 h-10 content-end text-center">
+                            <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
+                        </div>
+                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
+                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                        </div>
+                    </div>
+                    <div class="w-full bg-zinc-700 rounded mb-2 relative">
+                        <p class="py-2 px-3 w-3/4">Salamander flamers</p>
+                        <div class="absolute top-0 right-10 w-10 h-10 content-end text-center">
+                            <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
+                        </div>
+                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
+                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-2 my-4">
+                    <h2 class="mb-2">Heretic Astartes</h2>
+                    <div class="w-full bg-zinc-700 rounded mb-2 relative">
+                        <p class="py-2 px-3 w-3/4">Night Lords Battleshocks</p>
+                        <div class="absolute top-0 right-10 w-10 h-10 content-end text-center">
+                            <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
+                        </div>
+                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
+                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                        </div>
+                    </div>
+                    <div class="w-full bg-zinc-700 rounded mb-2 relative">
+                        <p class="py-2 px-3 w-3/4">Raiders v1</p>
+                        <div class="absolute top-0 right-10 w-10 h-10 content-end text-center">
+                            <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
+                        </div>
+                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
+                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </nav>

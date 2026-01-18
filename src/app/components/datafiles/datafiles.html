@@ -1,0 +1,20 @@
+<div id="datafiles">
+    <div class="absolute top-10 w-full h-calc z-10 bg-zinc-700 text-white font-light" role="menu" aria-orientation="vertical" aria-labelledby="items-menu" tabindex="-1">
+        <h1 class="p-3 text-xl">Datafiles</h1>
+        <p class="p-3">You can select a set of datafiles you wish to import from the dropdown.</p>
+        <div class="m-2">
+            <select #core class="p-2 w-full rounded bg-zinc-600 outline-none">
+                <option [value]=""></option>
+                <option [value]="'https://raw.githubusercontent.com/army-reactor/w40k.10e/master/core.json'">w40k by AR</option>
+            </select>
+        </div>
+
+        <p class="p-3">Can't find what you're looking for? You may alternatively add the location of a datafile by its url manually below.</p>
+        <div class="m-2">
+            <input #coreUrl type="text" class="p-2 w-full rounded bg-zinc-600 outline-none" placeholder="datafile url...">
+        </div>
+
+        <button type="button" class="rounded px-3 py-1 m-3 bg-lime-600 text-white tracking-widest font-normal" (click)="addDatafiles(core.value, coreUrl.value)" routerLink="home">ADD DATAFILES</button>
+    </div>
+</div>
+
