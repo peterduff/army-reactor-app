@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Datafiles } from './datafiles';
+import { AddDatafiles } from './add-datafiles';
 
 describe('Datafiles', () => {
-  let component: Datafiles;
-  let fixture: ComponentFixture<Datafiles>;
+  let component: AddDatafiles;
+  let fixture: ComponentFixture<AddDatafiles>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Datafiles]
+      imports: [AddDatafiles]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Datafiles);
+    fixture = TestBed.createComponent(AddDatafiles);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
