@@ -1,0 +1,35 @@
+<div id="newlist">
+    <div class="absolute top-10 w-full h-calc z-10 bg-zinc-700 text-white font-light" role="menu" aria-orientation="vertical" aria-labelledby="items-menu" tabindex="-1">
+        <h1 class="p-3 text-xl">New List</h1>
+
+        <div class="m-2 mb-4">
+            <input #name type="text" class="p-2 w-full rounded bg-zinc-600 outline-none" placeholder="Aardvark Avengers...">
+        </div>
+
+        @if (core) {
+            <div class="m-2 mb-4">
+                <select [(ngModel)]="bookId" class="p-2 w-full rounded bg-zinc-600 outline-none">
+                    @for (config of core.configs; track config.id) {
+                        <option [value]="config.rulesetId">{{config.name}}</option>
+                    }
+                </select>
+            </div>
+        }
+
+        @if (books) {
+            <div class="m-2 mb-4">
+                <select [disabled]="!bookId" [(ngModel)]="detachmentId" class="p-2 w-full rounded bg-zinc-600 outline-none">
+                    @if (bookId) {
+                        @for (detachment of findBook().detachments; track detachment.id) {
+                            <option [value]="detachment.id">{{detachment.name}}</option>
+                        }
+                    }
+                </select>
+            </div>
+        }
+
+        <div class="m-2">
+            <button class="w-full rounded py-2 px-3 bg-lime-600 text-white tracking-widest font-normal" (click)="createList(name.value)">CREATE LIST</button>
+        </div>
+    </div>
+</div>

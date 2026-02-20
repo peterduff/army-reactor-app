@@ -4,9 +4,8 @@ import {Datafiles} from "../../services/datafiles/datafiles";
 import {ToastrService} from "ngx-toastr";
 import {Core} from "../../models/core";
 import {Router} from '@angular/router';
-import {Datafile} from "../../models/datafile";
+import {Book} from "../../models/book";
 import {Subscription} from "rxjs";
-import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'app-add-datafiles',
@@ -43,14 +42,18 @@ export class AddDatafiles implements OnInit {
     }
 
     setupCore(core: Core) {
-        this.datafilesService.setCore(core)
+        this.datafilesService.setCore(core);
         this.setupDatafiles(core);
     }
 
     setupDatafiles(core: Core) {
+        let books = [];
+
         core.configs.forEach(config => {
-            this.datafilesService.httpGetDatafiles(core.path + config.endpoint).subscribe({
+            this.datafilesService.httpGetBook(core.path + config.endpoint).subscribe({
                 next: (data) => {
+                    books.push(data);
+                    this.datafilesService.setBooks(books);
                 }
             });
         });

@@ -31,11 +31,7 @@
                             "src/styles.scss",
                             "node_modules/ngx-toastr/toastr.css"
                         ],
-                        "server": "src/main.server.ts",
-                        "outputMode": "server",
-                        "ssr": {
-                            "entry": "src/server.ts"
-                        }
+                        "outputMode": "static"
                     },
                     "configurations": {
                         "production": {
@@ -56,7 +52,8 @@
                         "development": {
                             "optimization": false,
                             "extractLicenses": false,
-                            "sourceMap": true
+                            "sourceMap": true,
+                            "ssr": false
                         }
                     },
                     "defaultConfiguration": "production"

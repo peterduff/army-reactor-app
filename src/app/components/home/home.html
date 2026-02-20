@@ -1,79 +1,48 @@
 <div id="home">
-<!--    <div class="pt-12">-->
-<!--        <div class="text-center p-3 mb-3">-->
-<!--            <h1 class="text-xl">Welcome to Army Reactor!</h1>-->
-<!--        </div>-->
-
-<!--        <div class="text-center p-3 mb-3">-->
-<!--            <h3 class="text-lg">Army Reactor is a Tabletop Wargaming list builder.</h3>-->
-<!--            <h3 class="text-lg">It is to be used in conjunction with existing rulebooks for those games.</h3>-->
-<!--        </div>-->
-
-<!--        <div class="text-center p-3 mb-3">-->
-<!--            <h3 class="text-lg">Army Reactor contains no data for any tabletop game, and requires the user to add said data in order to work.</h3>-->
-<!--        </div>-->
-
-<!--        <div class="text-center p-3">-->
-<!--            <button class="rounded px-3 py-1 m-3 bg-lime-600 text-white tracking-widest font-normal" routerLink="/datafiles">DATAFILES</button>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    @if(core) {-->
-        <div class="absolute top-10 w-full h-calc z-100 bg-zinc-700 text-white font-light">
+    @if(core) {
+        <div class="absolute top-10 w-full h-calc bg-zinc-700 text-white font-light">
             <div class="m-2">
-                <button class="w-full rounded py-2 px-3 bg-lime-600 text-white tracking-widest font-normal">NEW LIST</button>
+                <button class="w-full rounded py-2 px-3 bg-lime-600 text-white tracking-widest font-normal" routerLink="/newlist">NEW LIST</button>
             </div>
             <div class="mx-2 my-4">
-                <h2 class="mb-2">Adeptus Astartes</h2>
-                <div class="w-full bg-zinc-600 rounded mb-2 relative">
-                    <p class="py-2 px-3 w-3/4">Victrix bullshit</p>
-                    <div class="absolute top-0 right-10 w-10 h-10 content-end text-center">
-                        <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
-                    </div>
-                    <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                        <ng-icon name="heroXMarkSolid" color="red" size="32" />
-                    </div>
-                </div>
-                <div class="w-full bg-zinc-600 rounded mb-2 relative">
-                    <p class="py-2 px-3 w-3/4">White Scar bikes</p>
-                    <div class="absolute top-0 right-10 w-10 h-10 content-end text-center">
-                        <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
-                    </div>
-                    <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                        <ng-icon name="heroXMarkSolid" color="red" size="32" />
-                    </div>
-                </div>
-                <div class="w-full bg-zinc-600 rounded mb-2 relative">
-                    <p class="py-2 px-3 w-3/4">Salamander flamers</p>
-                    <div class="absolute top-0 right-10 w-10 h-10 content-end text-center">
-                        <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
-                    </div>
-                    <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                        <ng-icon name="heroXMarkSolid" color="red" size="32" />
-                    </div>
-                </div>
-            </div>
-            <div class="mx-2 my-4">
-                <h2 class="mb-2">Heretic Astartes</h2>
-                <div class="w-full bg-zinc-600 rounded mb-2 relative">
-                    <p class="py-2 px-3 w-3/4">Night Lords Battleshocks</p>
-                    <div class="absolute top-0 right-10 w-10 h-10 content-end text-center">
-                        <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
-                    </div>
-                    <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                        <ng-icon name="heroXMarkSolid" color="red" size="32" />
-                    </div>
-                </div>
-                <div class="w-full bg-zinc-600 rounded mb-2 relative">
-                    <p class="py-2 px-3 w-3/4">Raiders v1</p>
-                    <div class="absolute top-0 right-10 w-10 h-10 content-end text-center">
-                        <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
-                    </div>
-                    <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                        <ng-icon name="heroXMarkSolid" color="red" size="32" />
-                    </div>
-                </div>
+                @for (config of core.configs | configFilter:rosters; track config.id) {
+                    <h2 class="mb-2">{{config.name}}</h2>
+
+                    @for (roster of rosters | rosterFilter:config.rulesetId; track roster) {
+                        <div class="w-full bg-zinc-600 rounded mb-2 relative">
+                            <p class="py-2 px-3 w-3/4">{{roster.name}}</p>
+                            <div class="absolute top-0 right-10 w-10 h-10 content-end text-center" (click)="duplicateRoster(roster)">
+                                <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
+                            </div>
+                            <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="deleteId = roster.uuid">
+                                <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                            </div>
+                        </div>
+                    }
+                }
             </div>
         </div>
-<!--    }-->
+    }
+
+    @if (deleteId) {
+        <div id="deleteRoster" class="absolute top-0 bottom-0 left-0 right-0">
+            <div class="inline">
+                <div class="grid grid-cols-1 place-content-center h-full">
+                    <div class="bg-white rounded w-2/3 opacity-100 justify-self-center p-3">
+                        <p class="mb-3 text-center text-lg">Are you sure you wish to delete this roster?</p>
+
+                        <div class="grid grid-cols-2">
+                            <div>
+                                <button class="rounded py-2 px-3 tracking-widest font-normal w-full" (click)="deleteId = ''">CANCEL</button>
+                            </div>
+                            <div>
+                                <button class="rounded py-2 px-3 bg-red-600 text-white tracking-widest font-normal w-full" (click)="deleteRoster(deleteId)">DELETE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
 </div>

@@ -2,4 +2,8 @@ div#home {
     div.h-calc {
         height: calc(100vh - 40px);
     }
+
+    div#deleteRoster {
+        background: rgba(0,0,0,0.5);
+    }
 }
