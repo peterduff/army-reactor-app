@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Model, Unit} from "../../models/unit";
+import {Roster} from "../../models/roster";
 
 @Injectable({
     providedIn: 'root',
@@ -51,10 +52,20 @@ export class Calculation {
                     }
                 });
             } else if (unit.blueprints) {
-                // unit.points.forEach(pointGroup => {
-                    cost += unit.points!.sort((a,b) => a.cost - b.cost)[0].cost;
-                // });
+                cost += unit.points.sort((a,b) => a.cost - b.cost)[0].cost;
             }
+        }
+
+        return cost;
+    }
+
+    calculateRosterPoints(roster: Roster): number {
+        let cost = 0;
+
+        if (roster.units) {
+            roster.units.forEach((unit: Unit) => {
+                cost += this.calculateUnitPoints(unit);
+            });
         }
 
         return cost;

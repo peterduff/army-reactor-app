@@ -52,11 +52,6 @@ export class NewRoster implements OnInit {
     }
 
     createList(name: string) {
-
-        console.log(name);
-        console.log(this.bookId);
-        console.log(this.detachmentId);
-
         let newRoster = new Roster(uuid.v4(), name ? name : this.findDetachmentName(this.detachmentId), this.bookId, this.detachmentId, []);
         this.memoryService.setActiveRoster(newRoster);
         this.rosters ? this.rosters.push(newRoster) : this.rosters = [newRoster];

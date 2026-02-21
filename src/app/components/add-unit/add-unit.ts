@@ -11,7 +11,7 @@ import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Calculation} from "../../services/calculation/calculation";
 import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
 import {AlphabeticalPipe} from "../../pipes/alphabetical/alphabetical-pipe";
-import {Unit} from "../../models/unit";
+import {Model, Unit} from "../../models/unit";
 import * as uuid from "uuid";
 
 @Component({
@@ -49,10 +49,24 @@ export class AddUnit implements OnInit {
     }
 
     addUnit(unit: Unit): void {
-        let newUnit = this.memoryService.cloneObject(unit);
+        let newUnit = this.assembleUnit(unit);
         newUnit.uuid = uuid.v4();
         this.activeRoster.units.push(newUnit);
         this.memoryService.setActiveRoster(this.activeRoster);
+    }
+
+    assembleUnit(unit: Unit): Unit {
+        if (unit.blueprints) {
+            unit.models = [];
+
+            unit.blueprints.forEach(blueprint => {
+                for (let i = 0; i < blueprint.min; i++) {
+                    unit.models.push(blueprint);
+                }
+            });
+        }
+
+        return unit;
     }
 
     unitExistsInRoster(item: Unit): boolean {

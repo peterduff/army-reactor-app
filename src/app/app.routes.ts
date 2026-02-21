@@ -3,7 +3,6 @@ import {Home} from "./components/home/home";
 import {RosterView} from "./components/roster-view/roster-view";
 import {AddDatafiles} from "./components/add-datafiles/add-datafiles";
 import {NewRoster} from "./components/new-roster/new-roster";
-import {UnitView} from "./components/unit-view/unit-view";
 import {AddUnit} from "./components/add-unit/add-unit";
 
 export const routes: Routes = [
@@ -24,8 +23,5 @@ export const routes: Routes = [
     },
     {
         path: 'addunit', component: AddUnit
-    },
-    {
-        path: 'unitview', component: UnitView
     }
 ];

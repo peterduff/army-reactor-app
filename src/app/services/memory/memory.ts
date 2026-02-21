@@ -4,6 +4,7 @@ import {BehaviorSubject, Observable, Subject, Subscription} from "rxjs";
 import {Core} from "../../models/core";
 import {Roster} from "../../models/roster";
 import {Datafiles} from "../datafiles/datafiles";
+import {Unit} from "../../models/unit";
 
 @Injectable({
     providedIn: 'root',
@@ -11,6 +12,7 @@ import {Datafiles} from "../datafiles/datafiles";
 export class Memory {
     readonly datafilesService = inject(Datafiles)
 
+    readonly activeUnit = new Subject<Unit>();
     readonly activeRoster = new Subject<Roster>();
     readonly rosters = new BehaviorSubject<Roster[]>([]);
 
@@ -18,15 +20,22 @@ export class Memory {
     booksSubscription: Subscription;
     core!: Core;
     coreSubscription: Subscription;
+    _rosters!: Roster[];
+    _rostersSubscription: Subscription;
 
     constructor() {
         this.booksSubscription = this.datafilesService.getBooks().subscribe( data => this.books = data);
         this.coreSubscription = this.datafilesService.getCore().subscribe( data => this.core = data);
+        this._rostersSubscription = this.getRosters().subscribe( data => this._rosters = data);
     }
 
     setActiveRoster(activeRoster: Roster): void {
         this.activeRoster.next(activeRoster);
         localStorage.setItem('activeRoster', JSON.stringify(activeRoster));
+
+        let targetRoster = this._rosters.find(roster => roster.uuid === activeRoster.uuid);
+        this._rosters.splice(this._rosters.indexOf(targetRoster!), 1, activeRoster);
+        this.setRosters(this._rosters);
     }
 
     getActiveRoster(): Observable<Roster> {
@@ -48,6 +57,14 @@ export class Memory {
 
     localGetRosters(): Roster[] {
         return JSON.parse(localStorage.getItem('rosters')!);
+    }
+
+    setActiveUnit(unit: Unit | null): void {
+        this.activeUnit.next(unit!);
+    }
+
+    getActiveUnit(): Observable<Unit> {
+        return this.activeUnit.asObservable();
     }
 
     cloneObject(object: any): any {

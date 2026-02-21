@@ -1,93 +1,184 @@
 <div id="roster-view">
-    <div class="absolute top-10 w-full h-calc">
-        <div class="m-2 py-2 px-3 rounded bg-zinc-800 text-white tracking-widest font-normal">
-            <p class="mb-2">{{findBook().config.keyword}}</p>
-            <p class="text-gray-300">{{findDetachmentName(activeRoster.detachmentId)}}</p>
-        </div>
-
-        @if ((activeRoster.units | unitFilter:'CHARACTER').length) {
-            <p class="m-2 ps-3 font-normal text-xl">Characters</p>
-
-            @for (unit of activeRoster.units | unitFilter:'CHARACTER' | alphabetical:'name'; track unit) {
-                <div class="m-2">
-                    <div class="w-full bg-zinc-600 rounded relative">
-                        <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
-                        <div class="absolute top-0 right-10">
-                            <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
-                        </div>
-                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
-                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
-                        </div>
+    @if (activeUnit) {
+        <div class="absolute top-10 w-full h-calc overflow-auto">
+            <div class="m-2">
+                <div class="w-full bg-zinc-600 rounded relative">
+                    <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{activeUnit.name}}</p>
+                    <div class="absolute top-0 right-10 w-10 h-10 content-end text-center" (click)="duplicateUnit(activeUnit)">
+                        <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
+                    </div>
+                    <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(activeUnit)">
+                        <ng-icon name="heroXMarkSolid" color="red" size="32" />
                     </div>
                 </div>
-            }
-        }
-
-        @if ((activeRoster.units | unitFilter:'BATTLELINE').length) {
-            <p class="m-2 ps-3 font-normal text-xl">Battleline</p>
-
-            @for (unit of activeRoster.units | unitFilter:'BATTLELINE' | alphabetical:'name'; track unit) {
-                <div class="m-2">
-                    <div class="w-full bg-zinc-600 rounded relative">
-                        <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
-                        <div class="absolute top-0 right-10">
-                            <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
-                        </div>
-                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
-                        </div>
+            </div>
+            <div class="m-2">
+                <div class="w-full bg-zinc-600 rounded relative">
+                    <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">UNIT</p>
+                    <div class="absolute top-0 right-2">
+                        <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(activeUnit)}}</p>
                     </div>
                 </div>
-            }
-        }
+            </div>
+            <div class="m-2">
+                <div class="w-full bg-zinc-600 rounded-t relative">
+                    <p class="py-2 px-3 text-white tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                        <span class="text-lime-400 font-normal">{{activeUnit.models.length}}x </span>MODELS
+                    </p>
+                </div>
 
-
-        @if ((activeRoster.units | unitFilter:'DEDICATED TRANSPORT').length) {
-            <p class="m-2 ps-3 font-normal text-xl">Dedicated Transports</p>
-
-            @for (unit of activeRoster.units | unitFilter:'DEDICATED TRANSPORT' | alphabetical:'name'; track unit) {
-                <div class="m-2">
-                    <div class="w-full bg-zinc-600 rounded relative">
-                        <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
-                        <div class="absolute top-0 right-10">
-                            <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
+                @for (blueprint of activeUnit.blueprints; track blueprint) {
+                    @if (blueprint.min !== blueprint.max) {
+                        <div class="w-full bg-zinc-600 relative">
+                            <div class="grid grid-cols-2">
+                                <button [disabled]="activeUnit.models.length > blueprint.max" class="rounded py-1 px-3 bg-lime-600 mx-2 font-normal text-white relative tracking-widest font-normal" (click)="addModel(activeUnit, blueprint)">
+                                    <span class="text-lime-300 text-lg pe-1">+</span>{{blueprint.name | uppercase}}
+                                </button>
+                            </div>
                         </div>
-                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                    }
+                }
+
+                <div class="bg-zinc-600 p-2 rounded-b">
+                    @for (model of activeUnit.models | alphabetical:'name'; track model) {
+                        <div class="w-full bg-white rounded mb-2 pb-1">
+                            <div class="pt-2 px-3 text-zinc-800 tracking-wide relative font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                                {{model.name | uppercase}}
+                                @if (findSubModelCount(model) > model.min) {
+                                    <button class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeModel(model)">
+                                        <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                                    </button>
+                                }
+                            </div>
+
+                            @for (equipment of model.equipment; track equipment) {
+                                @if (equipment.type === 'dropdown') {
+                                    <div class="m-2">
+                                        <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                                            {{findSelectedDropdown(equipment)}}
+                                            <ng-icon class="absolute top-1.5 right-2" name="faSolidCaretDown" color="white" size="20" />
+                                        </button>
+                                    </div>
+                                }
+                                @if (equipment.type === 'checkbox') {
+                                    <div class="m-2">
+                                        <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                                            {{concatenateItemName(equipment.items)}}
+                                            <div class="absolute top-1.5 right-1.5 w-5 h-5 bg-white rounded"></div>
+                                            @if (equipment.selected) {
+                                                <ng-icon class="absolute top-1.5 right-1.5" name="faSolidCheck" color="#303030" size="20" />
+                                            }
+                                        </button>
+                                    </div>
+                                }
+                                @if (equipment.type === 'text') {
+                                    <div class="m-2">
+                                        <button class="py-1 px-5 text-white bg-lime-600 rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                                            {{concatenateItemName(equipment.items)}}
+                                        </button>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 grid grid-cols-1 w-full">
+            <div>
+                <button class="py-2 px-3 bg-zinc-800 text-white tracking-widest font-normal w-full" (click)="memoryService.setActiveUnit(null)">BACK</button>
+            </div>
+        </div>
+    } @else {
+        <div class="absolute top-10 w-full h-calc overflow-auto">
+            <div class="m-2 py-2 px-3 rounded bg-zinc-800 text-white tracking-widest font-normal">
+                <p class="mb-2">{{findBook().config.keyword}}</p>
+                <p class="text-gray-300">{{findDetachmentName(activeRoster.detachmentId)}}</p>
+            </div>
+
+            @if ((activeRoster.units | unitFilter:'CHARACTER').length) {
+                <p class="m-2 ps-3 font-normal text-xl">Characters</p>
+
+                @for (unit of activeRoster.units | unitFilter:'CHARACTER' | alphabetical:'name'; track unit) {
+                    <div class="m-2" (click)="openUnit(unit)">
+                        <div class="w-full bg-zinc-600 rounded relative">
+                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                            <div class="absolute top-0 right-10">
+                                <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
+                            </div>
+                            <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
+                                <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             }
-        }
 
-        @if ((activeRoster.units | unitFilter:'OTHER').length) {
-            <p class="m-2 ps-3 font-normal text-xl">Other</p>
+            @if ((activeRoster.units | unitFilter:'BATTLELINE').length) {
+                <p class="m-2 ps-3 font-normal text-xl">Battleline</p>
 
-            @for (unit of activeRoster.units | unitFilter:'OTHER' | alphabetical:'name'; track unit) {
-                <div class="m-2">
-                    <div class="w-full bg-zinc-600 rounded relative">
-                        <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
-                        <div class="absolute top-0 right-10">
-                            <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
-                        </div>
-                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                @for (unit of activeRoster.units | unitFilter:'BATTLELINE' | alphabetical:'name'; track unit) {
+                    <div class="m-2" (click)="openUnit(unit)">
+                        <div class="w-full bg-zinc-600 rounded relative">
+                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                            <div class="absolute top-0 right-10">
+                                <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
+                            </div>
+                            <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
+                                <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             }
-        }
 
-    </div>
-    <div class="absolute bottom-0 grid grid-cols-3 w-full">
-        <div>
-            <button class="rounded-tr-lg py-2 px-3 bg-lime-600 text-white tracking-widest font-normal w-full" routerLink="/addunit">ADD UNIT</button>
+
+            @if ((activeRoster.units | unitFilter:'DEDICATED TRANSPORT').length) {
+                <p class="m-2 ps-3 font-normal text-xl">Dedicated Transports</p>
+
+                @for (unit of activeRoster.units | unitFilter:'DEDICATED TRANSPORT' | alphabetical:'name'; track unit) {
+                    <div class="m-2" (click)="openUnit(unit)">
+                        <div class="w-full bg-zinc-600 rounded relative">
+                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                            <div class="absolute top-0 right-10">
+                                <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
+                            </div>
+                            <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
+                                <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+            @if ((activeRoster.units | unitFilter:'OTHER').length) {
+                <p class="m-2 ps-3 font-normal text-xl">Other</p>
+
+                @for (unit of activeRoster.units | unitFilter:'OTHER' | alphabetical:'name'; track unit) {
+                    <div class="m-2" (click)="openUnit(unit)">
+                        <div class="w-full bg-zinc-600 rounded relative">
+                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                            <div class="absolute top-0 right-10">
+                                <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
+                            </div>
+                            <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
+                                <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
         </div>
-        <div>
-            <p class="h-10 text-center text-2xl text-zinc-800 font-normal content-center">2000</p>
+        <div class="absolute bottom-0 grid grid-cols-3 w-full bg-zinc-800">
+            <div>
+                <button class="rounded-tr-lg py-2 px-3 bg-lime-600 text-white tracking-widest font-normal w-full" routerLink="/addunit">ADD UNIT</button>
+            </div>
+            <div>
+                <p class="h-10 text-center text-2xl text-lime-400 font-normal content-center" [class.text-red-400]="calculationService.calculateRosterPoints(activeRoster) > 2000">{{calculationService.calculateRosterPoints(activeRoster)}}</p>
+            </div>
+            <div>
+                <button class="rounded-tl-lg py-2 px-3 bg-lime-600 text-white tracking-widest font-normal w-full">EXPORT</button>
+            </div>
         </div>
-        <div>
-            <button class="rounded-tl-lg py-2 px-3 bg-lime-600 text-white tracking-widest font-normal w-full">EXPORT</button>
-        </div>
-    </div>
+    }
 </div>
