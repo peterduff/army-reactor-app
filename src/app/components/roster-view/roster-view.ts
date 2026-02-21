@@ -7,18 +7,22 @@ import {Router, RouterLink} from "@angular/router";
 import {Roster} from "../../models/roster";
 import {NgIcon, provideIcons} from "@ng-icons/core";
 import {heroXMarkSolid} from "@ng-icons/heroicons/solid";
-import {heroSquare2Stack} from "@ng-icons/heroicons/outline";
+import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
+import {AlphabeticalPipe} from "../../pipes/alphabetical/alphabetical-pipe";
+import {Calculation} from "../../services/calculation/calculation";
+import {Unit} from "../../models/unit";
 
 @Component({
     selector: 'app-list',
-    imports: [NgIcon, RouterLink],
-    viewProviders: [provideIcons({heroXMarkSolid, heroSquare2Stack})],
+    imports: [NgIcon, RouterLink, UnitFilterPipe, AlphabeticalPipe],
+    viewProviders: [provideIcons({heroXMarkSolid})],
     templateUrl: './roster-view.html',
     styleUrl: './roster-view.scss',
 })
 export class RosterView implements OnInit {
-    readonly datafilesService = inject(Datafiles)
-    readonly memoryService = inject(Memory)
+    readonly datafilesService = inject(Datafiles);
+    readonly memoryService = inject(Memory);
+    readonly calculationService = inject(Calculation);
     readonly router: Router = inject(Router);
 
     books!: Book[];
@@ -44,5 +48,10 @@ export class RosterView implements OnInit {
 
     findDetachmentName(detachmentId: string): string {
         return this.findBook().detachments.find(detachment => detachment.id === detachmentId)!.name;
+    }
+
+    removeUnit(unit: Unit): void {
+        this.activeRoster.units.splice(this.activeRoster.units.indexOf(unit), 1);
+        this.memoryService.setActiveRoster(this.memoryService.cloneObject(this.activeRoster));
     }
 }

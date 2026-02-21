@@ -4,55 +4,80 @@
             <p class="mb-2">{{findBook().config.keyword}}</p>
             <p class="text-gray-300">{{findDetachmentName(activeRoster.detachmentId)}}</p>
         </div>
-        <p class="m-2 ps-3 font-normal text-xl">Characters</p>
-        <div class="m-2">
-            <div class="w-full bg-zinc-600 rounded relative">
-                <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">Huron Blackheart</p>
-                <div class="absolute top-0 right-10">
-                    <p class="h-10 text-lime-400 text-lg font-normal content-center">120</p>
+
+        @if ((activeRoster.units | unitFilter:'CHARACTER').length) {
+            <p class="m-2 ps-3 font-normal text-xl">Characters</p>
+
+            @for (unit of activeRoster.units | unitFilter:'CHARACTER' | alphabetical:'name'; track unit) {
+                <div class="m-2">
+                    <div class="w-full bg-zinc-600 rounded relative">
+                        <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                        <div class="absolute top-0 right-10">
+                            <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
+                        </div>
+                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
+                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                        </div>
+                    </div>
                 </div>
-                <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                    <ng-icon name="heroXMarkSolid" color="red" size="32" />
+            }
+        }
+
+        @if ((activeRoster.units | unitFilter:'BATTLELINE').length) {
+            <p class="m-2 ps-3 font-normal text-xl">Battleline</p>
+
+            @for (unit of activeRoster.units | unitFilter:'BATTLELINE' | alphabetical:'name'; track unit) {
+                <div class="m-2">
+                    <div class="w-full bg-zinc-600 rounded relative">
+                        <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                        <div class="absolute top-0 right-10">
+                            <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
+                        </div>
+                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
+                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <p class="m-2 ps-3 font-normal text-xl">Battleline</p>
-        <div class="m-2">
-            <div class="w-full bg-zinc-600 rounded relative">
-                <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal"><span class="text-sky-400">5x </span>Legionaries</p>
-                <div class="absolute top-0 right-10">
-                    <p class="h-10 text-lime-400 text-lg font-normal content-center">90</p>
+            }
+        }
+
+
+        @if ((activeRoster.units | unitFilter:'DEDICATED TRANSPORT').length) {
+            <p class="m-2 ps-3 font-normal text-xl">Dedicated Transports</p>
+
+            @for (unit of activeRoster.units | unitFilter:'DEDICATED TRANSPORT' | alphabetical:'name'; track unit) {
+                <div class="m-2">
+                    <div class="w-full bg-zinc-600 rounded relative">
+                        <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                        <div class="absolute top-0 right-10">
+                            <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
+                        </div>
+                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
+                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                        </div>
+                    </div>
                 </div>
-                <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                    <ng-icon name="heroXMarkSolid" color="red" size="32" />
+            }
+        }
+
+        @if ((activeRoster.units | unitFilter:'OTHER').length) {
+            <p class="m-2 ps-3 font-normal text-xl">Other</p>
+
+            @for (unit of activeRoster.units | unitFilter:'OTHER' | alphabetical:'name'; track unit) {
+                <div class="m-2">
+                    <div class="w-full bg-zinc-600 rounded relative">
+                        <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                        <div class="absolute top-0 right-10">
+                            <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
+                        </div>
+                        <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
+                            <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="m-2">
-            <div class="w-full bg-zinc-600 rounded relative">
-                <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal"><span class="text-sky-400">5x </span>Legionaries</p>
-                <div class="absolute top-0 right-10">
-                    <p class="h-10 text-lime-400 text-lg font-normal content-center">90</p>
-                </div>
-                <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                    <ng-icon name="heroXMarkSolid" color="red" size="32" />
-                </div>
-            </div>
-        </div>
-        <p class="m-2 ps-3 font-normal text-xl">Dedicated Transports</p>
-        <div class="m-2">
-            <div class="w-full bg-zinc-600 rounded relative">
-                <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">Rhino</p>
-                <div class="absolute top-0 right-10">
-                    <p class="h-10 text-lime-400 text-lg font-normal content-center">70</p>
-                </div>
-                <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center">
-                    <ng-icon name="heroXMarkSolid" color="red" size="32" />
-                </div>
-            </div>
-        </div>
-        <p class="m-2 ps-3 font-normal text-xl">Other Units</p>
-        <p class="m-2 ps-3 font-normal text-xl">Allies</p>
+            }
+        }
+
     </div>
     <div class="absolute bottom-0 grid grid-cols-3 w-full">
         <div>
