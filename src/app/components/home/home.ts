@@ -8,8 +8,8 @@ import {heroSquare2Stack} from '@ng-icons/heroicons/outline';
 import {Router, RouterLink} from '@angular/router';
 import {Roster} from "../../models/roster";
 import {Memory} from "../../services/memory/memory";
-import {ConfigFilterPipe} from "../../pipes/config-filter-pipe";
-import {RosterFilterPipe} from "../../pipes/roster-filter-pipe";
+import {ConfigFilterPipe} from "../../pipes/config-filter/config-filter-pipe";
+import {RosterFilterPipe} from "../../pipes/roster-filter/roster-filter-pipe";
 import * as uuid from "uuid";
 
 @Component({
@@ -51,6 +51,11 @@ export class Home implements OnInit {
         } else {
             console.log('core found');
         }
+    }
+
+    loadRoster(roster: Roster) {
+        this.memoryService.setActiveRoster(roster);
+        this.router.navigate(['/roster']);
     }
 
     duplicateRoster(roster: Roster) {

@@ -14,10 +14,10 @@ import {Memory} from "../../services/memory/memory";
     imports: [
         FormsModule
     ],
-    templateUrl: './new-list.html',
-    styleUrl: './new-list.scss',
+    templateUrl: './new-roster.html',
+    styleUrl: './new-roster.scss',
 })
-export class NewList implements OnInit {
+export class NewRoster implements OnInit {
     readonly datafilesService = inject(Datafiles);
     readonly memoryService = inject(Memory);
     readonly router: Router = inject(Router);
@@ -62,6 +62,6 @@ export class NewList implements OnInit {
         this.rosters ? this.rosters.push(newRoster) : this.rosters = [newRoster];
         this.memoryService.setRosters(this.rosters);
 
-        this.router.navigate(['/list']);
+        this.router.navigate(['/roster']);
     }
 }

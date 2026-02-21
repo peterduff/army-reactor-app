@@ -20,7 +20,8 @@ export class Equipment {
         public type: string,
         public options: Option[],
         public items: string[],
-        public selected: boolean
+        public selected: boolean,
+        public points?: number
     ) {
     }
 }
@@ -28,7 +29,8 @@ export class Equipment {
 export class Option {
     constructor(
         public items: string[],
-        public selected: boolean
+        public selected: boolean,
+        public points?: number
     ) {
     }
 }

@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {Roster} from "../models/roster";
+import {Roster} from "../../models/roster";
 
 @Pipe({
     name: 'rosterFilter',

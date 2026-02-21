@@ -1,8 +1,62 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Model, Unit} from "../../models/unit";
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class Calculation {
-  
+
+    constructor() {
+    }
+
+    calculateModelPoints(model: Model): number {
+        let cost = 0;
+
+        if (model?.points) {
+            cost += model?.points;
+        }
+
+        if (model?.equipment) {
+            model.equipment.forEach(equipment => {
+                equipment.options?.forEach(option => {
+                    if(option.selected && option.points) {
+                        cost += option.points;
+                    }
+                });
+
+                if(equipment.selected && equipment.points) {
+                    cost += equipment.points;
+                }
+            });
+        }
+
+        return cost;
+    }
+
+    calculateUnitPoints(unit: Unit): number {
+        let cost = 0;
+
+        // add model cost to running total
+        unit.models?.forEach((model: Model) => {
+            cost += this.calculateModelPoints(model);
+        });
+
+        if (unit.points) {
+            if (unit.models) {
+                unit.points.forEach(pointGroup => {
+                    if (unit.models) {
+                        if (unit.models.length >= pointGroup.minModels && unit.models.length <= pointGroup.maxModels) {
+                            cost += pointGroup.cost;
+                        }
+                    }
+                });
+            } else if (unit.blueprints) {
+                // unit.points.forEach(pointGroup => {
+                    cost += unit.points!.sort((a,b) => a.cost - b.cost)[0].cost;
+                // });
+            }
+        }
+
+        return cost;
+    }
 }

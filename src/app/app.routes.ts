@@ -1,13 +1,31 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {Home} from "./components/home/home";
-import {List} from "./components/list/list";
+import {RosterView} from "./components/roster-view/roster-view";
 import {AddDatafiles} from "./components/add-datafiles/add-datafiles";
-import {NewList} from "./components/new-list/new-list";
+import {NewRoster} from "./components/new-roster/new-roster";
+import {UnitView} from "./components/unit-view/unit-view";
+import {AddUnit} from "./components/add-unit/add-unit";
 
 export const routes: Routes = [
-    {path: '', component: Home},
-    {path: 'home', component: Home},
-    {path: 'list', component: List},
-    {path: 'datafiles', component: AddDatafiles},
-    {path: 'newlist', component: NewList}
+    {
+        path: '', component: Home
+    },
+    {
+        path: 'home', component: Home
+    },
+    {
+        path: 'datafiles', component: AddDatafiles
+    },
+    {
+        path: 'newroster', component: NewRoster
+    },
+    {
+        path: 'roster', component: RosterView
+    },
+    {
+        path: 'addunit', component: AddUnit
+    },
+    {
+        path: 'unitview', component: UnitView
+    }
 ];
