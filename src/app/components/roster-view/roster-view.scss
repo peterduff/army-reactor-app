@@ -5,5 +5,9 @@ div#roster-view {
 
     div#equipmentList {
         background: rgba(0,0,0,0.5);
+
+        div.anchor-center {
+            align-self: anchor-center;
+        }
     }
 }
