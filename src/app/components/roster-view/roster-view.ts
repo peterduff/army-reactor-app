@@ -10,12 +10,13 @@ import {heroXMarkSolid} from "@ng-icons/heroicons/solid";
 import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
 import {AlphabeticalPipe} from "../../pipes/alphabetical/alphabetical-pipe";
 import {Calculation} from "../../services/calculation/calculation";
-import {Equipment, Model, Unit} from "../../models/unit";
+import {Equipment, Model, Option, Unit} from "../../models/unit";
 import * as uuid from "uuid";
 import {heroSquare2Stack} from "@ng-icons/heroicons/outline";
 import {UpperCasePipe} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
 import {faSolidCheck, faSolidCaretDown} from "@ng-icons/font-awesome/solid";
+import {Export} from "../../services/export/export";
 
 @Component({
     selector: 'app-list',
@@ -27,6 +28,7 @@ import {faSolidCheck, faSolidCaretDown} from "@ng-icons/font-awesome/solid";
 export class RosterView implements OnInit {
     readonly datafilesService = inject(Datafiles);
     readonly memoryService = inject(Memory);
+    readonly exportService = inject(Export);
     readonly calculationService = inject(Calculation);
     readonly router: Router = inject(Router);
 
@@ -95,6 +97,17 @@ export class RosterView implements OnInit {
 
     concatenateItemName(items: string[]): string {
         return items.join(', ');
+    }
 
+    updateModelEquipmentDropdown(options: Option[], selectedOption: Option): void {
+        options.forEach(option => option.selected = false);
+        options.find(option => option === selectedOption)!.selected = true;
+        console.log(options);
+        this.memoryService.setActiveRoster(this.activeRoster);
+    }
+
+    updateModelEquipmentCheck(equipment: Equipment): void {
+        equipment.selected = !equipment.selected;
+        this.memoryService.setActiveRoster(this.activeRoster);
     }
 }

@@ -51,30 +51,43 @@
                                 }
                             </div>
 
-                            @for (equipment of model.equipment; track equipment) {
-                                @if (equipment.type === 'dropdown') {
+                            @for (selectedEquipment of model.equipment; track selectedEquipment.options) {
+                                @if (selectedEquipment.type === 'dropdown') {
                                     <div class="m-2">
-                                        <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
-                                            {{findSelectedDropdown(equipment)}}
+                                        <input #equipmentModal hidden type="checkbox" />
+                                        <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal" (click)="equipmentModal.value = 'open'">
+                                            {{findSelectedDropdown(selectedEquipment)}}
                                             <ng-icon class="absolute top-1.5 right-2" name="faSolidCaretDown" color="white" size="20" />
                                         </button>
+                                        @if (equipmentModal.value === 'open') {
+                                            <div id="equipmentList" class="fixed top-0 bottom-0 right-0 left-0 z-10">
+                                                <div class="fixed top-10 bottom-10 right-10 left-10 bg-white rounded z-20">
+                                                    @for (option of selectedEquipment.options; track option) {
+                                                        <button class="py-3 px-5 text-zinc-800 border-b-1 border-b-zinc-200 relative w-full tracking-wide font-normal" [class.bg-lime-400]="option.selected"
+                                                                (click)="updateModelEquipmentDropdown(selectedEquipment.options, option); equipmentModal.value = 'closed'">
+                                                            {{concatenateItemName(option.items)}}
+                                                        </button>
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
                                     </div>
                                 }
-                                @if (equipment.type === 'checkbox') {
+                                @if (selectedEquipment.type === 'checkbox') {
                                     <div class="m-2">
-                                        <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
-                                            {{concatenateItemName(equipment.items)}}
+                                        <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis" (click)="updateModelEquipmentCheck(selectedEquipment)">
+                                            {{concatenateItemName(selectedEquipment.items)}}
                                             <div class="absolute top-1.5 right-1.5 w-5 h-5 bg-white rounded"></div>
-                                            @if (equipment.selected) {
+                                            @if (selectedEquipment.selected) {
                                                 <ng-icon class="absolute top-1.5 right-1.5" name="faSolidCheck" color="#303030" size="20" />
                                             }
                                         </button>
                                     </div>
                                 }
-                                @if (equipment.type === 'text') {
+                                @if (selectedEquipment.type === 'text') {
                                     <div class="m-2">
                                         <button class="py-1 px-5 text-white bg-lime-600 rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
-                                            {{concatenateItemName(equipment.items)}}
+                                            {{concatenateItemName(selectedEquipment.items)}}
                                         </button>
                                     </div>
                                 }
@@ -177,7 +190,7 @@
                 <p class="h-10 text-center text-2xl text-lime-400 font-normal content-center" [class.text-red-400]="calculationService.calculateRosterPoints(activeRoster) > 2000">{{calculationService.calculateRosterPoints(activeRoster)}}</p>
             </div>
             <div>
-                <button class="rounded-tl-lg py-2 px-3 bg-lime-600 text-white tracking-widest font-normal w-full">EXPORT</button>
+                <button class="rounded-tl-lg py-2 px-3 bg-lime-600 text-white tracking-widest font-normal w-full" (click)="exportService.copyToClipboard()">EXPORT</button>
             </div>
         </div>
     }

@@ -1,7 +1,7 @@
 import {Component, inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {Datafiles} from "../../services/datafiles/datafiles";
-import {ToastrService} from "ngx-toastr";
+import {Toast, ToastrService} from "ngx-toastr";
 import {Core} from "../../models/core";
 import {Router} from '@angular/router';
 import {Book} from "../../models/book";
@@ -16,12 +16,13 @@ import {Subscription} from "rxjs";
 export class AddDatafiles implements OnInit {
     readonly datafilesService = inject(Datafiles);
     readonly router: Router = inject(Router);
+    readonly toastr = inject(ToastrService);
     readonly platformId = inject(PLATFORM_ID);
 
     core: Core | undefined;
     coreSubscription: Subscription;
 
-    constructor(readonly toastr: ToastrService) {
+    constructor() {
         this.coreSubscription = this.datafilesService.getCore().subscribe(data => this.core = data);
     }
 
