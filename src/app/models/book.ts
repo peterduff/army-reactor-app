@@ -6,6 +6,15 @@ export class Book {
     constructor(
         public config: Config,
         public detachments: Detachment[],
-        public units: Unit[]
+        public units: Unit[],
+        public alliances?: Alliance[]
     ){}
+}
+
+export class Alliance {
+    constructor(
+        public name: string,
+        public units: Unit[]
+    ) {
+    }
 }

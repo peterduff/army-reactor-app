@@ -2,7 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {Datafiles} from "../../services/datafiles/datafiles";
 import {Memory} from "../../services/memory/memory";
 import {Router, RouterLink} from "@angular/router";
-import {Book} from "../../models/book";
+import {Alliance, Book} from "../../models/book";
 import {Subscription} from "rxjs";
 import {Roster} from "../../models/roster";
 import {NgIcon, provideIcons} from "@ng-icons/core";
@@ -46,6 +46,47 @@ export class AddUnit implements OnInit {
         this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
 
         this.activeBook = this.books?.find(book => book.config.rulesetId === this.activeRoster.rulesetId)!;
+        this.createAlliances();
+    }
+
+    createAlliances(): void {
+        this.activeBook.alliances = [];
+        let detachmentUnitIds: string[] = this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)!.additionalDatasheets;
+
+        detachmentUnitIds.forEach(detachmentUnitId => {
+            let alliance = new Alliance('', []);
+            let book = this.books?.find(book => book.units.find(unit => unit.id === detachmentUnitId))!;
+            alliance.name = book.config.name;
+
+            book.units.forEach(unit => {
+                if (this.activeBook.alliances!.find(alliance => alliance.name === book.config.name)) {
+                    if (detachmentUnitId === unit.id) {
+                        unit.ally = true;
+                        this.activeBook.alliances!.find(alliance => alliance.name === book.config.name)!.units.push(unit);
+                    }
+                } else {
+                    if (detachmentUnitId === unit.id) {
+                        unit.ally = true;
+                        alliance.units.push(unit);
+                    }
+                }
+            });
+
+            if (!this.activeBook.alliances!.find(alliance => alliance.name === book.config.name)) {
+                this.activeBook.alliances!.push(this.memoryService.cloneObject(alliance));
+            }
+        });
+
+        this.activeBook.config.associatedRulesets.forEach(ruleset => {
+            let book = this.books.find(book => book.config.rulesetId === ruleset)!;
+            let alliance = new Alliance (book.config.name, []);
+            book.units.forEach(unit => {
+                unit.ally = true;
+                alliance.units.push(unit);
+            });
+
+            this.activeBook.alliances!.push(this.memoryService.cloneObject(alliance));
+        });
     }
 
     addUnit(unit: Unit): void {
@@ -89,25 +130,39 @@ export class AddUnit implements OnInit {
         return unit;
     }
 
-    findBook(): Book {
-        return this.books?.find(book => book.config.rulesetId === this.activeRoster.rulesetId)!;
-    }
+    findAlliances(): Alliance[] {
+        let allies: Alliance[] = [];
 
-    findAllyUnits(): Unit[] {
-        let allies: Unit[] = [];
+        let detachmentAllianceUnits: string[] = this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)!.additionalDatasheets;
 
-        let allyIds: string[] = this.findBook().detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)!.additionalDatasheets;
+        console.log(detachmentAllianceUnits);
 
-        allyIds.forEach(allyId => {
+        detachmentAllianceUnits.forEach(allyId => {
+            let alliance = new Alliance('', []);
             this.books.forEach(book => {
                 book.units.forEach(unit => {
                     if (allyId === unit.id) {
                         unit.ally = true;
-                        allies.push(unit);
+                        alliance.units.push(unit);
                     }
                 });
+                allies.push(alliance);
             });
         });
+        console.log('allies1: ', allies);
+
+        this.activeBook.config.associatedRulesets.forEach(ruleset => {
+            let book = this.books.find(book => book.config.rulesetId === ruleset)!;
+            let alliance = new Alliance (book.config.name, []);
+            book.units.forEach(unit => {
+                unit.ally = true;
+                alliance.units.push(unit);
+            });
+
+            allies.push(alliance);
+        });
+
+        console.log('allies2: ', allies);
 
         return allies;
     }

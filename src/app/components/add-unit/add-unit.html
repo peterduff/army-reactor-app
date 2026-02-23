@@ -89,27 +89,28 @@
             }
         }
 
-        @if ((findAllyUnits() | unitFilter:'ALLIES').length) {
-            <div class="border-b-1 border-b-zinc-200 relative">
-                <ng-icon class="absolute top-2.5 left-2" name="faSolidUserGroup" color="white" size="24" />
-                <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Allies</p>
-            </div>
-            @for (unit of findAllyUnits() | unitFilter:'ALLIES' | alphabetical:'name'; track unit) {
-                <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
-                    <div class="w-full rounded relative">
-                        <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
-                            @if (unitExistsInRoster(unit)) {
-                                <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
-                            }
-                            {{unit.name}}
-                        </p>
-                        <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
-                            <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+
+            @for (alliance of activeBook.alliances; track alliance.name) {
+                <div class="border-b-1 border-b-zinc-200 relative">
+                    <ng-icon class="absolute top-2.5 left-2" name="faSolidUserGroup" color="white" size="24" />
+                    <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Allies - {{alliance?.name}}</p>
+                </div>
+                @for (unit of alliance.units | unitFilter:'ALLIES' | alphabetical:'name'; track unit) {
+                    <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
+                        <div class="w-full rounded relative">
+                            <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                                @if (unitExistsInRoster(unit)) {
+                                    <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
+                                }
+                                {{unit.name}}
+                            </p>
+                            <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
+                                <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             }
-        }
 
     </div>
     <div class="absolute bottom-0 grid grid-cols-1 w-full">
