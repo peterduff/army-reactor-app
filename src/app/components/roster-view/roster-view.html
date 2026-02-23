@@ -77,7 +77,7 @@
                     </p>
                 </div>
 
-                @for (blueprint of activeUnit.blueprints; track blueprint) {
+                @for (blueprint of activeUnit.blueprints; track blueprint.name) {
                     @if (blueprint.min !== blueprint.max) {
                         <div class="w-full bg-zinc-600 relative">
                             <div class="grid grid-cols-2">
@@ -90,7 +90,7 @@
                 }
 
                 <div class="bg-zinc-600 p-2 rounded-b">
-                    @for (model of activeUnit.models | alphabetical:'name'; track model) {
+                    @for (model of activeUnit.models | alphabetical:'name'; track model.name) {
                         <div class="w-full bg-white rounded mb-2 pb-1">
                             <div class="pt-2 px-3 text-zinc-800 tracking-wide relative font-normal whitespace-nowrap overflow-clip text-ellipsis">
                                 {{model.name | uppercase}}
@@ -165,7 +165,7 @@
                     <p class="m-2 ps-10 font-normal text-xl">Characters</p>
                 </div>
 
-                @for (unit of activeRoster.units | unitFilter:'CHARACTER' | alphabetical:'name'; track unit) {
+                @for (unit of activeRoster.units | unitFilter:'CHARACTER' | alphabetical:'name'; track unit.uuid) {
                     <div class="m-2" (click)="openUnit(unit)">
                         <div class="w-full bg-zinc-600 rounded relative">
                             <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>
@@ -186,7 +186,7 @@
                     <p class="m-2 ps-10 font-normal text-xl">Battleline</p>
                 </div>
 
-                @for (unit of activeRoster.units | unitFilter:'BATTLELINE' | alphabetical:'name'; track unit) {
+                @for (unit of activeRoster.units | unitFilter:'BATTLELINE' | alphabetical:'name'; track unit.uuid) {
                     <div class="m-2" (click)="openUnit(unit)">
                         <div class="w-full bg-zinc-600 rounded relative">
                             <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>
@@ -208,7 +208,7 @@
                     <p class="m-2 ps-10 font-normal text-xl">Dedicated Transports</p>
                 </div>
 
-                @for (unit of activeRoster.units | unitFilter:'DEDICATED TRANSPORT' | alphabetical:'name'; track unit) {
+                @for (unit of activeRoster.units | unitFilter:'DEDICATED TRANSPORT' | alphabetical:'name'; track unit.uuid) {
                     <div class="m-2" (click)="openUnit(unit)">
                         <div class="w-full bg-zinc-600 rounded relative">
                             <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>
@@ -229,7 +229,7 @@
                     <p class="m-2 ps-10 font-normal text-xl">Other</p>
                 </div>
 
-                @for (unit of activeRoster.units | unitFilter:'OTHER' | alphabetical:'name'; track unit) {
+                @for (unit of activeRoster.units | unitFilter:'OTHER' | alphabetical:'name'; track unit.uuid) {
                     <div class="m-2" (click)="openUnit(unit)">
                         <div class="w-full bg-zinc-600 rounded relative">
                             <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>
@@ -250,7 +250,7 @@
                     <p class="m-2 ps-10 font-normal text-xl">Allies</p>
                 </div>
 
-                @for (unit of activeRoster.units | unitFilter:'ALLIES' | alphabetical:'name'; track unit) {
+                @for (unit of activeRoster.units | unitFilter:'ALLIES' | alphabetical:'name'; track unit.uuid) {
                     <div class="m-2" (click)="openUnit(unit)">
                         <div class="w-full bg-zinc-600 rounded relative">
                             <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>

@@ -7,7 +7,7 @@ import {RouterLink} from "@angular/router";
 
 @Component({
     selector: 'app-navbar',
-    imports: [NgOptimizedImage, NgIcon, RouterLink],
+    imports: [NgIcon, RouterLink],
     viewProviders: [provideIcons({heroBars3Solid, heroXMarkSolid, heroDocumentTextSolid, heroSquare2Stack})],
     templateUrl: './navbar.html',
     styleUrl: './navbar.scss',

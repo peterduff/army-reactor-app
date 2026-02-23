@@ -6,7 +6,7 @@
                 <ng-icon class="absolute top-2.5 left-2" name="faSolidCrown" color="white" size="24" />
                 <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Characters</p>
             </div>
-            @for (unit of activeBook.units | unitFilter:'CHARACTER' | alphabetical:'name'; track unit) {
+            @for (unit of activeBook.units | unitFilter:'CHARACTER' | alphabetical:'name'; track unit.id) {
                 <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
                     <div class="w-full rounded relative">
                         <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
@@ -28,7 +28,7 @@
                 <ng-icon class="absolute top-2 left-2" name="mynaFatArrowUpSolid" color="white" size="26" />
                 <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Battleline</p>
             </div>
-            @for (unit of activeBook.units | unitFilter:'BATTLELINE' | alphabetical:'name'; track unit) {
+            @for (unit of activeBook.units | unitFilter:'BATTLELINE' | alphabetical:'name'; track unit.id) {
                 <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
                     <div class="w-full rounded relative">
                         <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
@@ -50,7 +50,7 @@
                 <ng-icon class="absolute top-2.5 left-2" name="faSolidVanShuttle" color="white" size="24" />
                 <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Dedicated Transports</p>
             </div>
-            @for (unit of activeBook.units | unitFilter:'DEDICATED TRANSPORT' | alphabetical:'name'; track unit) {
+            @for (unit of activeBook.units | unitFilter:'DEDICATED TRANSPORT' | alphabetical:'name'; track unit.id) {
                 <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
                     <div class="w-full rounded relative">
                         <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
@@ -72,7 +72,7 @@
                 <ng-icon class="absolute top-2.5 left-2" name="faSolidBoltLightning" color="white" size="24" />
                 <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Other</p>
             </div>
-            @for (unit of activeBook.units | unitFilter:'OTHER' | alphabetical:'name'; track unit) {
+            @for (unit of activeBook.units | unitFilter:'OTHER' | alphabetical:'name'; track unit.id) {
                 <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
                     <div class="w-full rounded relative">
                         <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
@@ -95,7 +95,7 @@
                     <ng-icon class="absolute top-2.5 left-2" name="faSolidUserGroup" color="white" size="24" />
                     <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Allies - {{alliance?.name}}</p>
                 </div>
-                @for (unit of alliance.units | unitFilter:'ALLIES' | alphabetical:'name'; track unit) {
+                @for (unit of alliance.units | unitFilter:'ALLIES' | alphabetical:'name'; track unit.id) {
                     <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
                         <div class="w-full rounded relative">
                             <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
