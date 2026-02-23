@@ -36,6 +36,7 @@
                     "configurations": {
                         "production": {
                             "baseHref": "/army-reactor-app/",
+                            "deployUrl": "/army-reactor-app/",
                             "budgets": [
                                 {
                                     "type": "initial",
