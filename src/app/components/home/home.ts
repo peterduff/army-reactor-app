@@ -42,8 +42,8 @@ export class Home implements OnInit {
     ngOnInit() {
         this.datafilesService.setCore(this.datafilesService.localGetCore());
         this.datafilesService.setBooks(this.datafilesService.localGetBooks());
-        this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
         this.memoryService.setRosters(this.memoryService.localGetRosters());
+        this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
 
         if (!this.core) {
             this.router.navigate(['/datafiles']);

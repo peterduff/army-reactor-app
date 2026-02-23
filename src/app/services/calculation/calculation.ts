@@ -56,6 +56,18 @@ export class Calculation {
             }
         }
 
+        if (unit.equipment) {
+            unit.equipment.forEach(equip => {
+                if (equip.options) {
+                    if (equip.options.some(option => option.selected)) {
+                        cost += equip.options.find(option => option.selected)?.points!;
+                    }
+                } else if (equip.points){
+                    cost += equip.points;
+                }
+            });
+        }
+
         return cost;
     }
 

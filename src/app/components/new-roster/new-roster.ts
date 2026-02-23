@@ -41,6 +41,8 @@ export class NewRoster implements OnInit {
     ngOnInit() {
         this.datafilesService.setCore(this.datafilesService.localGetCore());
         this.datafilesService.setBooks(this.datafilesService.localGetBooks());
+        this.bookId = this.books[0].config.rulesetId;
+        this.detachmentId = this.findBook().detachments[0].id;
     }
 
     findBook(): Book {
@@ -53,10 +55,9 @@ export class NewRoster implements OnInit {
 
     createList(name: string) {
         let newRoster = new Roster(uuid.v4(), name ? name : this.findDetachmentName(this.detachmentId), this.bookId, this.detachmentId, []);
-        this.memoryService.setActiveRoster(newRoster);
         this.rosters ? this.rosters.push(newRoster) : this.rosters = [newRoster];
         this.memoryService.setRosters(this.rosters);
-
+        this.memoryService.setActiveRoster(newRoster);
         this.router.navigate(['/roster']);
     }
 }

@@ -11,7 +11,7 @@ import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Calculation} from "../../services/calculation/calculation";
 import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
 import {AlphabeticalPipe} from "../../pipes/alphabetical/alphabetical-pipe";
-import {Model, Unit} from "../../models/unit";
+import {Equipment, Model, Option, Unit} from "../../models/unit";
 import * as uuid from "uuid";
 
 @Component({
@@ -42,20 +42,37 @@ export class AddUnit implements OnInit {
     ngOnInit() {
         this.datafilesService.setCore(this.datafilesService.localGetCore());
         this.datafilesService.setBooks(this.datafilesService.localGetBooks());
-        this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
         this.memoryService.setRosters(this.memoryService.localGetRosters());
+        this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
 
         this.activeBook = this.books?.find(book => book.config.rulesetId === this.activeRoster.rulesetId)!;
     }
 
     addUnit(unit: Unit): void {
-        let newUnit = this.assembleUnit(unit);
+        let newUnit = this.assembleUnit(this.memoryService.cloneObject(unit));
         newUnit.uuid = uuid.v4();
         this.activeRoster.units.push(newUnit);
         this.memoryService.setActiveRoster(this.activeRoster);
     }
 
     assembleUnit(unit: Unit): Unit {
+        if (unit.keywords.includes('CHARACTER')) {
+            if (!unit.equipment) {
+                unit.equipment = [];
+            }
+
+            unit.equipment.push(new Equipment('checkbox', ['WARLORD'], undefined, false));
+
+            let enhancements: Option[] = [];
+            this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)?.enhancements.forEach(enhancement => {
+                if (this.includesAll(unit.keywords, enhancement.keywordsMustCombined)) {
+                    enhancements.push(new Option([enhancement.name], false, enhancement.points));
+                }
+            });
+
+            unit.equipment.push(new Equipment('dropdown', undefined, enhancements));
+        }
+
         if (unit.blueprints) {
             unit.models = [];
 
@@ -75,5 +92,12 @@ export class AddUnit implements OnInit {
 
     unitNumbersInRoster(item: Unit): number {
         return this.activeRoster.units.filter(unit => unit.name === item.name).length;
+    }
+
+    includesAll (arr: any[], subArr: any[]) {
+        for (let item of subArr) {
+            if (!arr.includes(item)) return false;
+        }
+        return true;
     }
 }

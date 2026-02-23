@@ -18,9 +18,9 @@ export class Unit {
 export class Equipment {
     constructor(
         public type: string,
-        public options: Option[],
-        public items: string[],
-        public selected: boolean,
+        public items?: string[],
+        public options?: Option[],
+        public selected?: boolean,
         public points?: number
     ) {
     }

@@ -48,8 +48,8 @@ export class RosterView implements OnInit {
     ngOnInit() {
         this.datafilesService.setCore(this.datafilesService.localGetCore());
         this.datafilesService.setBooks(this.datafilesService.localGetBooks());
-        this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
         this.memoryService.setRosters(this.memoryService.localGetRosters());
+        this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
     }
 
     openUnit(unit: Unit): void {
@@ -65,15 +65,17 @@ export class RosterView implements OnInit {
     }
 
     duplicateUnit(unit: Unit): void {
-        let newUnit = unit;
+        let newUnit = this.memoryService.cloneObject(unit);
         newUnit.uuid = uuid.v4();
         this.activeRoster.units.push(newUnit);
         this.memoryService.setActiveRoster(this.activeRoster);
+        this.memoryService.setActiveUnit(null);
     }
 
     removeUnit(unit: Unit): void {
         this.activeRoster.units.splice(this.activeRoster.units.indexOf(unit), 1);
         this.memoryService.setActiveRoster(this.memoryService.cloneObject(this.activeRoster));
+        this.memoryService.setActiveUnit(null);
     }
 
     addModel(unit: Unit, blueprint: Model): void {
@@ -91,18 +93,36 @@ export class RosterView implements OnInit {
     }
 
     findSelectedDropdown(equipment: Equipment): string {
-        let option = equipment.options.find(option => option.selected);
-        return this.concatenateItemName(option!.items);
+        let option = equipment.options?.find(option => option.selected);
+        if (option) {
+            return this.concatenateItemName(option!.items);
+        } else {
+            return '-';
+        }
+    }
+
+    findSelectedDropdownWithPoints(equipment: Equipment): string {
+        let option = equipment.options?.find(option => option.selected);
+        if (option) {
+            return this.concatenateItemName(option!.items) + ' [' + option?.points + ']';
+        } else {
+            return '-';
+        }
+    }
+
+    optionEnhancementName(option: Option): string {
+        return option.items.join('') + ' [' + option.points + ']';
     }
 
     concatenateItemName(items: string[]): string {
         return items.join(', ');
     }
 
-    updateModelEquipmentDropdown(options: Option[], selectedOption: Option): void {
+    updateModelEquipmentDropdown(options: Option[], selectedOption: Option | undefined): void {
         options.forEach(option => option.selected = false);
-        options.find(option => option === selectedOption)!.selected = true;
-        console.log(options);
+        if (options.some(option => option === selectedOption)) {
+            options.find(option => option === selectedOption)!.selected = true;
+        }
         this.memoryService.setActiveRoster(this.activeRoster);
     }
 

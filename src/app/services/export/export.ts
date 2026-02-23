@@ -98,12 +98,12 @@ export class Export {
 
                 if (selectedEquipment.type !== 'dropdown') {
                     if (selectedEquipment.selected) {
-                        selectedEquipment.items.forEach(item => {
+                        selectedEquipment.items?.forEach(item => {
                             equipmentStack.push(item);
                         });
                     }
                 } else {
-                    selectedEquipment.options.forEach(option => {
+                    selectedEquipment.options?.forEach(option => {
                         if (option.selected) {
                             option.items.forEach(item => {
                                 equipmentStack.push(item);
@@ -120,6 +120,34 @@ export class Export {
                     }
                 })
             });
+        });
+
+        unit.equipment?.forEach(selectedEquipment => {
+            let equipmentStack: string[] = [];
+
+            if (selectedEquipment.type !== 'dropdown') {
+                if (selectedEquipment.selected) {
+                    selectedEquipment.items?.forEach(item => {
+                        equipmentStack.push(item);
+                    });
+                }
+            } else {
+                selectedEquipment.options?.forEach(option => {
+                    if (option.selected) {
+                        option.items.forEach(item => {
+                            equipmentStack.push(item);
+                        });
+                    }
+                });
+            }
+
+            equipmentStack.forEach((equipment) => {
+                if (uniqueEquipmentStack.find(item => item.name === equipment.trim())) {
+                    uniqueEquipmentStack.find(item => item.name === equipment.trim()).count++;
+                } else {
+                    uniqueEquipmentStack.push({count: 1, name:equipment.trim()});
+                }
+            })
         });
 
         uniqueEquipmentStack.forEach(item => {

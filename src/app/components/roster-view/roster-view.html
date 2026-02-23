@@ -18,6 +18,52 @@
                     <div class="absolute top-0 right-2">
                         <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(activeUnit)}}</p>
                     </div>
+
+                    @for (selectedEquipment of activeUnit.equipment; track selectedEquipment.options) {
+                        @if (selectedEquipment.type === 'dropdown') {
+                            <div class="mx-2 pb-2">
+                                <input #equipmentModal hidden type="checkbox" />
+                                <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal" (click)="equipmentModal.value = 'open'">
+                                    {{findSelectedDropdownWithPoints(selectedEquipment)}}
+                                    <ng-icon class="absolute top-1.5 right-2" name="faSolidCaretDown" color="white" size="20" />
+                                </button>
+                                @if (equipmentModal.value === 'open') {
+                                    <div id="equipmentList" class="fixed top-0 bottom-0 right-0 left-0 z-10" (click)="equipmentModal.value = 'closed'">
+                                        <div class="fixed anchor-center right-10 left-10 bg-white overflow-clip rounded z-20">
+                                            <button class="py-3 px-5 text-zinc-800 border-b-1 border-b-zinc-200 relative w-full tracking-wide font-normal"
+                                                    (click)="updateModelEquipmentDropdown(selectedEquipment.options!, undefined); equipmentModal.value = 'closed'">
+                                                -
+                                            </button>
+                                            @for (option of selectedEquipment.options; track option; let last = $last) {
+                                                <button class="py-3 px-5 text-zinc-800 border-b-zinc-200 relative w-full tracking-wide font-normal" [class.border-b-1]="!$last" [class.bg-lime-200]="option.selected"
+                                                        (click)="updateModelEquipmentDropdown(selectedEquipment.options!, option); equipmentModal.value = 'closed'">
+                                                    {{optionEnhancementName(option)}}
+                                                </button>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        @if (selectedEquipment.type === 'checkbox') {
+                            <div class="mx-2 pb-2">
+                                <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis" (click)="updateModelEquipmentCheck(selectedEquipment)">
+                                    {{concatenateItemName(selectedEquipment.items!)}}
+                                    <div class="absolute top-1.5 right-1.5 w-5 h-5 bg-white rounded"></div>
+                                    @if (selectedEquipment.selected) {
+                                        <ng-icon class="absolute top-1.5 right-1.5" name="faSolidCheck" color="#303030" size="20" />
+                                    }
+                                </button>
+                            </div>
+                        }
+                        @if (selectedEquipment.type === 'text') {
+                            <div class="mx-2 pb-2">
+                                <button class="py-1 px-5 text-white bg-lime-600 rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                                    {{concatenateItemName(selectedEquipment.items!)}}
+                                </button>
+                            </div>
+                        }
+                    }
                 </div>
             </div>
             <div class="m-2">
@@ -60,7 +106,7 @@
                                             <ng-icon class="absolute top-1.5 right-2" name="faSolidCaretDown" color="white" size="20" />
                                         </button>
                                         @if (equipmentModal.value === 'open') {
-                                            <div id="equipmentList" class="fixed top-0 bottom-0 right-0 left-0 z-10">
+                                            <div id="equipmentList" class="fixed top-0 bottom-0 right-0 left-0 z-10" (click)="equipmentModal.value = 'closed'">
                                                 <div class="fixed anchor-center right-10 left-10 bg-white overflow-clip rounded z-20">
                                                     @for (option of selectedEquipment.options; track option; let last = $last) {
                                                         <button class="py-3 px-5 text-zinc-800 border-b-zinc-200 relative w-full tracking-wide font-normal" [class.border-b-1]="!$last" [class.bg-lime-200]="option.selected"
