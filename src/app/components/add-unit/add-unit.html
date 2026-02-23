@@ -1,84 +1,116 @@
 <div id="add-unit">
     <div class="absolute top-10 w-full h-calc overflow-auto">
-        <div class="border-b-1 border-b-zinc-200 relative">
-            <ng-icon class="absolute top-2.5 left-2" name="faSolidCrown" color="white" size="24" />
-            <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Characters</p>
-        </div>
-        @for (unit of activeBook.units | unitFilter:'CHARACTER' | alphabetical:'name'; track unit) {
-            <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
-                <div class="w-full rounded relative">
-                    <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
-                        @if (unitExistsInRoster(unit)) {
-                            <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
-                        }
-                        {{unit.name}}
-                    </p>
-                    <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
-                        <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+
+        @if ((activeBook.units | unitFilter:'CHARACTER').length) {
+            <div class="border-b-1 border-b-zinc-200 relative">
+                <ng-icon class="absolute top-2.5 left-2" name="faSolidCrown" color="white" size="24" />
+                <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Characters</p>
+            </div>
+            @for (unit of activeBook.units | unitFilter:'CHARACTER' | alphabetical:'name'; track unit) {
+                <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
+                    <div class="w-full rounded relative">
+                        <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                            @if (unitExistsInRoster(unit)) {
+                                <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
+                            }
+                            {{unit.name}}
+                        </p>
+                        <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
+                            <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         }
 
-        <div class="border-b-1 border-b-zinc-200 relative">
-            <ng-icon class="absolute top-2 left-2" name="mynaFatArrowUpSolid" color="white" size="26" />
-            <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Battleline</p>
-        </div>
-        @for (unit of activeBook.units | unitFilter:'BATTLELINE' | alphabetical:'name'; track unit) {
-            <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
-                <div class="w-full rounded relative">
-                    <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
-                        @if (unitExistsInRoster(unit)) {
-                            <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
-                        }
-                        {{unit.name}}
-                    </p>
-                    <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
-                        <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+        @if ((activeBook.units | unitFilter:'BATTLELINE').length) {
+            <div class="border-b-1 border-b-zinc-200 relative">
+                <ng-icon class="absolute top-2 left-2" name="mynaFatArrowUpSolid" color="white" size="26" />
+                <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Battleline</p>
+            </div>
+            @for (unit of activeBook.units | unitFilter:'BATTLELINE' | alphabetical:'name'; track unit) {
+                <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
+                    <div class="w-full rounded relative">
+                        <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                            @if (unitExistsInRoster(unit)) {
+                                <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
+                            }
+                            {{unit.name}}
+                        </p>
+                        <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
+                            <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         }
 
-        <div class="border-b-1 border-b-zinc-200 relative">
-            <ng-icon class="absolute top-2.5 left-2" name="faSolidVanShuttle" color="white" size="24" />
-            <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Dedicated Transports</p>
-        </div>
-        @for (unit of activeBook.units | unitFilter:'DEDICATED TRANSPORT' | alphabetical:'name'; track unit) {
-            <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
-                <div class="w-full rounded relative">
-                    <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
-                        @if (unitExistsInRoster(unit)) {
-                            <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
-                        }
-                        {{unit.name}}
-                    </p>
-                    <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
-                        <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+        @if ((activeBook.units | unitFilter:'DEDICATED TRANSPORT').length) {
+            <div class="border-b-1 border-b-zinc-200 relative">
+                <ng-icon class="absolute top-2.5 left-2" name="faSolidVanShuttle" color="white" size="24" />
+                <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Dedicated Transports</p>
+            </div>
+            @for (unit of activeBook.units | unitFilter:'DEDICATED TRANSPORT' | alphabetical:'name'; track unit) {
+                <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
+                    <div class="w-full rounded relative">
+                        <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                            @if (unitExistsInRoster(unit)) {
+                                <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
+                            }
+                            {{unit.name}}
+                        </p>
+                        <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
+                            <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         }
 
-        <div class="border-b-1 border-b-zinc-200 relative">
-            <ng-icon class="absolute top-2.5 left-2" name="faSolidBoltLightning" color="white" size="24" />
-            <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Other</p>
-        </div>
-        @for (unit of activeBook.units | unitFilter:'OTHER' | alphabetical:'name'; track unit) {
-            <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
-                <div class="w-full rounded relative">
-                    <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
-                        @if (unitExistsInRoster(unit)) {
-                            <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
-                        }
-                        {{unit.name}}
-                    </p>
-                    <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
-                        <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+        @if ((activeBook.units | unitFilter:'OTHER').length) {
+            <div class="border-b-1 border-b-zinc-200 relative">
+                <ng-icon class="absolute top-2.5 left-2" name="faSolidBoltLightning" color="white" size="24" />
+                <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Other</p>
+            </div>
+            @for (unit of activeBook.units | unitFilter:'OTHER' | alphabetical:'name'; track unit) {
+                <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
+                    <div class="w-full rounded relative">
+                        <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                            @if (unitExistsInRoster(unit)) {
+                                <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
+                            }
+                            {{unit.name}}
+                        </p>
+                        <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
+                            <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         }
+
+        @if ((findAllyUnits() | unitFilter:'ALLIES').length) {
+            <div class="border-b-1 border-b-zinc-200 relative">
+                <ng-icon class="absolute top-2.5 left-2" name="faSolidUserGroup" color="white" size="24" />
+                <p class="py-2 px-3 ps-10 w-full text-lg bg-zinc-600 text-white tracking-widest font-normal">Allies</p>
+            </div>
+            @for (unit of findAllyUnits() | unitFilter:'ALLIES' | alphabetical:'name'; track unit) {
+                <div class="border-b-1 border-b-zinc-200" [class.bg-lime-100]="unitExistsInRoster(unit)">
+                    <div class="w-full rounded relative">
+                        <p class="py-2 px-3 w-4/5 tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis">
+                            @if (unitExistsInRoster(unit)) {
+                                <span class="text-lime-600 font-normal">{{unitNumbersInRoster(unit)}}x</span>
+                            }
+                            {{unit.name}}
+                        </p>
+                        <div class="absolute top-1 right-1 w-1/5 h-8 rounded bg-lime-600 text-center content-center" (click)="addUnit(unit)">
+                            <p class="text-white text-xl font-normal content-center"><span class="text-lime-300 pe-1">+</span>{{calculationService.calculateUnitPoints(unit)}}</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
     </div>
     <div class="absolute bottom-0 grid grid-cols-1 w-full">
         <div>

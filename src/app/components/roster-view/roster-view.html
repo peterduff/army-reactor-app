@@ -30,8 +30,8 @@
                                     <ng-icon class="absolute top-1.5 right-2" name="faSolidCaretDown" color="black" size="20" />
                                 </button>
                                 @if (equipmentModal.value === 'open') {
-                                    <div id="equipmentList" class="fixed top-0 bottom-0 right-0 left-0 z-10" (click)="equipmentModal.value = 'closed'">
-                                        <div class="fixed anchor-center right-10 left-10 bg-white overflow-clip rounded z-20">
+                                    <div id="equipmentList" class="fixed content-center top-0 bottom-0 right-0 left-0 z-10" (click)="equipmentModal.value = 'closed'">
+                                        <div class="fixed self-center right-10 left-10 bg-white overflow-clip rounded z-20">
                                             <button class="py-3 px-5 text-zinc-800 border-b-1 border-b-zinc-200 relative w-full tracking-wide font-normal"
                                                     (click)="updateModelEquipmentDropdown(selectedEquipment.options!, undefined); equipmentModal.value = 'closed'">
                                                 -
@@ -103,15 +103,15 @@
 
                             @for (selectedEquipment of model.equipment; track selectedEquipment.options) {
                                 @if (selectedEquipment.type === 'dropdown') {
-                                    <div class="m-2">
+                                    <div class="m-2 relative">
                                         <input #equipmentModal hidden type="checkbox" />
                                         <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal" (click)="equipmentModal.value = 'open'">
                                             {{findSelectedDropdown(selectedEquipment)}}
                                             <ng-icon class="absolute top-1.5 right-2" name="faSolidCaretDown" color="white" size="20" />
                                         </button>
                                         @if (equipmentModal.value === 'open') {
-                                            <div id="equipmentList" class="fixed top-0 bottom-0 right-0 left-0 z-10" (click)="equipmentModal.value = 'closed'">
-                                                <div class="fixed anchor-center right-10 left-10 bg-white overflow-clip rounded z-20">
+                                            <div id="equipmentList" class="fixed content-center top-0 bottom-0 right-0 left-0 z-10 h-full" (click)="equipmentModal.value = 'closed'">
+                                                <div class="fixed self-center right-10 left-10 bg-white overflow-clip rounded z-20">
                                                     @for (option of selectedEquipment.options; track option; let last = $last) {
                                                         <button class="py-3 px-5 text-zinc-800 border-b-zinc-200 relative w-full tracking-wide font-normal" [class.border-b-1]="!$last" [class.bg-lime-200]="option.selected"
                                                                 (click)="updateModelEquipmentDropdown(selectedEquipment.options, option); equipmentModal.value = 'closed'">
@@ -230,6 +230,27 @@
                 </div>
 
                 @for (unit of activeRoster.units | unitFilter:'OTHER' | alphabetical:'name'; track unit) {
+                    <div class="m-2" (click)="openUnit(unit)">
+                        <div class="w-full bg-zinc-600 rounded relative">
+                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>
+                            <div class="absolute top-0 right-10">
+                                <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
+                            </div>
+                            <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
+                                <ng-icon name="heroXMarkSolid" color="red" size="32" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+            @if ((activeRoster.units | unitFilter:'ALLIES').length) {
+                <div class="relative">
+                    <ng-icon class="absolute left-4 top-0.5" name="faSolidUserGroup" color="black" size="24" />
+                    <p class="m-2 ps-10 font-normal text-xl">Allies</p>
+                </div>
+
+                @for (unit of activeRoster.units | unitFilter:'ALLIES' | alphabetical:'name'; track unit) {
                     <div class="m-2" (click)="openUnit(unit)">
                         <div class="w-full bg-zinc-600 rounded relative">
                             <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>

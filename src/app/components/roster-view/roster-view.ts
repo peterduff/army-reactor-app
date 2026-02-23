@@ -15,14 +15,14 @@ import * as uuid from "uuid";
 import {heroSquare2Stack} from "@ng-icons/heroicons/outline";
 import {UpperCasePipe} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
-import {faSolidCheck, faSolidCaretDown, faSolidCrown, faSolidVanShuttle, faSolidBoltLightning} from "@ng-icons/font-awesome/solid";
+import {faSolidCheck, faSolidCaretDown, faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, faSolidUserGroup} from "@ng-icons/font-awesome/solid";
 import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Export} from "../../services/export/export";
 
 @Component({
     selector: 'app-list',
     imports: [NgIcon, RouterLink, UnitFilterPipe, AlphabeticalPipe, UpperCasePipe, ReactiveFormsModule],
-    viewProviders: [provideIcons({heroXMarkSolid, heroSquare2Stack, faSolidCaretDown, faSolidCheck, faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, mynaFatArrowUpSolid})],
+    viewProviders: [provideIcons({heroXMarkSolid, heroSquare2Stack, faSolidCaretDown, faSolidCheck, faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, mynaFatArrowUpSolid, faSolidUserGroup})],
     templateUrl: './roster-view.html',
     styleUrl: './roster-view.scss',
 })
@@ -82,6 +82,7 @@ export class RosterView implements OnInit {
 
     addModel(unit: Unit, blueprint: Model): void {
         unit.models.push(blueprint);
+        unit.models = new AlphabeticalPipe().transform(unit.models, 'name');
         this.memoryService.setActiveRoster(this.activeRoster);
     }
 

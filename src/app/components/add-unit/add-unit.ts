@@ -6,7 +6,7 @@ import {Book} from "../../models/book";
 import {Subscription} from "rxjs";
 import {Roster} from "../../models/roster";
 import {NgIcon, provideIcons} from "@ng-icons/core";
-import {faSolidCrown, faSolidVanShuttle, faSolidBoltLightning} from "@ng-icons/font-awesome/solid";
+import {faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, faSolidUserGroup} from "@ng-icons/font-awesome/solid";
 import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Calculation} from "../../services/calculation/calculation";
 import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
@@ -17,7 +17,7 @@ import * as uuid from "uuid";
 @Component({
     selector: 'app-add-unit',
     imports: [NgIcon, UnitFilterPipe, AlphabeticalPipe, RouterLink],
-    viewProviders: [provideIcons({faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, mynaFatArrowUpSolid})],
+    viewProviders: [provideIcons({faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, mynaFatArrowUpSolid, faSolidUserGroup})],
     templateUrl: './add-unit.html',
     styleUrl: './add-unit.scss',
 })
@@ -87,6 +87,29 @@ export class AddUnit implements OnInit {
         }
 
         return unit;
+    }
+
+    findBook(): Book {
+        return this.books?.find(book => book.config.rulesetId === this.activeRoster.rulesetId)!;
+    }
+
+    findAllyUnits(): Unit[] {
+        let allies: Unit[] = [];
+
+        let allyIds: string[] = this.findBook().detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)!.additionalDatasheets;
+
+        allyIds.forEach(allyId => {
+            this.books.forEach(book => {
+                book.units.forEach(unit => {
+                    if (allyId === unit.id) {
+                        unit.ally = true;
+                        allies.push(unit);
+                    }
+                });
+            });
+        });
+
+        return allies;
     }
 
     unitExistsInRoster(item: Unit): boolean {

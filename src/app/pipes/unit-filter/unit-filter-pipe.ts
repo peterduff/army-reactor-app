@@ -25,10 +25,16 @@ export class UnitFilterPipe implements PipeTransform {
                     !item.keywords.includes('CHARACTER')) {
                     units.push(item);
                 }
-            } else {
+            } else if (unitType === 'OTHER') {
                 if (!item.keywords.includes('DEDICATED TRANSPORT') &&
                     !item.keywords.includes('BATTLELINE') &&
                     !item.keywords.includes('CHARACTER')) {
+                    if (!item.ally) {
+                        units.push(item);
+                    }
+                }
+            } else if (unitType === 'ALLIES') {
+                if (item.ally) {
                     units.push(item);
                 }
             }

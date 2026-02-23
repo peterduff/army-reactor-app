@@ -98,7 +98,7 @@ export class Export {
                 let equipmentStack: string[] = [];
 
                 if (selectedEquipment.type !== 'dropdown') {
-                    if (selectedEquipment.selected) {
+                    if (selectedEquipment.selected || selectedEquipment.type === 'text') {
                         selectedEquipment.items?.forEach(item => {
                             equipmentStack.push(item);
                         });
@@ -127,7 +127,7 @@ export class Export {
             let equipmentStack: string[] = [];
 
             if (selectedEquipment.type !== 'dropdown') {
-                if (selectedEquipment.selected) {
+                if (selectedEquipment.selected || selectedEquipment.type === 'text') {
                     selectedEquipment.items?.forEach(item => {
                         equipmentStack.push(item);
                     });

@@ -40,7 +40,7 @@ export class App implements OnInit {
             this.datafilesService.httpGetCore(this.core.path + 'core.json').subscribe({
                 next: (data) => {
                     if(data.enabled) {
-                        if (data.version > this.core.version) {
+                        if (parseInt(data.version, 10) > parseInt(this.core.version, 10)) {
                             this.updateModal = true;
                             this.temporaryCore = data;
                         }
@@ -57,7 +57,7 @@ export class App implements OnInit {
 
         let books = [];
 
-        core.configs.forEach(config => {
+        this.temporaryCore.configs.forEach(config => {
             this.datafilesService.httpGetBook(core.path + config.endpoint).subscribe({
                 next: (data) => {
                     books.push(data);

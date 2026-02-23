@@ -10,7 +10,8 @@ export class Unit {
         public equipment?: Equipment[],
         public uuid?: string,
         public points?: Points[],
-        public blueprints?: Model[]
+        public blueprints?: Model[],
+        public ally?: boolean
     ) {
     }
 }
