@@ -21,7 +21,8 @@ export class Equipment {
         public items?: string[],
         public options?: Option[],
         public selected?: boolean,
-        public points?: number
+        public points?: number,
+        public color?: string
     ) {
     }
 }

@@ -53,6 +53,10 @@ export class NewRoster implements OnInit {
         return this.findBook().detachments.find(detachment => detachment.id === detachmentId)!.name;
     }
 
+    updateDetachmentIdDefault(): void {
+        this.detachmentId = this.findBook().detachments[0].id;
+    }
+
     createList(name: string) {
         let newRoster = new Roster(uuid.v4(), name ? name : this.findDetachmentName(this.detachmentId), this.bookId, this.detachmentId, []);
         this.rosters ? this.rosters.push(newRoster) : this.rosters = [newRoster];

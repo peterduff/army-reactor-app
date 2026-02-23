@@ -23,9 +23,11 @@
                         @if (selectedEquipment.type === 'dropdown') {
                             <div class="mx-2 pb-2">
                                 <input #equipmentModal hidden type="checkbox" />
-                                <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal" (click)="equipmentModal.value = 'open'">
+                                <button class="py-1 px-5 text-white relative rounded w-full tracking-wide font-normal" (click)="equipmentModal.value = 'open'"
+                                        [class.bg-lime-600]="!selectedEquipment?.color"
+                                        [class.bg-sky-600]="selectedEquipment?.color === 'yellow'">
                                     {{findSelectedDropdownWithPoints(selectedEquipment)}}
-                                    <ng-icon class="absolute top-1.5 right-2" name="faSolidCaretDown" color="white" size="20" />
+                                    <ng-icon class="absolute top-1.5 right-2" name="faSolidCaretDown" color="black" size="20" />
                                 </button>
                                 @if (equipmentModal.value === 'open') {
                                     <div id="equipmentList" class="fixed top-0 bottom-0 right-0 left-0 z-10" (click)="equipmentModal.value = 'closed'">
@@ -47,7 +49,9 @@
                         }
                         @if (selectedEquipment.type === 'checkbox') {
                             <div class="mx-2 pb-2">
-                                <button class="py-1 px-5 text-white bg-lime-600 relative rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis" (click)="updateModelEquipmentCheck(selectedEquipment)">
+                                <button class="py-1 px-5 text-white relative rounded w-full tracking-wide font-normal whitespace-nowrap overflow-clip text-ellipsis" (click)="updateModelEquipmentCheck(selectedEquipment)"
+                                        [class.bg-lime-600]="!selectedEquipment?.color"
+                                        [class.bg-red-700]="selectedEquipment?.color === 'red'">
                                     {{concatenateItemName(selectedEquipment.items!)}}
                                     <div class="absolute top-1.5 right-1.5 w-5 h-5 bg-white rounded"></div>
                                     @if (selectedEquipment.selected) {
@@ -156,12 +160,15 @@
             </div>
 
             @if ((activeRoster.units | unitFilter:'CHARACTER').length) {
-                <p class="m-2 ps-3 font-normal text-xl">Characters</p>
+                <div class="relative">
+                    <ng-icon class="absolute left-4 top-0.5" name="faSolidCrown" color="black" size="24" />
+                    <p class="m-2 ps-10 font-normal text-xl">Characters</p>
+                </div>
 
                 @for (unit of activeRoster.units | unitFilter:'CHARACTER' | alphabetical:'name'; track unit) {
                     <div class="m-2" (click)="openUnit(unit)">
                         <div class="w-full bg-zinc-600 rounded relative">
-                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>
                             <div class="absolute top-0 right-10">
                                 <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
                             </div>
@@ -174,12 +181,15 @@
             }
 
             @if ((activeRoster.units | unitFilter:'BATTLELINE').length) {
-                <p class="m-2 ps-3 font-normal text-xl">Battleline</p>
+                <div class="relative">
+                    <ng-icon class="absolute left-4 top-0.5" name="mynaFatArrowUpSolid" color="black" size="24" />
+                    <p class="m-2 ps-10 font-normal text-xl">Battleline</p>
+                </div>
 
                 @for (unit of activeRoster.units | unitFilter:'BATTLELINE' | alphabetical:'name'; track unit) {
                     <div class="m-2" (click)="openUnit(unit)">
                         <div class="w-full bg-zinc-600 rounded relative">
-                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>
                             <div class="absolute top-0 right-10">
                                 <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
                             </div>
@@ -193,12 +203,15 @@
 
 
             @if ((activeRoster.units | unitFilter:'DEDICATED TRANSPORT').length) {
-                <p class="m-2 ps-3 font-normal text-xl">Dedicated Transports</p>
+                <div class="relative">
+                    <ng-icon class="absolute left-4 top-0.5" name="faSolidVanShuttle" color="black" size="24" />
+                    <p class="m-2 ps-10 font-normal text-xl">Dedicated Transports</p>
+                </div>
 
                 @for (unit of activeRoster.units | unitFilter:'DEDICATED TRANSPORT' | alphabetical:'name'; track unit) {
                     <div class="m-2" (click)="openUnit(unit)">
                         <div class="w-full bg-zinc-600 rounded relative">
-                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>
                             <div class="absolute top-0 right-10">
                                 <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
                             </div>
@@ -211,12 +224,15 @@
             }
 
             @if ((activeRoster.units | unitFilter:'OTHER').length) {
-                <p class="m-2 ps-3 font-normal text-xl">Other</p>
+                <div class="relative">
+                    <ng-icon class="absolute left-4 top-0.5" name="faSolidBoltLightning" color="black" size="24" />
+                    <p class="m-2 ps-10 font-normal text-xl">Other</p>
+                </div>
 
                 @for (unit of activeRoster.units | unitFilter:'OTHER' | alphabetical:'name'; track unit) {
                     <div class="m-2" (click)="openUnit(unit)">
                         <div class="w-full bg-zinc-600 rounded relative">
-                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal">{{unit.name}}</p>
+                            <p class="py-2 px-3 w-3/4 text-white tracking-widest font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.name}}</p>
                             <div class="absolute top-0 right-10">
                                 <p class="h-10 text-lime-400 text-lg font-normal content-center">{{calculationService.calculateUnitPoints(unit)}}</p>
                             </div>

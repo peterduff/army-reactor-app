@@ -15,13 +15,14 @@ import * as uuid from "uuid";
 import {heroSquare2Stack} from "@ng-icons/heroicons/outline";
 import {UpperCasePipe} from "@angular/common";
 import {ReactiveFormsModule} from "@angular/forms";
-import {faSolidCheck, faSolidCaretDown} from "@ng-icons/font-awesome/solid";
+import {faSolidCheck, faSolidCaretDown, faSolidCrown, faSolidVanShuttle, faSolidBoltLightning} from "@ng-icons/font-awesome/solid";
+import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Export} from "../../services/export/export";
 
 @Component({
     selector: 'app-list',
     imports: [NgIcon, RouterLink, UnitFilterPipe, AlphabeticalPipe, UpperCasePipe, ReactiveFormsModule],
-    viewProviders: [provideIcons({heroXMarkSolid, heroSquare2Stack, faSolidCaretDown, faSolidCheck})],
+    viewProviders: [provideIcons({heroXMarkSolid, heroSquare2Stack, faSolidCaretDown, faSolidCheck, faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, mynaFatArrowUpSolid})],
     templateUrl: './roster-view.html',
     styleUrl: './roster-view.scss',
 })
@@ -68,6 +69,7 @@ export class RosterView implements OnInit {
         let newUnit = this.memoryService.cloneObject(unit);
         newUnit.uuid = uuid.v4();
         this.activeRoster.units.push(newUnit);
+        this.activeRoster.units = new AlphabeticalPipe().transform(this.activeRoster.units, 'name');
         this.memoryService.setActiveRoster(this.activeRoster);
         this.memoryService.setActiveUnit(null);
     }

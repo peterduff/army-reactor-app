@@ -1,0 +1,9 @@
+div#app {
+    div.h-calc {
+        height: calc(100vh - 40px);
+    }
+
+    div#updateModal {
+        background: rgba(0,0,0,0.5);
+    }
+}

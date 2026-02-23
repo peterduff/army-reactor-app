@@ -6,6 +6,7 @@ import {Core} from "../../models/core";
 import {Router} from '@angular/router';
 import {Book} from "../../models/book";
 import {Subscription} from "rxjs";
+import {Memory} from "../../services/memory/memory";
 
 @Component({
   selector: 'app-add-datafiles',
@@ -16,6 +17,7 @@ import {Subscription} from "rxjs";
 export class AddDatafiles implements OnInit {
     readonly datafilesService = inject(Datafiles);
     readonly router: Router = inject(Router);
+    readonly memoryService = inject(Memory);
     readonly toastr = inject(ToastrService);
     readonly platformId = inject(PLATFORM_ID);
 
@@ -27,7 +29,10 @@ export class AddDatafiles implements OnInit {
     }
 
     ngOnInit(): void {
-
+        // this.datafilesService.setCore(this.datafilesService.localGetCore());
+        // this.datafilesService.setBooks(this.datafilesService.localGetBooks());
+        // this.memoryService.setRosters(this.memoryService.localGetRosters());
+        // this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
     }
 
     addDatafiles(core: string, coreUrl: string) {
@@ -35,7 +40,7 @@ export class AddDatafiles implements OnInit {
             next: (data) => {
                 if(data.enabled) {
                     this.setupCore(data);
-                    this.toastr.success(data.name, 'ADDED');
+                    this.toastr.success('CORE ADDED');
                     this.router.navigate(['/home']);
                 }
             }

@@ -52,25 +52,28 @@ export class AddUnit implements OnInit {
         let newUnit = this.assembleUnit(this.memoryService.cloneObject(unit));
         newUnit.uuid = uuid.v4();
         this.activeRoster.units.push(newUnit);
+        this.activeRoster.units = new AlphabeticalPipe().transform(this.activeRoster.units, 'name');
         this.memoryService.setActiveRoster(this.activeRoster);
     }
 
     assembleUnit(unit: Unit): Unit {
+        if (!unit.equipment) {
+            unit.equipment = [];
+        }
+
         if (unit.keywords.includes('CHARACTER')) {
-            if (!unit.equipment) {
-                unit.equipment = [];
+            unit.equipment.push(new Equipment('checkbox', ['WARLORD'], undefined, false, undefined, 'red'));
+
+            if (!unit.keywords.includes('EPIC HERO')) {
+                let enhancements: Option[] = [];
+                this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)?.enhancements.forEach(enhancement => {
+                    if (this.includesAll(unit.keywords, enhancement.keywordsMustCombined)) {
+                        enhancements.push(new Option([enhancement.name], false, enhancement.points));
+                    }
+                });
+
+                unit.equipment.push(new Equipment('dropdown', undefined, enhancements, undefined, undefined, 'yellow'));
             }
-
-            unit.equipment.push(new Equipment('checkbox', ['WARLORD'], undefined, false));
-
-            let enhancements: Option[] = [];
-            this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)?.enhancements.forEach(enhancement => {
-                if (this.includesAll(unit.keywords, enhancement.keywordsMustCombined)) {
-                    enhancements.push(new Option([enhancement.name], false, enhancement.points));
-                }
-            });
-
-            unit.equipment.push(new Equipment('dropdown', undefined, enhancements));
         }
 
         if (unit.blueprints) {
