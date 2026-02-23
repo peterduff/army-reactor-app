@@ -33,7 +33,7 @@ jobs:
                     node-version: 24
 
             -   name: Install Dependencies
-                run: npm install
+                run: npm ci
 
             -   name: Build Angular App
                 run: npm run build
