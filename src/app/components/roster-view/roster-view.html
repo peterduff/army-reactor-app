@@ -80,7 +80,7 @@
                 @for (blueprint of activeUnit.blueprints; track blueprint.name) {
                     @if (blueprint.min !== blueprint.max) {
                         <div class="w-full bg-zinc-600 relative">
-                            <div class="grid grid-cols-2">
+                            <div class="grid grid-cols-1">
                                 <button [disabled]="activeUnit.models.length > blueprint.max" class="rounded py-1 px-3 bg-lime-600 mx-2 font-normal text-white relative tracking-widest font-normal" (click)="addModel(activeUnit, blueprint)">
                                     <span class="text-lime-300 text-lg pe-1">+</span>{{blueprint.name | uppercase}}
                                 </button>
