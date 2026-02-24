@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {BehaviorSubject, Observable, Subject, Subscription} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {Core} from "../../models/core";
 import {Book} from "../../models/book";
 
@@ -13,13 +13,11 @@ export class Datafiles {
     readonly books = new BehaviorSubject<Book[]>([]);
 
     _books: Book[] = [];
-    booksSubscription: Subscription;
     _core!: Core;
-    coreSubscription: Subscription;
 
     constructor(readonly http: HttpClient) {
-        this.booksSubscription = this.getBooks().subscribe( data => this._books = data);
-        this.coreSubscription = this.getCore().subscribe( data => this._core = data);
+        this.getBooks().subscribe( data => this._books = data);
+        this.getCore().subscribe( data => this._core = data);
 
     }
 

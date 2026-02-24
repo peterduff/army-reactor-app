@@ -1,11 +1,9 @@
-import {Component, inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {Datafiles} from "../../services/datafiles/datafiles";
-import {Toast, ToastrService} from "ngx-toastr";
+import {ToastrService} from "ngx-toastr";
 import {Core} from "../../models/core";
 import {Router} from '@angular/router';
-import {Book} from "../../models/book";
-import {Subscription} from "rxjs";
 import {Memory} from "../../services/memory/memory";
 
 @Component({
@@ -19,20 +17,18 @@ export class AddDatafiles implements OnInit {
     readonly router: Router = inject(Router);
     readonly memoryService = inject(Memory);
     readonly toastr = inject(ToastrService);
-    readonly platformId = inject(PLATFORM_ID);
 
     core: Core | undefined;
-    coreSubscription: Subscription;
 
     constructor() {
-        this.coreSubscription = this.datafilesService.getCore().subscribe(data => this.core = data);
+        this.datafilesService.getCore().subscribe(data => this.core = data);
     }
 
     ngOnInit(): void {
-        // this.datafilesService.setCore(this.datafilesService.localGetCore());
-        // this.datafilesService.setBooks(this.datafilesService.localGetBooks());
-        // this.memoryService.setRosters(this.memoryService.localGetRosters());
-        // this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
+        this.datafilesService.setCore(this.datafilesService.localGetCore());
+        this.datafilesService.setBooks(this.datafilesService.localGetBooks());
+        this.memoryService.setRosters(this.memoryService.localGetRosters());
+        this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
     }
 
     addDatafiles(core: string, coreUrl: string) {

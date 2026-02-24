@@ -2,9 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
 import {Navbar} from "./components/navbar/navbar";
 import {Datafiles} from "./services/datafiles/datafiles";
-import {Memory} from "./services/memory/memory";
 import {Core} from "./models/core";
-import {Subscription} from "rxjs";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
@@ -15,18 +13,16 @@ import {ToastrService} from "ngx-toastr";
 })
 export class App implements OnInit {
     readonly datafilesService = inject(Datafiles);
-    readonly memoryService = inject(Memory);
     readonly router: Router = inject(Router);
     readonly toastr = inject(ToastrService);
 
     core!: Core;
-    coreSubscription: Subscription;
 
     updateModal: boolean = false;
     temporaryCore!: Core;
 
     constructor() {
-        this.coreSubscription = this.datafilesService.getCore().subscribe(data => this.core = data);
+        this.datafilesService.getCore().subscribe(data => this.core = data);
     }
 
     ngOnInit() {

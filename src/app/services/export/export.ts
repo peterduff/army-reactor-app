@@ -2,7 +2,6 @@ import {inject, Injectable} from '@angular/core';
 import {Roster} from "../../models/roster";
 import {ToastrService} from "ngx-toastr";
 import {Book} from "../../models/book";
-import {Subscription} from "rxjs";
 import {Datafiles} from "../datafiles/datafiles";
 import {Memory} from "../memory/memory";
 import {Calculation} from "../calculation/calculation";
@@ -19,13 +18,11 @@ export class Export {
     readonly calculationService = inject(Calculation);
 
     books!: Book[];
-    booksSubscription: Subscription;
     activeRoster!: Roster;
-    activeRosterSubscription: Subscription;
 
     constructor() {
-        this.booksSubscription = this.datafilesService.getBooks().subscribe(data => this.books = data);
-        this.activeRosterSubscription = this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
+        this.datafilesService.getBooks().subscribe(data => this.books = data);
+        this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
     }
 
     copyToClipboard(): void {

@@ -1,6 +1,6 @@
 import {inject, Injectable} from '@angular/core';
 import {Book} from "../../models/book";
-import {BehaviorSubject, Observable, Subject, Subscription} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {Core} from "../../models/core";
 import {Roster} from "../../models/roster";
 import {Datafiles} from "../datafiles/datafiles";
@@ -17,16 +17,13 @@ export class Memory {
     readonly rosters = new BehaviorSubject<Roster[]>([]);
 
     books: Book[] = [];
-    booksSubscription: Subscription;
     core!: Core;
-    coreSubscription: Subscription;
     _rosters!: Roster[];
-    _rostersSubscription: Subscription;
 
     constructor() {
-        this.booksSubscription = this.datafilesService.getBooks().subscribe( data => this.books = data);
-        this.coreSubscription = this.datafilesService.getCore().subscribe( data => this.core = data);
-        this._rostersSubscription = this.getRosters().subscribe( data => this._rosters = data);
+        this.datafilesService.getBooks().subscribe( data => this.books = data);
+        this.datafilesService.getCore().subscribe( data => this.core = data);
+        this.getRosters().subscribe( data => this._rosters = data);
     }
 
     setActiveRoster(activeRoster: Roster): void {

@@ -1,6 +1,5 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {Core} from "../../models/core";
-import {Subscription} from "rxjs";
 import {Datafiles} from "../../services/datafiles/datafiles";
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {heroBars3Solid, heroXMarkSolid, heroDocumentTextSolid} from '@ng-icons/heroicons/solid';
@@ -25,18 +24,15 @@ export class Home implements OnInit {
     readonly router: Router = inject(Router);
 
     core!: Core;
-    coreSubscription: Subscription;
     activeRoster!: Roster ;
-    activeRosterSubscription: Subscription;
     rosters!: Roster[] ;
-    rostersSubscription: Subscription;
 
     deleteId!: string;
 
     constructor() {
-        this.coreSubscription = this.datafilesService.getCore().subscribe(data => this.core = data);
-        this.activeRosterSubscription = this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
-        this.rostersSubscription = this.memoryService.getRosters().subscribe(data => this.rosters = data);
+        this.datafilesService.getCore().subscribe(data => this.core = data);
+        this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
+        this.memoryService.getRosters().subscribe(data => this.rosters = data);
     }
 
     ngOnInit() {

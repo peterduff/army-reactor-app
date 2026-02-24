@@ -1,7 +1,6 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Core} from "../../models/core";
-import {Subscription} from "rxjs";
 import {Datafiles} from "../../services/datafiles/datafiles";
 import {Book} from "../../models/book";
 import {FormsModule} from "@angular/forms";
@@ -23,19 +22,16 @@ export class NewRoster implements OnInit {
     readonly router: Router = inject(Router);
 
     core!: Core;
-    coreSubscription: Subscription;
     books!: Book[];
-    booksSubscription: Subscription;
     rosters!: Roster[] ;
-    rostersSubscription: Subscription;
 
     bookId!: string;
     detachmentId!: string;
 
     constructor() {
-        this.coreSubscription = this.datafilesService.getCore().subscribe(data => this.core = data);
-        this.booksSubscription = this.datafilesService.getBooks().subscribe(data => this.books = data);
-        this.rostersSubscription = this.memoryService.getRosters().subscribe(data => this.rosters = data);
+        this.datafilesService.getCore().subscribe(data => this.core = data);
+        this.datafilesService.getBooks().subscribe(data => this.books = data);
+        this.memoryService.getRosters().subscribe(data => this.rosters = data);
     }
 
     ngOnInit() {

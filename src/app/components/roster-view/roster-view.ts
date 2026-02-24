@@ -1,6 +1,5 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {Book} from "../../models/book";
-import {Subscription} from "rxjs";
 import {Datafiles} from "../../services/datafiles/datafiles";
 import {Memory} from "../../services/memory/memory";
 import {Router, RouterLink} from "@angular/router";
@@ -34,18 +33,15 @@ export class RosterView implements OnInit {
     readonly router: Router = inject(Router);
 
     books!: Book[];
-    booksSubscription: Subscription;
     activeRoster!: Roster;
-    activeRosterSubscription: Subscription;
     activeUnit!: Unit;
-    activeUnitSubscription: Subscription;
 
     deleteId!: string;
 
     constructor() {
-        this.booksSubscription = this.datafilesService.getBooks().subscribe(data => this.books = data);
-        this.activeRosterSubscription = this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
-        this.activeUnitSubscription = this.memoryService.getActiveUnit().subscribe(data => this.activeUnit = data);
+        this.datafilesService.getBooks().subscribe(data => this.books = data);
+        this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
+        this.memoryService.getActiveUnit().subscribe(data => this.activeUnit = data);
     }
 
     ngOnInit() {

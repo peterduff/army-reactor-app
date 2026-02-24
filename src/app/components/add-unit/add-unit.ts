@@ -3,7 +3,6 @@ import {Datafiles} from "../../services/datafiles/datafiles";
 import {Memory} from "../../services/memory/memory";
 import {Router} from "@angular/router";
 import {Alliance, Book} from "../../models/book";
-import {Subscription} from "rxjs";
 import {Roster} from "../../models/roster";
 import {NgIcon, provideIcons} from "@ng-icons/core";
 import {faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, faSolidUserGroup} from "@ng-icons/font-awesome/solid";
@@ -11,7 +10,7 @@ import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Calculation} from "../../services/calculation/calculation";
 import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
 import {AlphabeticalPipe} from "../../pipes/alphabetical/alphabetical-pipe";
-import {Equipment, Model, Option, Unit} from "../../models/unit";
+import {Equipment, Option, Unit} from "../../models/unit";
 import * as uuid from "uuid";
 
 @Component({
@@ -28,15 +27,13 @@ export class AddUnit implements OnInit {
     readonly router: Router = inject(Router);
 
     books!: Book[];
-    booksSubscription: Subscription;
     activeRoster!: Roster;
-    activeRosterSubscription: Subscription;
 
     activeBook!: Book;
 
     constructor() {
-        this.booksSubscription = this.datafilesService.getBooks().subscribe(data => this.books = data);
-        this.activeRosterSubscription = this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
+        this.datafilesService.getBooks().subscribe(data => this.books = data);
+        this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
     }
 
     ngOnInit() {
