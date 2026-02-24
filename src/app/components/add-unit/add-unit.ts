@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {Datafiles} from "../../services/datafiles/datafiles";
 import {Memory} from "../../services/memory/memory";
-import {Router, RouterLink} from "@angular/router";
+import {Router} from "@angular/router";
 import {Alliance, Book} from "../../models/book";
 import {Subscription} from "rxjs";
 import {Roster} from "../../models/roster";
@@ -16,7 +16,7 @@ import * as uuid from "uuid";
 
 @Component({
     selector: 'app-add-unit',
-    imports: [NgIcon, UnitFilterPipe, AlphabeticalPipe, RouterLink],
+    imports: [NgIcon, UnitFilterPipe, AlphabeticalPipe],
     viewProviders: [provideIcons({faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, mynaFatArrowUpSolid, faSolidUserGroup})],
     templateUrl: './add-unit.html',
     styleUrl: './add-unit.scss',

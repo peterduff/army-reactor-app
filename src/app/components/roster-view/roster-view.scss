@@ -3,7 +3,7 @@ div#roster-view {
         height: calc(100vh - 80px);
     }
 
-    div#equipmentList {
+    div#equipmentList, div#deleteUnit {
         background: rgba(0,0,0,0.5);
     }
 }

@@ -40,6 +40,8 @@ export class RosterView implements OnInit {
     activeUnit!: Unit;
     activeUnitSubscription: Subscription;
 
+    deleteId!: string;
+
     constructor() {
         this.booksSubscription = this.datafilesService.getBooks().subscribe(data => this.books = data);
         this.activeRosterSubscription = this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
@@ -78,6 +80,7 @@ export class RosterView implements OnInit {
         this.activeRoster.units.splice(this.activeRoster.units.indexOf(unit), 1);
         this.memoryService.setActiveRoster(this.memoryService.cloneObject(this.activeRoster));
         this.memoryService.setActiveUnit(null);
+        this.deleteId = '';
     }
 
     addModel(unit: Unit, blueprint: Model): void {
