@@ -10,28 +10,26 @@ export class UnitFilterPipe implements PipeTransform {
         let units: Unit[] = [];
 
         items.forEach(item => {
-            if (unitType === 'CHARACTER') {
+            if (unitType === 'CHARACTER' && !item.ally) {
                 if (item.keywords.includes('CHARACTER')) {
                     units.push(item);
                 }
-            } else if (unitType === 'BATTLELINE') {
+            } else if (unitType === 'BATTLELINE' && !item.ally) {
                 if (item.keywords.includes('BATTLELINE') &&
                     !item.keywords.includes('CHARACTER')) {
                     units.push(item);
                 }
-            } else if (unitType === 'DEDICATED TRANSPORT') {
+            } else if (unitType === 'DEDICATED TRANSPORT' && !item.ally) {
                 if (item.keywords.includes('DEDICATED TRANSPORT') &&
                     !item.keywords.includes('BATTLELINE') &&
                     !item.keywords.includes('CHARACTER')) {
                     units.push(item);
                 }
-            } else if (unitType === 'OTHER') {
+            } else if (unitType === 'OTHER' && !item.ally) {
                 if (!item.keywords.includes('DEDICATED TRANSPORT') &&
                     !item.keywords.includes('BATTLELINE') &&
                     !item.keywords.includes('CHARACTER')) {
-                    if (!item.ally) {
-                        units.push(item);
-                    }
+                    units.push(item);
                 }
             } else if (unitType === 'ALLIES') {
                 if (item.ally) {
