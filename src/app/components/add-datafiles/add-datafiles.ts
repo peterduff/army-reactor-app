@@ -29,6 +29,7 @@ export class AddDatafiles implements OnInit {
         this.datafilesService.setBooks(this.datafilesService.localGetBooks());
         this.memoryService.setRosters(this.memoryService.localGetRosters());
         this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
+        this.memoryService.setActiveUnit(this.memoryService.localGetActiveUnit());
     }
 
     addDatafiles(core: string, coreUrl: string) {

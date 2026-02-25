@@ -4,6 +4,7 @@ import {RosterView} from "./components/roster-view/roster-view";
 import {AddDatafiles} from "./components/add-datafiles/add-datafiles";
 import {NewRoster} from "./components/new-roster/new-roster";
 import {AddUnit} from "./components/add-unit/add-unit";
+import {UnitView} from "./components/unit-view/unit-view";
 
 export const routes: Routes = [
     {
@@ -23,5 +24,8 @@ export const routes: Routes = [
     },
     {
         path: 'addunit', component: AddUnit
+    },
+    {
+        path: 'unit', component: UnitView
     }
 ];

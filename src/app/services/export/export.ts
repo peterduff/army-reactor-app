@@ -8,8 +8,7 @@ import {Calculation} from "../calculation/calculation";
 import {Unit} from "../../models/unit";
 
 @Injectable({
-    providedIn: 'root',
-
+    providedIn: 'root'
 })
 export class Export {
     readonly toastr = inject(ToastrService);

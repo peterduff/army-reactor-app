@@ -19,11 +19,13 @@ export class Memory {
     books: Book[] = [];
     core!: Core;
     _rosters!: Roster[];
+    _activeRoster!: Roster;
 
     constructor() {
         this.datafilesService.getBooks().subscribe( data => this.books = data);
         this.datafilesService.getCore().subscribe( data => this.core = data);
         this.getRosters().subscribe( data => this._rosters = data);
+        this.getActiveRoster().subscribe( data => this._activeRoster = data);
     }
 
     setActiveRoster(activeRoster: Roster): void {
@@ -58,10 +60,19 @@ export class Memory {
 
     setActiveUnit(unit: Unit | null): void {
         this.activeUnit.next(unit!);
+        localStorage.setItem('activeUnit', JSON.stringify(unit));
+
+        let targetUnit = this._activeRoster.units.find(u => u.uuid === unit!.uuid);
+        this._activeRoster.units.splice(this._activeRoster.units.indexOf(targetUnit!), 1, unit!);
+        this.setActiveRoster(this._activeRoster);
     }
 
     getActiveUnit(): Observable<Unit> {
         return this.activeUnit.asObservable();
+    }
+
+    localGetActiveUnit(): Unit {
+        return JSON.parse(localStorage.getItem('activeUnit')!);
     }
 
     cloneObject(object: any): any {

@@ -39,7 +39,6 @@ export class Home implements OnInit {
         this.datafilesService.setCore(this.datafilesService.localGetCore());
         this.datafilesService.setBooks(this.datafilesService.localGetBooks());
         this.memoryService.setRosters(this.memoryService.localGetRosters());
-        this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
 
         if (!this.core) {
             this.router.navigate(['/datafiles']);
@@ -61,7 +60,7 @@ export class Home implements OnInit {
     }
 
     deleteRoster(uuid: string): void {
-        let targetRoster = this.rosters.find(roster => roster.uuid === uuid);
+        let targetRoster: Roster = this.rosters.find(roster => roster.uuid === uuid)!;
         this.rosters.splice(this.rosters.indexOf(targetRoster!), 1);
         this.memoryService.setRosters(this.memoryService.cloneObject(this.rosters));
         this.deleteId = '';
