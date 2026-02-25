@@ -58,11 +58,12 @@ export class Memory {
         return JSON.parse(localStorage.getItem('rosters')!);
     }
 
-    setActiveUnit(unit: Unit | null): void {
+    setActiveUnit(unit: Unit): void {
         this.activeUnit.next(unit!);
         localStorage.setItem('activeUnit', JSON.stringify(unit));
 
-        let targetUnit = this._activeRoster.units.find(u => u.uuid === unit!.uuid);
+        this._activeRoster.units = this._activeRoster.units.filter(unit => unit !== null);
+        let targetUnit = this._activeRoster.units.find(u => u?.uuid === unit?.uuid);
         this._activeRoster.units.splice(this._activeRoster.units.indexOf(targetUnit!), 1, unit!);
         this.setActiveRoster(this._activeRoster);
     }

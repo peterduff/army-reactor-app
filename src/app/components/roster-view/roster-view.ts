@@ -82,7 +82,7 @@ export class RosterView implements OnInit {
     removeUnit(unit: Unit): void {
         this.activeRoster.units.splice(this.activeRoster.units.indexOf(unit), 1);
         this.memoryService.setActiveRoster(this.memoryService.cloneObject(this.activeRoster));
-        this.memoryService.setActiveUnit(null);
+        this.router.navigate(['/roster']);
         this.deleteId = '';
     }
 }

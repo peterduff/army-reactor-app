@@ -41,7 +41,6 @@ export class AddUnit implements OnInit {
         this.datafilesService.setBooks(this.datafilesService.localGetBooks());
         this.memoryService.setRosters(this.memoryService.localGetRosters());
         this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
-        this.memoryService.setActiveUnit(this.memoryService.localGetActiveUnit());
 
         this.activeBook = this.books?.find(book => book.config.rulesetId === this.activeRoster.rulesetId)!;
         this.createAlliances();
@@ -133,8 +132,6 @@ export class AddUnit implements OnInit {
 
         let detachmentAllianceUnits: string[] = this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)!.additionalDatasheets;
 
-        console.log(detachmentAllianceUnits);
-
         detachmentAllianceUnits.forEach(allyId => {
             let alliance = new Alliance('', []);
             this.books.forEach(book => {
@@ -147,7 +144,6 @@ export class AddUnit implements OnInit {
                 allies.push(alliance);
             });
         });
-        console.log('allies1: ', allies);
 
         this.activeBook.config.associatedRulesets.forEach(ruleset => {
             let book = this.books.find(book => book.config.rulesetId === ruleset)!;
@@ -160,17 +156,15 @@ export class AddUnit implements OnInit {
             allies.push(alliance);
         });
 
-        console.log('allies2: ', allies);
-
         return allies;
     }
 
     unitExistsInRoster(item: Unit): boolean {
-        return this.activeRoster.units.some(unit => unit.name === item.name);
+        return this.activeRoster.units.some(unit => unit?.name === item.name);
     }
 
     unitNumbersInRoster(item: Unit): number {
-        return this.activeRoster.units.filter(unit => unit.name === item.name).length;
+        return this.activeRoster.units.filter(unit => unit?.name === item.name).length;
     }
 
     includesAll (arr: any[], subArr: any[]) {

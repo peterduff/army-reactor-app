@@ -71,13 +71,12 @@ export class UnitView implements OnInit {
         this.activeRoster.units.push(newUnit);
         this.activeRoster.units = new AlphabeticalPipe().transform(this.activeRoster.units, 'name');
         this.memoryService.setActiveRoster(this.activeRoster);
-        this.memoryService.setActiveUnit(null);
     }
 
     removeUnit(unit: Unit): void {
         this.activeRoster.units.splice(this.activeRoster.units.indexOf(unit), 1);
         this.memoryService.setActiveRoster(this.memoryService.cloneObject(this.activeRoster));
-        this.memoryService.setActiveUnit(null);
+        this.router.navigate(['/roster']);
         this.deleteId = '';
     }
 
