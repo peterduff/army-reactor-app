@@ -8,7 +8,7 @@ import {NgIcon, provideIcons} from "@ng-icons/core";
 import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
 import {AlphabeticalPipe} from "../../pipes/alphabetical/alphabetical-pipe";
 import {Calculation} from "../../services/calculation/calculation";
-import {Unit} from "../../models/unit";
+import {Equipment, Option, Unit} from "../../models/unit";
 import {heroSquare2Stack} from "@ng-icons/heroicons/outline";
 import {ReactiveFormsModule} from "@angular/forms";
 import {
@@ -21,6 +21,7 @@ import {
 } from "@ng-icons/font-awesome/solid";
 import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Export} from "../../services/export/export";
+import * as uuid from "uuid";
 
 @Component({
     selector: 'app-list',
@@ -50,8 +51,6 @@ export class RosterView implements OnInit {
     activeRoster!: Roster;
     activeUnit!: Unit;
 
-    deleteId!: string;
-
     constructor() {
         this.datafilesService.getBooks().subscribe(data => this.books = data);
         this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
@@ -78,10 +77,47 @@ export class RosterView implements OnInit {
         return this.findBook().detachments.find(detachment => detachment.id === detachmentId)!.name;
     }
 
+    duplicateUnit(unit: Unit): void {
+        let duplicatedUnit = this.memoryService.cloneObject(unit);
+        duplicatedUnit.uuid = uuid.v4();
+        this.activeRoster.units.push(duplicatedUnit);
+        this.memoryService.setActiveRoster(this.memoryService.cloneObject(this.activeRoster));
+    }
+
     removeUnit(unit: Unit): void {
         this.activeRoster.units.splice(this.activeRoster.units.indexOf(unit), 1);
         this.memoryService.setActiveRoster(this.memoryService.cloneObject(this.activeRoster));
-        this.router.navigate(['/roster']);
-        this.deleteId = '';
+    }
+
+    findSelectedDropdown(equipment: Equipment): string {
+        let option = equipment.options?.find(option => option.selected);
+        if (option) {
+            return this.concatenateItemName(option!.items);
+        } else {
+            return '-';
+        }
+    }
+
+    concatenateItemName(items: string[]): string {
+        return items.join(', ');
+    }
+
+    equipmentSelected(equipment: Equipment[]): boolean {
+        let equipmentFound: boolean = false;
+
+        equipment.forEach(equip => {
+            if (equip.selected) {
+                equipmentFound = true;
+            }
+
+            equip.options?.forEach(option => {
+                if (option.selected) {
+                    equipmentFound = true;
+                }
+            });
+        });
+
+        return equipmentFound;
     }
 }
+

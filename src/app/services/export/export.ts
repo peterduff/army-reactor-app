@@ -52,7 +52,8 @@ export class Export {
 
         roster.units.forEach(unit => {
             if (unit.keywords.includes('CHARACTER')) {
-                list += this.writeUnit(unit);
+                list += unit.name + ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
+                list += this.writeUnit(unit) + '\n';
             }
         });
 
@@ -60,7 +61,8 @@ export class Export {
         roster.units.forEach(unit => {
             if (unit.keywords.includes('BATTLELINE') &&
                 !unit.keywords.includes('CHARACTER')) {
-                list += this.writeUnit(unit);
+                list += unit.name + ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
+                list += this.writeUnit(unit) + '\n';
             }
         });
 
@@ -69,7 +71,8 @@ export class Export {
             if (unit.keywords.includes('DEDICATED TRANSPORT') &&
                 !unit.keywords.includes('BATTLELINE') &&
                 !unit.keywords.includes('CHARACTER')) {
-                list += this.writeUnit(unit);
+                list += unit.name + ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
+                list += this.writeUnit(unit) + '\n';
             }
         });
 
@@ -78,7 +81,8 @@ export class Export {
             if (!unit.keywords.includes('DEDICATED TRANSPORT') &&
                 !unit.keywords.includes('BATTLELINE') &&
                 !unit.keywords.includes('CHARACTER')) {
-                list += this.writeUnit(unit);
+                list += unit.name + ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
+                list += this.writeUnit(unit) + '\n';
             }
         });
 
@@ -86,7 +90,8 @@ export class Export {
     }
 
     writeUnit(unit: Unit): string {
-        let unitText = unit.name + ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
+        let unitText = '';
+
         let uniqueEquipmentStack: any[] = [];
 
         unit.models.forEach(model => {
@@ -155,7 +160,7 @@ export class Export {
             }
         });
 
-        return unitText + '\n';
+        return unitText;
     }
 
     findBookKeyword(): string {
