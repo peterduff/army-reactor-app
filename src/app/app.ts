@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
 import {Navbar} from "./components/navbar/navbar";
 
@@ -8,13 +8,9 @@ import {Navbar} from "./components/navbar/navbar";
     templateUrl: './app.html',
     styleUrl: './app.scss'
 })
-export class App implements OnInit {
+export class App {
     readonly router: Router = inject(Router);
 
-
     constructor() {
-    }
-
-    ngOnInit() {
     }
 }

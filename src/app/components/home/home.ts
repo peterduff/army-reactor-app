@@ -13,6 +13,7 @@ import * as uuid from "uuid";
 import {faSolidEllipsisVertical, faSolidXmark} from "@ng-icons/font-awesome/solid";
 import {Calculation} from "../../services/calculation/calculation";
 import {ToastrService} from "ngx-toastr";
+import {Book} from "../../models/book";
 
 @Component({
     selector: 'app-home',
@@ -29,6 +30,7 @@ export class Home implements OnInit {
     readonly router: Router = inject(Router);
 
     core!: Core;
+    books!: Book[];
     activeRoster!: Roster;
     rosters!: Roster[];
 
@@ -39,6 +41,7 @@ export class Home implements OnInit {
 
     constructor() {
         this.datafilesService.getCore().subscribe(data => this.core = data);
+        this.datafilesService.getBooks().subscribe(data => this.books = data);
         this.memoryService.getActiveRoster().subscribe(data => this.activeRoster = data);
         this.memoryService.getRosters().subscribe(data => this.rosters = data);
     }
@@ -55,9 +58,6 @@ export class Home implements OnInit {
             this.compareDatafiles();
             console.log('core found');
         }
-    }
-
-    ngAfterContentInit() {
     }
 
     loadRoster(roster: Roster) {
@@ -106,14 +106,13 @@ export class Home implements OnInit {
         this.toastr.success('CORE ADDED');
         this.updateModal = false;
 
-        let books = [];
-
         this.temporaryCore.configs.forEach(config => {
             this.datafilesService.httpGetBook(core.path + config.endpoint).subscribe({
                 next: (data) => {
-                    books.push(data);
-                    this.datafilesService.setBooks(books);
-                    // this.calculationService.updateRosterPoints(data);
+                    let targetBook: Book = this.books.find(book => book.config.id === data.config.id)!;
+                    this.books.splice(this.books.indexOf(targetBook!), 0);
+                    this.datafilesService.setBooks(this.books);
+                    this.calculationService.updateRosterPoints(data);
                 }
             });
         });

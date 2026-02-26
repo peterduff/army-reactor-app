@@ -91,7 +91,8 @@ export class Calculation {
         return cost;
     }
 
-    updateRosterPoints(book: Book): Roster[] {
+    updateRosterPoints(book: Book): void {
+
         book.units.forEach(bookUnit => {
             this.rosters.forEach(roster => {
                 roster?.units.forEach(unit => {
@@ -101,43 +102,46 @@ export class Calculation {
                             bookUnit.points = bookUnit.points.sort((a,b) => a.cost - b.cost);
 
                             if (JSON.stringify(bookUnit.points) !== JSON.stringify(unit.points)) {
-                                console.log('bookUnit.points: ', bookUnit.points);
-                                console.log('unit.points: ', unit.points);
                                 unit.points = bookUnit.points;
                             }
                         }
 
-                        // if (unit?.models) {
-                        //     unit.models.forEach((model) => {
-                        //         if (model?.points) {
-                        //             let bookModel = bookUnit.models.find(bookModel => model.name === bookModel.name);
-                        //
-                        //             if (model.points !== bookModel?.points) {
-                        //                 model.points = bookModel?.points;
-                        //             }
-                        //         }
-                        //     });
-                        // }
+                        if (unit?.models) {
+                            unit.models.forEach((model) => {
+                                if (model?.points) {
+                                    let bookModel = bookUnit.models.find(bookModel => model.name === bookModel.name);
+
+                                    if (model.points !== bookModel?.points) {
+                                        model.points = bookModel?.points;
+                                    }
+                                }
+                            });
+                        }
                     }
                 });
             });
         });
 
-        // book.detachments.forEach(detachment => {
-        //     detachment.enhancements.forEach(enhancement => {
-        //         this.rosters.forEach(roster => {
-        //             roster?.units.forEach(unit => {
-        //                 unit.equipment?.forEach(equipment => {
-        //                     if (equipment.points !== enhancement.points) {
-        //                         equipment.points = enhancement.points;
-        //                     }
-        //                 });
-        //             });
-        //         });
-        //     });
-        // });
+        book.detachments.forEach(detachment => {
+            detachment.enhancements.forEach(enhancement => {
+                this.rosters.forEach(roster => {
+                    roster?.units.forEach(unit => {
+                        unit.equipment?.forEach(equipment => {
+                            equipment.options?.forEach(option => {
+                                if (option.items.includes(enhancement.name)) {
+                                    if (option.points !== enhancement.points) {
+                                        option.points = enhancement.points;
+                                    }
+                                }
+                            });
 
-        return this.rosters;
-        // this.memoryService.setRosters(this.memoryService.cloneObject(this.rosters));
+                        });
+                    });
+                });
+            });
+        });
+
+        this.memoryService.setRosters(this.rosters);
+        location.reload();
     }
 }
