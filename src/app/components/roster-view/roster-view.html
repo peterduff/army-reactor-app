@@ -19,16 +19,20 @@
                                 <span class="text-lime-400">{{calculationService.calculateUnitPoints(unit)}}</span>
                                 {{unit.name}}
                             </p>
-                            <div class="absolute top-0 right-10 w-10 h-10 pt-1 text-center" (click)="duplicateUnit(unit); $event.stopPropagation()">
+                            <div class="absolute top-0 right-9 w-10 h-10 pt-1 text-center" (click)="duplicateUnit(unit); $event.stopPropagation()">
                                 <ng-icon name="heroSquare2Stack" color="lightgrey" size="32" />
                             </div>
                             <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
                                 <ng-icon name="faSolidXmark" color="#EB3B3B" size="32" />
                             </div>
-
+                            @if (unit?.models.length > 1) {
+                                <div class="px-2 pb-2 ps-4 -mt-2">
+                                    <p class="text-sky-300 text-sm font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.models.length}} models</p>
+                                </div>
+                            }
                             @if (unit?.models || unit?.equipment) {
                                 <div class="px-2 pb-2 -mt-2">
-                                    <p class="ps-2 text-zinc-300 font-normal whitespace-nowrap overflow-clip text-ellipsis" [innerText]="exportService.writeUnit(unit)"></p>
+                                    <p class="ps-2 text-zinc-300 text-sm font-normal whitespace-nowrap overflow-clip text-ellipsis" [innerText]="exportService.writeUnit(unit)"></p>
                                 </div>
                             }
                         </div>
@@ -55,10 +59,14 @@
                             <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
                                 <ng-icon name="faSolidXmark" color="#EB3B3B" size="32" />
                             </div>
-
+                            @if (unit?.models.length > 1) {
+                                <div class="px-2 pb-2 ps-4 -mt-2">
+                                    <p class="text-sky-300 text-sm font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.models.length}} models</p>
+                                </div>
+                            }
                             @if (unit?.models || unit?.equipment) {
                                 <div class="px-2 pb-2 -mt-2">
-                                    <p class="ps-2 text-zinc-300 font-normal whitespace-nowrap overflow-clip text-ellipsis" [innerText]="exportService.writeUnit(unit)"></p>
+                                    <p class="ps-2 text-zinc-300 text-sm font-normal whitespace-nowrap overflow-clip text-ellipsis" [innerText]="exportService.writeUnit(unit)"></p>
                                 </div>
                             }
                         </div>
@@ -86,10 +94,14 @@
                             <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
                                 <ng-icon name="faSolidXmark" color="#EB3B3B" size="32" />
                             </div>
-
+                            @if (unit?.models.length > 1) {
+                                <div class="px-2 pb-2 ps-4 -mt-2">
+                                    <p class="text-sky-300 text-sm font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.models.length}} models</p>
+                                </div>
+                            }
                             @if (unit?.models || unit?.equipment) {
                                 <div class="px-2 pb-2 -mt-2">
-                                    <p class="ps-2 text-zinc-300 font-normal whitespace-nowrap overflow-clip text-ellipsis" [innerText]="exportService.writeUnit(unit)"></p>
+                                    <p class="ps-2 text-zinc-300 text-sm font-normal whitespace-nowrap overflow-clip text-ellipsis" [innerText]="exportService.writeUnit(unit)"></p>
                                 </div>
                             }
                         </div>
@@ -116,10 +128,14 @@
                             <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
                                 <ng-icon name="faSolidXmark" color="#EB3B3B" size="32" />
                             </div>
-
+                            @if (unit?.models.length > 1) {
+                                <div class="px-2 pb-2 ps-4 -mt-2">
+                                    <p class="text-sky-300 text-sm font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.models.length}} models</p>
+                                </div>
+                            }
                             @if (unit?.models || unit?.equipment) {
                                 <div class="px-2 pb-2 -mt-2">
-                                    <p class="ps-2 text-zinc-300 font-normal whitespace-nowrap overflow-clip text-ellipsis" [innerText]="exportService.writeUnit(unit)"></p>
+                                    <p class="ps-2 text-zinc-300 text-sm font-normal whitespace-nowrap overflow-clip text-ellipsis" [innerText]="exportService.writeUnit(unit)"></p>
                                 </div>
                             }
                         </div>
@@ -146,10 +162,14 @@
                             <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="removeUnit(unit); $event.stopPropagation()">
                                 <ng-icon name="faSolidXmark" color="#EB3B3B" size="32" />
                             </div>
-
+                            @if (unit?.models.length > 1) {
+                                <div class="px-2 pb-2 ps-4 -mt-2">
+                                    <p class="text-sky-300 text-sm font-normal whitespace-nowrap overflow-clip text-ellipsis">{{unit.models.length}} models</p>
+                                </div>
+                            }
                             @if (unit?.models || unit?.equipment) {
                                 <div class="px-2 pb-2 -mt-2">
-                                    <p class="ps-2 text-zinc-300 font-normal whitespace-nowrap overflow-clip text-ellipsis" [innerText]="exportService.writeUnit(unit)"></p>
+                                    <p class="ps-2 text-zinc-300 text-sm font-normal whitespace-nowrap overflow-clip text-ellipsis" [innerText]="exportService.writeUnit(unit)"></p>
                                 </div>
                             }
                         </div>

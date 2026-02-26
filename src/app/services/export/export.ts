@@ -51,8 +51,12 @@ export class Export {
             '[CHARACTERS]\n';
 
         roster.units.forEach(unit => {
-            if (unit.keywords.includes('CHARACTER')) {
-                list += unit.name + ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
+            if (unit.keywords.includes('CHARACTER') && !unit.ally) {
+                list += unit.name;
+                if (unit.models.length > 1) {
+                    list += ' (' + unit.models.length + ' models)';
+                }
+                list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
                 list += this.writeUnit(unit) + '\n';
             }
         });
@@ -60,9 +64,12 @@ export class Export {
         list += '[BATTLELINE]\n\n';
         roster.units.forEach(unit => {
             if (unit.keywords.includes('BATTLELINE') &&
-                !unit.keywords.includes('CHARACTER')) {
-                list += unit.name + ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
-                list += this.writeUnit(unit) + '\n';
+                !unit.keywords.includes('CHARACTER') && !unit.ally) {
+                list += unit.name;
+                if (unit.models.length > 1) {
+                    list += ' (' + unit.models.length + ' models)';
+                }
+                list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';                list += this.writeUnit(unit) + '\n';
             }
         });
 
@@ -70,9 +77,12 @@ export class Export {
         roster.units.forEach(unit => {
             if (unit.keywords.includes('DEDICATED TRANSPORT') &&
                 !unit.keywords.includes('BATTLELINE') &&
-                !unit.keywords.includes('CHARACTER')) {
-                list += unit.name + ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
-                list += this.writeUnit(unit) + '\n';
+                !unit.keywords.includes('CHARACTER') && !unit.ally) {
+                list += unit.name;
+                if (unit.models.length > 1) {
+                    list += ' (' + unit.models.length + ' models)';
+                }
+                list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';                list += this.writeUnit(unit) + '\n';
             }
         });
 
@@ -80,11 +90,27 @@ export class Export {
         roster.units.forEach(unit => {
             if (!unit.keywords.includes('DEDICATED TRANSPORT') &&
                 !unit.keywords.includes('BATTLELINE') &&
-                !unit.keywords.includes('CHARACTER')) {
-                list += unit.name + ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
-                list += this.writeUnit(unit) + '\n';
+                !unit.keywords.includes('CHARACTER') && !unit.ally) {
+                list += unit.name;
+                if (unit.models.length > 1) {
+                    list += ' (' + unit.models.length + ' models)';
+                }
+                list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';                list += this.writeUnit(unit) + '\n';
             }
         });
+
+        list += '[ALLIES]\n\n';
+        roster.units.forEach(unit => {
+            if (unit.ally) {
+                list += unit.name;
+                if (unit.models.length > 1) {
+                    list += ' (' + unit.models.length + ' models)';
+                }
+                list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';                list += this.writeUnit(unit) + '\n';
+            }
+        });
+
+        list += 'app.armyreactor.com [v1.0.1]';
 
         return list;
     }
