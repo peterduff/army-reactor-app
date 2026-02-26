@@ -3,6 +3,10 @@ div#unit-view {
         height: calc(100vh - 80px);
     }
 
+    div.w-calc {
+        width: calc(100vw - 64px);
+    }
+
     div#equipmentList, div#deleteUnit {
         background: rgba(0,0,0,0.5);
     }

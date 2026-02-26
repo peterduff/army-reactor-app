@@ -5,7 +5,6 @@ import {Memory} from "../../services/memory/memory";
 import {Router, RouterLink} from "@angular/router";
 import {Roster} from "../../models/roster";
 import {NgIcon, provideIcons} from "@ng-icons/core";
-import {heroXMarkSolid} from "@ng-icons/heroicons/solid";
 import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
 import {AlphabeticalPipe} from "../../pipes/alphabetical/alphabetical-pipe";
 import {Calculation} from "../../services/calculation/calculation";
@@ -18,7 +17,7 @@ import {
     faSolidCrown,
     faSolidVanShuttle,
     faSolidBoltLightning,
-    faSolidUserGroup
+    faSolidUserGroup, faSolidXmark
 } from "@ng-icons/font-awesome/solid";
 import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Export} from "../../services/export/export";
@@ -27,7 +26,7 @@ import {Export} from "../../services/export/export";
     selector: 'app-list',
     imports: [NgIcon, RouterLink, UnitFilterPipe, AlphabeticalPipe, ReactiveFormsModule],
     viewProviders: [provideIcons({
-        heroXMarkSolid,
+        faSolidXmark,
         heroSquare2Stack,
         faSolidCaretDown,
         faSolidCheck,

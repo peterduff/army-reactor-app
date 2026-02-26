@@ -1,5 +1,4 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {RouterLink} from "@angular/router";
 import {Datafiles} from "../../services/datafiles/datafiles";
 import {ToastrService} from "ngx-toastr";
 import {Core} from "../../models/core";
@@ -8,7 +7,7 @@ import {Memory} from "../../services/memory/memory";
 
 @Component({
   selector: 'app-add-datafiles',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './add-datafiles.html',
   styleUrl: './add-datafiles.scss',
 })

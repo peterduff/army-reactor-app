@@ -10,16 +10,46 @@
 
                     @for (roster of rosters | rosterFilter:config.rulesetId; track roster.uuid) {
                         <div class="w-full bg-zinc-600 rounded mb-2 relative" (click)="loadRoster(roster)">
+                            <input #optionModal hidden type="checkbox" />
                             <p class="py-2 px-3 w-3/4">{{roster.name}}</p>
-                            <div class="absolute top-0 right-10 w-10 h-10 content-end text-center" (click)="duplicateRoster(roster); $event.stopPropagation()">
-                                <ng-icon name="heroSquare2Stack" color="lightgrey" size="26" />
+                            <p class="absolute top-1.5 right-10 text-lime-400 text-lg font-normal content-center" [class.text-red-400]="calculationService.calculateRosterPoints(activeRoster) > 2000" [innerText]="calculationService.calculateRosterPoints(roster)"></p>
+                            <div class="absolute top-0 right-0 w-10 h-10 pt-2 text-center" (click)="optionModal.value = 'open'; $event.stopPropagation()">
+                                <ng-icon name="faSolidEllipsisVertical" color="lightgrey" size="24" />
                             </div>
-                            <div class="absolute top-0 right-0 w-10 h-10 pt-1 text-center" (click)="deleteId = roster.uuid; $event.stopPropagation()">
-                                <ng-icon name="heroXMarkSolid" color="red" size="32" />
-                            </div>
+
+                            @if (optionModal.value === 'open') {
+                                <div class="fixed top-0 right-0 bottom-0 left-0 bg-zinc-800 z-20 opacity-50" (click)="optionModal.value = ''; $event.stopPropagation()"></div>
+                                <div class="absolute top-10 right-0 rounded bg-zinc-200 text-zinc-800 p-2 z-30 tracking-widest font-medium">
+                                    <button class="p-2 block text-sky-600" (click)="renameId = roster.uuid; optionModal.value = ''; $event.stopPropagation()">RENAME</button>
+                                    <button class="p-2 block" (click)="duplicateRoster(roster); optionModal.value = ''; $event.stopPropagation()">DUPLICATE</button>
+                                    <button class="p-2 block text-red-600" (click)="deleteId = roster.uuid; optionModal.value = ''; $event.stopPropagation()">DELETE</button>
+                                </div>
+                            }
                         </div>
                     }
                 }
+            </div>
+        </div>
+    }
+
+    @if (renameId) {
+        <div id="rename" class="absolute top-0 bottom-0 left-0 right-0 z-30">
+            <div class="inline">
+                <div class="grid grid-cols-1 place-content-center h-full">
+                    <div class="bg-white rounded w-2/3 opacity-100 justify-self-center p-3">
+                        <p class="mb-3 text-center text-lg">Would you like to rename the roster?</p>
+
+                        <input #newName class="border-1 border-zinc-200 rounded w-full text-lg mb-3 py-1 px-2" type="text" />
+                        <div class="grid grid-cols-2">
+                            <div>
+                                <button class="rounded py-2 px-3 tracking-widest font-normal w-full" (click)="renameId = ''">CANCEL</button>
+                            </div>
+                            <div>
+                                <button class="rounded py-2 px-3 bg-lime-600 text-white tracking-widest font-normal w-full" (click)="renameRoster(renameId, newName.value)">RENAME</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     }
@@ -43,5 +73,27 @@
                 </div>
             </div>
         </div>
+    }
+
+    @defer {
+        @if (updateModal) {
+            <div id="updateModal" class="absolute top-0 bottom-0 left-0 right-0 z-500">
+                <div class="inline">
+                    <div class="grid grid-cols-1 place-content-center h-full">
+                        <div class="bg-white rounded w-2/3 opacity-100 justify-self-center p-3">
+                            <p class="mb-3 text-center text-lg">New datafiles have been detected, update?</p>
+                            <div class="grid grid-cols-2">
+                                <div>
+                                    <button class="rounded py-2 px-3 tracking-widest font-normal w-full" (click)="updateModal = false">CANCEL</button>
+                                </div>
+                                <div>
+                                    <button class="rounded py-2 px-3 bg-lime-600 text-white tracking-widest font-normal w-full" (click)="updateBooks(core)">UPDATE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
     }
 </div>

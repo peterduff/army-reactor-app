@@ -1,11 +1,11 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {Datafiles} from "../../services/datafiles/datafiles";
 import {Memory} from "../../services/memory/memory";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {Alliance, Book} from "../../models/book";
 import {Roster} from "../../models/roster";
 import {NgIcon, provideIcons} from "@ng-icons/core";
-import {faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, faSolidUserGroup} from "@ng-icons/font-awesome/solid";
+import {faSolidCrown, faSolidVanShuttle, faSolidXmark, faSolidBoltLightning, faSolidUserGroup, faSolidCaretLeft} from "@ng-icons/font-awesome/solid";
 import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Calculation} from "../../services/calculation/calculation";
 import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
@@ -15,8 +15,8 @@ import * as uuid from "uuid";
 
 @Component({
     selector: 'app-add-unit',
-    imports: [NgIcon, UnitFilterPipe, AlphabeticalPipe],
-    viewProviders: [provideIcons({faSolidCrown, faSolidVanShuttle, faSolidBoltLightning, mynaFatArrowUpSolid, faSolidUserGroup})],
+    imports: [NgIcon, UnitFilterPipe, AlphabeticalPipe, RouterLink],
+    viewProviders: [provideIcons({faSolidXmark, faSolidCrown, faSolidCaretLeft, faSolidVanShuttle, faSolidBoltLightning, mynaFatArrowUpSolid, faSolidUserGroup})],
     templateUrl: './add-unit.html',
     styleUrl: './add-unit.scss',
 })
@@ -92,6 +92,12 @@ export class AddUnit implements OnInit {
         this.activeRoster.units.push(newUnit);
         this.activeRoster.units = new AlphabeticalPipe().transform(this.activeRoster.units, 'name');
         this.memoryService.setActiveRoster(this.activeRoster);
+    }
+
+    removeUnit(unit: Unit): void {
+        let similarUnit: Unit = this.activeRoster.units.find(u => u.name === unit.name)!;
+        this.activeRoster.units.splice(this.activeRoster.units.indexOf(similarUnit), 1);
+        this.memoryService.setActiveRoster(this.memoryService.cloneObject(this.activeRoster));
     }
 
     assembleUnit(unit: Unit): Unit {

@@ -2,7 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {Core} from "../../models/core";
 import {Datafiles} from "../../services/datafiles/datafiles";
 import {NgIcon, provideIcons} from '@ng-icons/core';
-import {heroBars3Solid, heroXMarkSolid, heroDocumentTextSolid} from '@ng-icons/heroicons/solid';
+import {heroBars3Solid, heroDocumentTextSolid} from '@ng-icons/heroicons/solid';
 import {heroSquare2Stack} from '@ng-icons/heroicons/outline';
 import {Router, RouterLink} from '@angular/router';
 import {Roster} from "../../models/roster";
@@ -10,24 +10,32 @@ import {Memory} from "../../services/memory/memory";
 import {ConfigFilterPipe} from "../../pipes/config-filter/config-filter-pipe";
 import {RosterFilterPipe} from "../../pipes/roster-filter/roster-filter-pipe";
 import * as uuid from "uuid";
+import {faSolidEllipsisVertical, faSolidXmark} from "@ng-icons/font-awesome/solid";
+import {Calculation} from "../../services/calculation/calculation";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
     selector: 'app-home',
     imports: [NgIcon, RouterLink, ConfigFilterPipe, RosterFilterPipe],
-    viewProviders: [provideIcons({heroBars3Solid, heroXMarkSolid, heroDocumentTextSolid, heroSquare2Stack})],
+    viewProviders: [provideIcons({faSolidXmark, heroBars3Solid, heroDocumentTextSolid, heroSquare2Stack, faSolidEllipsisVertical})],
     templateUrl: './home.html',
     styleUrl: './home.scss',
 })
 export class Home implements OnInit {
     readonly datafilesService = inject(Datafiles);
+    readonly calculationService = inject(Calculation);
     readonly memoryService = inject(Memory);
+    readonly toastr: ToastrService = inject(ToastrService);
     readonly router: Router = inject(Router);
 
     core!: Core;
-    activeRoster!: Roster ;
-    rosters!: Roster[] ;
+    activeRoster!: Roster;
+    rosters!: Roster[];
 
     deleteId!: string;
+    renameId!: string;
+    updateModal: boolean = false;
+    temporaryCore!: Core;
 
     constructor() {
         this.datafilesService.getCore().subscribe(data => this.core = data);
@@ -44,8 +52,12 @@ export class Home implements OnInit {
             this.router.navigate(['/datafiles']);
             console.log('core missing');
         } else {
+            this.compareDatafiles();
             console.log('core found');
         }
+    }
+
+    ngAfterContentInit() {
     }
 
     loadRoster(roster: Roster) {
@@ -64,5 +76,46 @@ export class Home implements OnInit {
         this.rosters.splice(this.rosters.indexOf(targetRoster!), 1);
         this.memoryService.setRosters(this.memoryService.cloneObject(this.rosters));
         this.deleteId = '';
+    }
+
+    renameRoster(uuid: string, newName: string): void {
+        let targetRoster: Roster = this.rosters.find(roster => roster.uuid === uuid)!;
+        targetRoster.name = newName;
+        this.rosters.splice(this.rosters.indexOf(targetRoster!), 0);
+        this.memoryService.setRosters(this.memoryService.cloneObject(this.rosters));
+        this.renameId = '';
+    }
+
+    compareDatafiles(): void {
+        if (this.core) {
+            this.datafilesService.httpGetCore(this.core.path + 'core.json').subscribe({
+                next: (data) => {
+                    if(data.enabled) {
+                        if (parseInt(data.version, 10) > parseInt(this.core.version, 10)) {
+                            this.updateModal = true;
+                            this.temporaryCore = data;
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    updateBooks(core: Core) {
+        this.datafilesService.setCore(this.temporaryCore);
+        this.toastr.success('CORE ADDED');
+        this.updateModal = false;
+
+        let books = [];
+
+        this.temporaryCore.configs.forEach(config => {
+            this.datafilesService.httpGetBook(core.path + config.endpoint).subscribe({
+                next: (data) => {
+                    books.push(data);
+                    this.datafilesService.setBooks(books);
+                    // this.calculationService.updateRosterPoints(data);
+                }
+            });
+        });
     }
 }
