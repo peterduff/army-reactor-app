@@ -5,6 +5,7 @@ import {AddDatafiles} from "./components/add-datafiles/add-datafiles";
 import {NewRoster} from "./components/new-roster/new-roster";
 import {AddUnit} from "./components/add-unit/add-unit";
 import {UnitView} from "./components/unit-view/unit-view";
+import {Faq} from "./components/faq/faq";
 
 export const routes: Routes = [
     {
@@ -27,5 +28,8 @@ export const routes: Routes = [
     },
     {
         path: 'unit', component: UnitView
+    },
+    {
+        path: 'faq', component: Faq
     }
 ];
