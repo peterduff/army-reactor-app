@@ -64,7 +64,7 @@ export class UnitView implements OnInit {
     }
 
     addModel(unit: Unit, blueprint: Model): void {
-        unit.models.push(blueprint);
+        unit.models.push(this.memoryService.cloneObject(blueprint));
         unit.models = new AlphabeticalPipe().transform(unit.models, 'name');
         this.memoryService.setActiveUnit(unit);
     }
