@@ -1,3 +1,5 @@
+import {Enhancement} from "./detachment";
+
 export class Unit {
     constructor(
         public id: string,
@@ -11,7 +13,8 @@ export class Unit {
         public uuid?: string,
         public points?: Points[],
         public blueprints?: Model[],
-        public ally?: boolean
+        public ally?: boolean,
+        public enhancements?: Enhancement[]
     ) {
     }
 }
@@ -23,7 +26,10 @@ export class Equipment {
         public options?: Option[],
         public selected?: boolean,
         public points?: number,
-        public color?: string
+        public color?: string,
+        public keywordsRequired?: string[],
+        public keywordsConferred?: string[],
+        public keywordsBlocked?: string[]
     ) {
     }
 }
@@ -32,7 +38,8 @@ export class Option {
     constructor(
         public items: string[],
         public selected: boolean,
-        public points?: number
+        public points?: number,
+        public keywordsConferred?: string[]
     ) {
     }
 }

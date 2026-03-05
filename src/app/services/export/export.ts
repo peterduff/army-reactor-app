@@ -61,7 +61,9 @@ export class Export {
             }
         });
 
-        list += '[BATTLELINE]\n\n';
+        if (roster.units.find(unit => unit.keywords.includes('BATTLELINE'))) {
+            list += '[BATTLELINE]\n\n';
+        }
         roster.units.forEach(unit => {
             if (unit.keywords.includes('BATTLELINE') &&
                 !unit.keywords.includes('CHARACTER') && !unit.ally) {
@@ -73,7 +75,9 @@ export class Export {
             }
         });
 
-        list += '[DEDICATED TRANSPORTS]\n\n';
+        if (roster.units.find(unit => unit.keywords.includes('DEDICATED TRANSPORT'))) {
+            list += '[DEDICATED TRANSPORTS]\n\n';
+        }
         roster.units.forEach(unit => {
             if (unit.keywords.includes('DEDICATED TRANSPORT') &&
                 !unit.keywords.includes('BATTLELINE') &&
@@ -86,7 +90,9 @@ export class Export {
             }
         });
 
-        list += '[OTHER]\n\n';
+        if (roster.units.find(unit => unit.keywords.includes('OTHER'))) {
+            list += '[OTHER]\n\n';
+        }
         roster.units.forEach(unit => {
             if (!unit.keywords.includes('DEDICATED TRANSPORT') &&
                 !unit.keywords.includes('BATTLELINE') &&
@@ -99,7 +105,9 @@ export class Export {
             }
         });
 
-        list += '[ALLIES]\n\n';
+        if (roster.units.find(unit => unit.keywords.includes('ALLIES'))) {
+            list += '[ALLIES]\n\n';
+        }
         roster.units.forEach(unit => {
             if (unit.ally) {
                 list += unit.name;
@@ -176,6 +184,12 @@ export class Export {
                     uniqueEquipmentStack.push({count: 1, name:equipment.trim()});
                 }
             })
+        });
+
+        unit.enhancements?.forEach(enhancement => {
+            if (enhancement.selected) {
+                uniqueEquipmentStack.push({count: 1, name: enhancement.name.trim()})
+            }
         });
 
         uniqueEquipmentStack.forEach(item => {

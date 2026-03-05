@@ -67,10 +67,20 @@ export class Calculation {
                 unit.equipment.forEach(equip => {
                     if (equip.options) {
                         if (equip.options.some(option => option.selected)) {
-                            cost += equip.options.find(option => option.selected)?.points!;
+                            if (equip.options.find(option => option.selected)?.points) {
+                                cost += equip.options.find(option => option.selected)?.points!;
+                            }
                         }
                     } else if (equip.points){
                         cost += equip.points;
+                    }
+                });
+            }
+
+            if (unit.enhancements) {
+                unit.enhancements.forEach(enhancement => {
+                    if (enhancement.selected) {
+                        cost += enhancement.points;
                     }
                 });
             }

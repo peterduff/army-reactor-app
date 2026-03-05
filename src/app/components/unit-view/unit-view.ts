@@ -20,10 +20,14 @@ import {
     faSolidVanShuttle, faSolidXmark
 } from "@ng-icons/font-awesome/solid";
 import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
+import {Construction} from "../../services/construction/construction";
+import {Detachment, Enhancement} from "../../models/detachment";
+import {EnhancementFilterPipe} from "../../pipes/enhancement-filter/enhancement-filter-pipe";
+import {EquipmentFilterPipe} from "../../pipes/equipment-filter/equipment-filter-pipe";
 
 @Component({
     selector: 'app-unit-view',
-    imports: [RouterLink, NgIcon, AlphabeticalPipe, UpperCasePipe, ReactiveFormsModule],
+    imports: [RouterLink, NgIcon, AlphabeticalPipe, UpperCasePipe, ReactiveFormsModule, EnhancementFilterPipe, EquipmentFilterPipe],
     viewProviders: [provideIcons({
         faSolidXmark,
         heroSquare2Stack,
@@ -43,11 +47,15 @@ export class UnitView implements OnInit {
     readonly datafilesService = inject(Datafiles);
     readonly memoryService = inject(Memory);
     readonly calculationService = inject(Calculation);
+    readonly constructionService = inject(Construction);
     readonly router: Router = inject(Router);
 
     books!: Book[];
     activeRoster!: Roster;
     activeUnit!: Unit;
+
+    activeBook!: Book;
+    activeDetachment!: Detachment;
 
     constructor() {
         this.datafilesService.getBooks().subscribe(data => this.books = data);
@@ -61,6 +69,9 @@ export class UnitView implements OnInit {
         this.memoryService.setRosters(this.memoryService.localGetRosters());
         this.memoryService.setActiveRoster(this.memoryService.localGetActiveRoster());
         this.memoryService.setActiveUnit(this.memoryService.localGetActiveUnit());
+
+        this.activeBook = this.books?.find(book => book.config.rulesetId === this.activeRoster.rulesetId)!;
+        this.activeDetachment = this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)!;
     }
 
     addModel(unit: Unit, blueprint: Model): void {
@@ -90,30 +101,60 @@ export class UnitView implements OnInit {
     findSelectedDropdownWithPoints(equipment: Equipment): string {
         let option = equipment.options?.find(option => option.selected);
         if (option) {
-            return this.concatenateItemName(option!.items) + ' [' + option?.points + ']';
+            if (option.points) {
+                return option.items.join('') + ' [' + option.points + ']';
+            } else {
+                return  option.items.join('');
+            }
         } else {
             return '-';
         }
     }
 
     optionEnhancementName(option: Option): string {
-        return option.items.join('') + ' [' + option.points + ']';
+        if (option.points) {
+            return option.items.join('') + ' [' + option.points + ']';
+        } else {
+            return  option.items.join('');
+        }
+    }
+
+    findEnhancementName(enhancements: Enhancement[]): string {
+        let selectedEnhancement = enhancements?.find(enhancement => enhancement.selected);
+        if (selectedEnhancement) {
+            return selectedEnhancement.name + ' [' + selectedEnhancement.points + ']'
+        } else {
+            return '-';
+        }
     }
 
     concatenateItemName(items: string[]): string {
         return items.join(', ');
     }
 
-    updateEquipmentDropdown(options: Option[], selectedOption: Option | undefined): void {
-        options.forEach(option => option.selected = false);
-        if (options.some(option => option === selectedOption)) {
-            options.find(option => option === selectedOption)!.selected = true;
+    updateEquipmentDropdown(equipment: Equipment, selectedOption: Option | undefined): void {
+        equipment.options!.forEach(option => option.selected = false);
+        if (equipment.options!.some(option => option === selectedOption)) {
+            equipment.options!.find(option => option === selectedOption)!.selected = true;
         }
+
+        this.constructionService.updateUnit(this.activeUnit, equipment, this.activeDetachment);
+        this.memoryService.setActiveUnit(this.activeUnit);
+    }
+
+    updateEnhancementDropdown(enhancements: Enhancement[], selectedEnhancement: Enhancement | undefined): void {
+        enhancements!.forEach(enhancement => enhancement.selected = false);
+        if (enhancements!.some(enhancement => enhancement === selectedEnhancement)) {
+            enhancements!.find(enhancement => enhancement === selectedEnhancement)!.selected = true;
+        }
+
         this.memoryService.setActiveUnit(this.activeUnit);
     }
 
     updateEquipmentCheck(equipment: Equipment): void {
         equipment.selected = !equipment.selected;
-        this.memoryService.setActiveUnit(this.activeUnit);
+
+        this.constructionService.updateUnit(this.activeUnit, equipment, this.activeDetachment);
+        this.memoryService.setActiveUnit(this.memoryService.cloneObject(this.activeUnit));
     }
 }

@@ -12,10 +12,12 @@ import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
 import {AlphabeticalPipe} from "../../pipes/alphabetical/alphabetical-pipe";
 import {Equipment, Option, Unit} from "../../models/unit";
 import * as uuid from "uuid";
+import {BlockedFilterPipe} from "../../pipes/blocked-filter/blocked-filter-pipe";
+import {Construction} from "../../services/construction/construction";
 
 @Component({
     selector: 'app-add-unit',
-    imports: [NgIcon, UnitFilterPipe, AlphabeticalPipe, RouterLink],
+    imports: [NgIcon, UnitFilterPipe, AlphabeticalPipe, BlockedFilterPipe, RouterLink],
     viewProviders: [provideIcons({faSolidXmark, faSolidCrown, faSolidCaretLeft, faSolidVanShuttle, faSolidBoltLightning, mynaFatArrowUpSolid, faSolidUserGroup})],
     templateUrl: './add-unit.html',
     styleUrl: './add-unit.scss',
@@ -24,6 +26,7 @@ export class AddUnit implements OnInit {
     readonly datafilesService = inject(Datafiles);
     readonly memoryService = inject(Memory);
     readonly calculationService = inject(Calculation);
+    readonly constructionService = inject(Construction);
     readonly router: Router = inject(Router);
 
     books!: Book[];
@@ -52,25 +55,28 @@ export class AddUnit implements OnInit {
 
         detachmentUnitIds.forEach(detachmentUnitId => {
             let alliance = new Alliance('', []);
-            let book = this.books?.find(book => book.units.find(unit => unit.id === detachmentUnitId))!;
-            alliance.name = book.config.name;
+            let book = this.books?.find(book => book.units.find(unit => unit.id === detachmentUnitId));
 
-            book.units.forEach(unit => {
-                if (this.activeBook.alliances!.find(alliance => alliance.name === book.config.name)) {
-                    if (detachmentUnitId === unit.id) {
-                        unit.ally = true;
-                        this.activeBook.alliances!.find(alliance => alliance.name === book.config.name)!.units.push(unit);
+            if (book) {
+                alliance.name = book.config.name;
+
+                book.units.forEach(unit => {
+                    if (this.activeBook.alliances!.find(alliance => alliance.name === book.config.name)) {
+                        if (detachmentUnitId === unit.id) {
+                            unit.ally = true;
+                            this.activeBook.alliances!.find(alliance => alliance.name === book.config.name)!.units.push(unit);
+                        }
+                    } else {
+                        if (detachmentUnitId === unit.id) {
+                            unit.ally = true;
+                            alliance.units.push(unit);
+                        }
                     }
-                } else {
-                    if (detachmentUnitId === unit.id) {
-                        unit.ally = true;
-                        alliance.units.push(unit);
-                    }
+                });
+
+                if (!this.activeBook.alliances!.find(alliance => alliance.name === book.config.name)) {
+                    this.activeBook.alliances!.push(this.memoryService.cloneObject(alliance));
                 }
-            });
-
-            if (!this.activeBook.alliances!.find(alliance => alliance.name === book.config.name)) {
-                this.activeBook.alliances!.push(this.memoryService.cloneObject(alliance));
             }
         });
 
@@ -84,6 +90,14 @@ export class AddUnit implements OnInit {
 
             this.activeBook.alliances!.push(this.memoryService.cloneObject(alliance));
         });
+    }
+
+    findBlockList(): string[] {
+        if (this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)!.blockedDatasheets) {
+            return this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)?.blockedDatasheets!;
+        } else {
+            return []
+        }
     }
 
     addUnit(unit: Unit): void {
@@ -101,68 +115,7 @@ export class AddUnit implements OnInit {
     }
 
     assembleUnit(unit: Unit): Unit {
-        if (!unit.equipment) {
-            unit.equipment = [];
-        }
-
-        if (unit.keywords.includes('CHARACTER')) {
-            unit.equipment.push(new Equipment('checkbox', ['WARLORD'], undefined, false, undefined, 'red'));
-
-            if (!unit.keywords.includes('EPIC HERO')) {
-                let enhancements: Option[] = [];
-                this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)?.enhancements.forEach(enhancement => {
-                    if (this.includesAll(unit.keywords, enhancement.keywordsMustCombined)) {
-                        enhancements.push(new Option([enhancement.name], false, enhancement.points));
-                    }
-                });
-
-                unit.equipment.push(new Equipment('dropdown', undefined, enhancements, undefined, undefined, 'yellow'));
-            }
-        }
-
-        if (unit.blueprints) {
-            unit.models = [];
-
-            unit.blueprints.forEach(blueprint => {
-                for (let i = 0; i < blueprint.min; i++) {
-                    unit.models.push(blueprint);
-                }
-            });
-        }
-
-        return unit;
-    }
-
-    findAlliances(): Alliance[] {
-        let allies: Alliance[] = [];
-
-        let detachmentAllianceUnits: string[] = this.activeBook.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)!.additionalDatasheets;
-
-        detachmentAllianceUnits.forEach(allyId => {
-            let alliance = new Alliance('', []);
-            this.books.forEach(book => {
-                book.units.forEach(unit => {
-                    if (allyId === unit.id) {
-                        unit.ally = true;
-                        alliance.units.push(unit);
-                    }
-                });
-                allies.push(alliance);
-            });
-        });
-
-        this.activeBook.config.associatedRulesets.forEach(ruleset => {
-            let book = this.books.find(book => book.config.rulesetId === ruleset)!;
-            let alliance = new Alliance (book.config.name, []);
-            book.units.forEach(unit => {
-                unit.ally = true;
-                alliance.units.push(unit);
-            });
-
-            allies.push(alliance);
-        });
-
-        return allies;
+        return this.constructionService.assembleUnit(this.activeBook, this.activeRoster, unit);
     }
 
     unitExistsInRoster(item: Unit): boolean {
@@ -171,12 +124,5 @@ export class AddUnit implements OnInit {
 
     unitNumbersInRoster(item: Unit): number {
         return this.activeRoster.units.filter(unit => unit?.name === item.name).length;
-    }
-
-    includesAll (arr: any[], subArr: any[]) {
-        for (let item of subArr) {
-            if (!arr.includes(item)) return false;
-        }
-        return true;
     }
 }
