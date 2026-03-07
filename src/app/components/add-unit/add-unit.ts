@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {Datafiles} from "../../services/datafiles/datafiles";
 import {Memory} from "../../services/memory/memory";
-import {Router, RouterLink} from "@angular/router";
+import {Router} from "@angular/router";
 import {Alliance, Book} from "../../models/book";
 import {Roster} from "../../models/roster";
 import {NgIcon, provideIcons} from "@ng-icons/core";
@@ -10,14 +10,14 @@ import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Calculation} from "../../services/calculation/calculation";
 import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
 import {AlphabeticalPipe} from "../../pipes/alphabetical/alphabetical-pipe";
-import {Equipment, Option, Unit} from "../../models/unit";
+import {Unit} from "../../models/unit";
 import * as uuid from "uuid";
 import {BlockedFilterPipe} from "../../pipes/blocked-filter/blocked-filter-pipe";
 import {Construction} from "../../services/construction/construction";
 
 @Component({
     selector: 'app-add-unit',
-    imports: [NgIcon, UnitFilterPipe, AlphabeticalPipe, BlockedFilterPipe, RouterLink],
+    imports: [NgIcon, UnitFilterPipe, AlphabeticalPipe, BlockedFilterPipe],
     viewProviders: [provideIcons({faSolidXmark, faSolidCrown, faSolidCaretLeft, faSolidVanShuttle, faSolidBoltLightning, mynaFatArrowUpSolid, faSolidUserGroup})],
     templateUrl: './add-unit.html',
     styleUrl: './add-unit.scss',

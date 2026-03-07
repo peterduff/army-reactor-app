@@ -2,7 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {Datafiles} from "../../services/datafiles/datafiles";
 import {Memory} from "../../services/memory/memory";
 import {Calculation} from "../../services/calculation/calculation";
-import {Router, RouterLink} from "@angular/router";
+import {Router} from "@angular/router";
 import {Book} from "../../models/book";
 import {Roster} from "../../models/roster";
 import {Equipment, Model, Option, Unit} from "../../models/unit";
@@ -27,7 +27,7 @@ import {EquipmentFilterPipe} from "../../pipes/equipment-filter/equipment-filter
 
 @Component({
     selector: 'app-unit-view',
-    imports: [RouterLink, NgIcon, AlphabeticalPipe, UpperCasePipe, ReactiveFormsModule, EnhancementFilterPipe, EquipmentFilterPipe],
+    imports: [NgIcon, AlphabeticalPipe, UpperCasePipe, ReactiveFormsModule, EnhancementFilterPipe, EquipmentFilterPipe],
     viewProviders: [provideIcons({
         faSolidXmark,
         heroSquare2Stack,

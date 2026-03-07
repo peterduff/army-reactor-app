@@ -7,6 +7,7 @@ import {routes} from './app.routes';
 import {provideToastr} from "ngx-toastr";
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {provideHttpClient, withFetch} from "@angular/common/http";
+import {UnitFilterPipe} from "./pipes/unit-filter/unit-filter-pipe";
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -15,6 +16,7 @@ export const appConfig: ApplicationConfig = {
         provideHttpClient(withFetch()),
         provideAnimations(),
         provideToastr(),
-        provideRouter(routes, withHashLocation())
+        provideRouter(routes, withHashLocation()),
+        UnitFilterPipe
     ]
 };

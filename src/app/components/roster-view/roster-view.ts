@@ -8,7 +8,7 @@ import {NgIcon, provideIcons} from "@ng-icons/core";
 import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
 import {AlphabeticalPipe} from "../../pipes/alphabetical/alphabetical-pipe";
 import {Calculation} from "../../services/calculation/calculation";
-import {Equipment, Option, Unit} from "../../models/unit";
+import {Equipment, Unit} from "../../models/unit";
 import {heroSquare2Stack} from "@ng-icons/heroicons/outline";
 import {ReactiveFormsModule} from "@angular/forms";
 import {
@@ -17,11 +17,13 @@ import {
     faSolidCrown,
     faSolidVanShuttle,
     faSolidBoltLightning,
-    faSolidUserGroup, faSolidXmark
+    faSolidUserGroup, faSolidXmark,
+    faSolidCopy, faSolidShareNodes
 } from "@ng-icons/font-awesome/solid";
 import {mynaFatArrowUpSolid} from "@ng-icons/mynaui/solid";
 import {Export} from "../../services/export/export";
 import * as uuid from "uuid";
+import {heroShareMini} from "@ng-icons/heroicons/mini";
 
 @Component({
     selector: 'app-list',
@@ -35,7 +37,10 @@ import * as uuid from "uuid";
         faSolidVanShuttle,
         faSolidBoltLightning,
         mynaFatArrowUpSolid,
-        faSolidUserGroup
+        faSolidUserGroup,
+        faSolidCopy,
+        faSolidShareNodes,
+        heroShareMini
     })],
     templateUrl: './roster-view.html',
     styleUrl: './roster-view.scss',

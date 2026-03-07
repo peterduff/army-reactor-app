@@ -185,8 +185,24 @@
         <div>
             <p class="h-10 text-center text-2xl text-lime-400 font-normal content-center" [class.text-red-400]="calculationService.calculateRosterPoints(activeRoster) > 2000">{{calculationService.calculateRosterPoints(activeRoster)}}</p>
         </div>
+
         <div class="m-1">
-            <button class="rounded py-1 bg-lime-600 text-white tracking-widest font-medium w-full" (click)="exportService.copyToClipboard()">EXPORT</button>
+            <button class="rounded py-1 bg-lime-600 text-white tracking-widest font-medium w-full" (click)="exportModal.value = 'open'; $event.stopPropagation()">EXPORT</button>
+            <input #exportModal hidden type="checkbox" />
+            @if (exportModal.value === 'open') {
+                <div class="fixed top-0 right-0 bottom-0 left-0 bg-zinc-800 z-20 opacity-50" (click)="exportModal.value = ''; $event.stopPropagation()"></div>
+                <div class="absolute bottom-1 right-1 z-30">
+                    <button class="relative rounded py-1 px-1  bg-lime-600 text-white tracking-widest font-medium w-full" (click)="exportService.shareViaWhatsApp(''); exportModal.value = ''; $event.stopPropagation()">
+                        SHARE
+                        <ng-icon class="absolute top-1.5 right-1" name="heroShareMini" color="white" size="20" />
+                    </button>
+                    <button class="relative rounded py-1 px-1 mt-2 bg-lime-600 text-white tracking-widest font-medium w-full" (click)="exportService.copyToClipboard(); exportModal.value = ''; $event.stopPropagation()">
+                        COPY
+                        <ng-icon class="absolute top-1.5 right-1" name="faSolidCopy" color="white" size="20" />
+                    </button>
+                </div>
+            }
         </div>
+
     </div>
 </div>

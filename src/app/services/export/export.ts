@@ -6,6 +6,7 @@ import {Datafiles} from "../datafiles/datafiles";
 import {Memory} from "../memory/memory";
 import {Calculation} from "../calculation/calculation";
 import {Unit} from "../../models/unit";
+import {UnitFilterPipe} from "../../pipes/unit-filter/unit-filter-pipe";
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +16,7 @@ export class Export {
     readonly datafilesService = inject(Datafiles);
     readonly memoryService = inject(Memory);
     readonly calculationService = inject(Calculation);
+    readonly unitFilterPipe = inject(UnitFilterPipe);
 
     books!: Book[];
     activeRoster!: Roster;
@@ -49,7 +51,6 @@ export class Export {
             '------------------------\n' +
             '\n' +
             '[CHARACTERS]\n';
-
         roster.units.forEach(unit => {
             if (unit.keywords.includes('CHARACTER') && !unit.ally) {
                 list += unit.name;
@@ -61,64 +62,55 @@ export class Export {
             }
         });
 
-        if (roster.units.find(unit => unit.keywords.includes('BATTLELINE'))) {
+        if (this.unitFilterPipe.transform(roster.units, 'BATTLELINE').length > 0) {
             list += '[BATTLELINE]\n\n';
         }
-        roster.units.forEach(unit => {
-            if (unit.keywords.includes('BATTLELINE') &&
-                !unit.keywords.includes('CHARACTER') && !unit.ally) {
-                list += unit.name;
-                if (unit.models.length > 1) {
-                    list += ' (' + unit.models.length + ' models)';
-                }
-                list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';                list += this.writeUnit(unit) + '\n';
+        this.unitFilterPipe.transform(roster.units, 'BATTLELINE').forEach(unit => {
+            list += unit.name;
+            if (unit.models.length > 1) {
+                list += ' (' + unit.models.length + ' models)';
             }
+            list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
+            list += this.writeUnit(unit) + '\n';
         });
 
-        if (roster.units.find(unit => unit.keywords.includes('DEDICATED TRANSPORT'))) {
-            list += '[DEDICATED TRANSPORTS]\n\n';
+        if (this.unitFilterPipe.transform(roster.units, 'DEDICATED TRANSPORT').length > 0) {
+            list += '[DEDICATED TRANSPORT]\n\n';
         }
-        roster.units.forEach(unit => {
-            if (unit.keywords.includes('DEDICATED TRANSPORT') &&
-                !unit.keywords.includes('BATTLELINE') &&
-                !unit.keywords.includes('CHARACTER') && !unit.ally) {
-                list += unit.name;
-                if (unit.models.length > 1) {
-                    list += ' (' + unit.models.length + ' models)';
-                }
-                list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';                list += this.writeUnit(unit) + '\n';
+        this.unitFilterPipe.transform(roster.units, 'DEDICATED TRANSPORT').forEach(unit => {
+            list += unit.name;
+            if (unit.models.length > 1) {
+                list += ' (' + unit.models.length + ' models)';
             }
+            list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
+            list += this.writeUnit(unit) + '\n';
         });
 
-        if (roster.units.find(unit => unit.keywords.includes('OTHER'))) {
+        if (this.unitFilterPipe.transform(roster.units, 'OTHER').length > 0) {
             list += '[OTHER]\n\n';
         }
-        roster.units.forEach(unit => {
-            if (!unit.keywords.includes('DEDICATED TRANSPORT') &&
-                !unit.keywords.includes('BATTLELINE') &&
-                !unit.keywords.includes('CHARACTER') && !unit.ally) {
-                list += unit.name;
-                if (unit.models.length > 1) {
-                    list += ' (' + unit.models.length + ' models)';
-                }
-                list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';                list += this.writeUnit(unit) + '\n';
+        this.unitFilterPipe.transform(roster.units, 'OTHER').forEach(unit => {
+            list += unit.name;
+            if (unit.models.length > 1) {
+                list += ' (' + unit.models.length + ' models)';
             }
+            list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
+            list += this.writeUnit(unit) + '\n';
         });
 
-        if (roster.units.find(unit => unit.keywords.includes('ALLIES'))) {
+        if (this.unitFilterPipe.transform(roster.units, 'ALLIES').length > 0) {
             list += '[ALLIES]\n\n';
         }
-        roster.units.forEach(unit => {
-            if (unit.ally) {
-                list += unit.name;
-                if (unit.models.length > 1) {
-                    list += ' (' + unit.models.length + ' models)';
-                }
-                list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';                list += this.writeUnit(unit) + '\n';
+        this.unitFilterPipe.transform(roster.units, 'ALLIES').forEach(unit => {
+            list += unit.name;
+            if (unit.models.length > 1) {
+                list += ' (' + unit.models.length + ' models)';
             }
+            list += ' [' + this.calculationService.calculateUnitPoints(unit) + 'pts]\n';
+            list += this.writeUnit(unit) + '\n';
         });
 
-        list += 'app.armyreactor.com [v1.0.1]';
+        list += 'Army Reactor [v1.0.1]';
 
         return list;
     }
@@ -209,5 +201,10 @@ export class Export {
 
     findDetachmentName(): string {
         return this.books?.find(book => book.config.rulesetId === this.activeRoster.rulesetId)!.detachments.find(detachment => detachment.id === this.activeRoster.detachmentId)!.name;
+    }
+
+    shareViaWhatsApp(message: string) {
+        const whatsappUrl = `whatsapp://send?text=${encodeURIComponent(this.writeList())}`;
+        window.open(whatsappUrl, '_blank');
     }
 }

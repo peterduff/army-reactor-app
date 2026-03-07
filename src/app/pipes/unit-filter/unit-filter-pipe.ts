@@ -2,7 +2,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {Unit} from "../../models/unit";
 
 @Pipe({
-    name: 'unitFilter',
+    name: 'unitFilter'
 })
 export class UnitFilterPipe implements PipeTransform {
 

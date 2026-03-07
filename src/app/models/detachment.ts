@@ -10,7 +10,8 @@ export class Detachment {
         public additionalDatasheets: string[],
         public blockedDatasheets?: string[],
         public additionalEquipment?: Equipment[],
-        public additionalKeywords?: string[]
+        public additionalKeywords?: string[],
+        public keywordsRequired?: string[]
     ){}
 }
 

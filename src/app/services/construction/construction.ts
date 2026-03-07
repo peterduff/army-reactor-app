@@ -71,7 +71,9 @@ export class Construction {
     addKeywordsToUnit(activeDetachment: Detachment, unit: Unit): void {
         activeDetachment.additionalKeywords!.forEach(keyword => {
             if (!unit.keywords.includes(keyword)) {
-                unit.keywords.push(keyword);
+                if (this.includesAll(unit.keywords, activeDetachment.keywordsRequired ? activeDetachment.keywordsRequired : [])) {
+                    unit.keywords.push(keyword);
+                }
             }
         });
     }
